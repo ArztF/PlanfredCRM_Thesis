@@ -14,4 +14,59 @@ Das Routing, im Kontext von Webanwendungen, spielt eine entscheidende Rolle bei 
 Der Pfad definiert die URL-Struktur, anhand derer die Anfrage geroutet wird. Dies ermöglicht die Identifikation des gewünschten Endpunkts oder der Ressource innerhalb der Anwendung. Die HTTP-Methode, andererseits, gibt an, welche Aktion auf dem spezifizierten Pfad ausgeführt werden soll. Es ist wichtig anzumerken, dass eine Route innerhalb einer Webanwendung mehrere HTTP-Funktionen besitzen kann. Dies bedeutet, dass eine bestimmte URL-Ressource oder ein Endpoint für verschiedene HTTP-Anfragen unterschiedliche Reaktionen bieten kann. Dies ermöglicht die Implementierung von CRUD-Operationen (Create, Read, Update, Delete) für bestimmte Ressourcen und bietet somit eine flexible und mächtige Möglichkeit zur Interaktion mit der Anwendung.
 
 \subsubsection{Middlewares}
-Middleware Funktionen haben Zugriff auf das Request-Object (\textbf{req}), das Response-Object (\textbf{res}) und auf die \textbf{next} Funktion. Mittels next kann nach Abschluss einer Middleware die nächste Middleware aufgerufen werden.
+Middleware Funktionen haben Zugriff auf das Request-Object (\textbf{req}), das Response-Object (\textbf{res}) und auf die \textbf{next} Funktion. Mittels next kann nach Abschluss einer Middleware die nächste Middleware aufgerufen werden, dafür gibt es zwei Möglichkeiten.
+\newline
+In einer Express Applikation ist es möglich 5 verschiedene Arten von Middlewares einzubinden.
+
+\begin{itemize}
+    \item \textbf{Application-Level Middleware}
+        \newline
+        Diese Middleware wird als Instanz des App-Objekts eingebunden, indem man entweder app.use() oder app.METHOD() benutzt. Bei einer Method Funktion, kann man die drei HTTP-Methoden GET, PUT oder POST benutzen. Diese müssen allerdings in kleinbuchstaben geschrieben werden.
+        \newline
+        Im folgenden Codebeispiel, wird eine Middleware Funktion eingebunden, welche bei jedem Request der an die App geht das aktuelle Datum ausgibt. Nachdem das Datum auf der Konsole ausgegeben wurde, wird next() aufgerufen, was den Request unverändert lässt und falls der Pfad der Syntax user/:id entspricht, in die erste Middleware ausführt. Wenn die ID null entspricht, wird next mit dem Übergabeparameter "route" aufgerufen, was auf die nächste route verweist. In diesem Fall würde man "special" als response bekommen. Ist die ID allerdings ungleich null, wird next ohne Übergabeparameter aufgerufen, wird der Request an die nächste Middleware Funktion weiter gegeben, in diesem Fall würde man "regular" als response erhalten.
+        \begin{lstlisting}
+            const express = require('express')
+            const app = express()
+
+            app.use((req, res, next) => {
+                console.log('Time:', Date.now())
+                next()
+            })
+    
+            app.get('/user/:id', (req, res, next) => {
+                if (req.params.id === '0') next('route')
+                else next()
+            }, (req, res, next) => {
+                res.send('regular')
+            })
+
+            app.get('/user/:id', (req, res, next) => {
+                res.send('special')
+            })
+        \end{lstlisting}
+    \item \textbf{Router-Level Middleware}
+        \newline
+        Diese Middleware arbeitet genau gleich wie die Application-Level Middleware, mit dem Unterschied, dass diese eine Instanz des express.Router() ist. Der Grund für diese Art von Middleware ist es, eine Modularität zu erzeugen, welche es möglich macht, eine Anwendung in kleinere Teile aufzuteilen. Dadurch hat man die Möglichkeit ein eigenes Untersystem, wie im unten gezeigten Codebeispiel für alle User requests zu erstellen. Im folgenden Beispiel werden alle /user Anfragen an den userRouter weitergeleitet und in einem externen File beantwortet.
+        \begin{lstlisting}
+            const userRouter = require('./userRouter')
+            
+            app.use('/user', userRouter)
+        \end{lstlisting}
+
+        \begin{lstlisting}
+            router.get('/getAll', (req, res) => {
+                res.send('Alle User')
+            }
+        \end{lstlisting}
+    \item \textbf{Error-Handling Middleware}
+        \newline
+        Die Error-Handling Middleware funktioniert ebenso wie die anderen Middlewares, mit dem kleinen Unterschied, dass 4 Argumente übergeben werden können.
+        \begin{lstlisting}
+            app.use((err, req, res, next) => {
+                console.log(err.stack)
+                res.status(500).send('Etwas ist schief gelaufen')
+            }
+        \end{lstlisting}
+    \item \textbf{Built-In Middleware}
+        \newline
+\end{itemize}
