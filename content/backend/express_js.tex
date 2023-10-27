@@ -7,11 +7,14 @@
 Express.js ist ein hoch angesehenes Node.js-Framework, das erstmals im November 2010 veröffentlicht wurde. Trotz seiner minimalistischen Ausrichtung zeichnet sich Express durch seine Erweiterbarkeit und Vielseitigkeit aus. Dies wird durch eine Fülle von Libraries und Modules ermöglicht, die in das Framework integriert sind oder von der Entwicklergemeinschaft entwickelt wurden. Diese Ressourcen erleichtern die Bewältigung komplexer Aufgaben, wie die Handhabung von Cookies, Sitzungsverwaltung, Benutzeranmeldung und viele weitere Funktionen, die für moderne Webanwendungen, von entscheidender Bedeutung sind.
 \newline
 Eine der architektonischen Merkmale von Express ist sein Middleware-Konzept. Dieses ermöglicht die Verarbeitung von HTTP-Anfragen in Schichten. Jede Middleware-Funktion kann spezifische Aufgaben übernehmen und ist in der Lage, Requests und Responses zu modifizieren oder zu ergänzen, bevor sie an die nächste Middleware-Funktion weitergeleitet werden. Dies bietet eine hohe Flexibilität und Kontrolle über den Anfragen- und Antwortfluss in einer Express-Anwendung.
+\cite{Express_js_Introduction}
 
 \subsubsection{Routing}
 Das Routing, im Kontext von Webanwendungen, spielt eine entscheidende Rolle bei der Bestimmung, wie die Anwendung auf eine Clientanfrage in Bezug auf einen spezifischen Endpoint reagiert. Dieser Prozess ist von essenzieller Bedeutung, um Anfragen an die korrekte Ressource oder den gewünschten Endpunkt innerhalb der Anwendung zu leiten. Um diesen Zweck zu erfüllen, sind zwei entscheidende Informationen erforderlich: der Pfad und die HTTP-Methode.
 \newline
 Der Pfad definiert die URL-Struktur, anhand derer die Anfrage geroutet wird. Dies ermöglicht die Identifikation des gewünschten Endpunkts oder der Ressource innerhalb der Anwendung. Die HTTP-Methode, andererseits, gibt an, welche Aktion auf dem spezifizierten Pfad ausgeführt werden soll. Es ist wichtig anzumerken, dass eine Route innerhalb einer Webanwendung mehrere HTTP-Funktionen besitzen kann. Dies bedeutet, dass eine bestimmte URL-Ressource oder ein Endpoint für verschiedene HTTP-Anfragen unterschiedliche Reaktionen bieten kann. Dies ermöglicht die Implementierung von CRUD-Operationen (Create, Read, Update, Delete) für bestimmte Ressourcen und bietet somit eine flexible und mächtige Möglichkeit zur Interaktion mit der Anwendung.
+\cite{Express_js_basic_routing}
+\cite{Express_js_routing}
 
 \subsubsection{Middlewares}
 Middleware Funktionen haben Zugriff auf das Request-Object (\textbf{req}), das Response-Object (\textbf{res}) und auf die \textbf{next} Funktion. Mittels next kann nach Abschluss einer Middleware die nächste Middleware aufgerufen werden, dafür gibt es zwei Möglichkeiten.
@@ -70,3 +73,6 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
     \item \textbf{Built-In Middleware}
         \newline
 \end{itemize}
+\cite{Express_js_writing_middleware}
+\cite{Express_js_using_middleware}
+\cite{Express_js_middleware_help_1}
