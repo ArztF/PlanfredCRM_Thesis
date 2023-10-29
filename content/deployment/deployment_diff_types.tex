@@ -1,0 +1,50 @@
+\subsection{Was ist Deployment}
+
+Wenn man vom Deployment spricht meint man die Bereitstellung von Software. Dies erfolgt alles über automatisierte Prozesse, mittels derer die Installation und Konfiguration der Softwarelösungen erfolgt. Im Deployment sind Aspekte wie die Installation, Konfiguration Aktualisierung und Wartung von Systemene enthalten.
+\cite{Deployment}
+
+
+\subsection{Verschiedene Arten von Deployment}
+
+Grundsätzlich gibt es verschiedene Arten von Deployment. Diese werden prinzipell folgendermaßen kategorisiert:
+    \begin{itemize}
+    \item Traditionelles Deployment
+    \item Virtuelles Depoyment
+    \item Container Deployment
+    \end{itemize}
+
+\subsection{Traditionelles Deployment}
+
+Früher wurde eine Anwendung auf einem physischen Server deployed. Damals sah das ganze folgendermaßen aus:
+
+\begin{itemize}
+    \item Einen Server aufsetzen
+    \item Ein Betriebssystem auf dem Server installieren
+    \item Auf dem Server benötigte Tools wie z.B Node oder NPM installieren
+    \item Die benötigten Dateien auf den Server kopieren
+    \item Die Anwendung laufen lassen
+\end{itemize}
+
+Solange nur eine einzige Anwendung auf diesem Server läuft, stellt dies kein Problem dar. Sogar im Gegenteil die Anwendung läuft dann sehr performant auf dem Server, da er jegliche Ressourcen die der Server frei hat benutzt. Sobald dann aber mehr als nur eine Anwendung auf einem Server laufen, führt dies zu Problemen, diese können sein:
+
+\begin{itemize}
+    \item Fehlende Ressourcen
+    \item Dateninkonsistenzen durch gemeinsam genutzten Speicher
+    \item Hacker Attacken
+\end{itemize}
+
+
+\cite{Verschiedene_Deployment_Arten}    
+
+
+\subsection{Virtuelles Deployment}
+
+Um die Probleme gemeinsam genutzter Speicher zu lösen und die Skalierbarkeit zu verbessern, begann die Virtualisierung. In diesem Fall wurde eine virtuelle Maschine erstellt, die über ihre eigene Partition im Speicher und ein eigenes Betriebssystem verfügte. Dies ermöglichte die gewünschte Isolierung der Anwendungen und eine bessere Aufteilung der verfügbaren Ressourcen. Dennoch traten auch einige Probleme bei dieser Lösung auf, darunter:
+
+\begin{itemize}
+\item Die Größe und der Overhead des Betriebssystems.
+\item  Lange Startzeiten.
+\item  Mangelnde Skalierbarkeit der Anwendungen.
+\end{itemize}
+
+\cite{Virtuelles_Deployment}
