@@ -26,8 +26,6 @@ Middleware Funktionen haben Zugriff auf das Request-Object (\textbf{req}), das R
         \newline
         In Bezug auf die Übergabeparameter existieren zwei verschiedene Optionen. Die erste besteht darin, dass, wenn der Zeichenfolge 'route' als Parameter übergeben wird, sämtliche Middleware-Funktionen ignoriert werden, und stattdessen wird nach einer passenden Route gesucht. Falls ein anderer Wert als 'route' übergeben wird, behandelt Express diesen Aufruf Fehler und überspringt jegliche Middleware- und Route-Funktionen, die keine Fehler zurückgeben. Dieser Ansatz gewährleistet die angemessene Verarbeitung von Anfragen und ermöglicht die gezielte Steuerung des Anwendungsflusses, wobei die Behandlung von Fehlern oder das Überspringen bestimmter Schritte je nach Bedarf erfolgt.
 \end{itemize}
-
-\newline
 In einer Express Applikation ist es möglich 5 verschiedene Arten von Middlewares einzubinden.
 
 \begin{itemize}
