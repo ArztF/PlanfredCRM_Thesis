@@ -1,0 +1,33 @@
+Da nun die vielseitigen Funktionen von Express.js bekannt sind, geht es nun an die Implementierung des Frameworks. Voraussetzung dafür ist, dass in dem Projektordner bereits der \textbf{Node Package Manager} hinzugefügt worden ist und dadurch auch das \textbf{package.json} File. Diesen kann man ganz einfach mit dem Befehl:
+\begin{verbatim}
+npm init
+\end{verbatim}
+hinzufügen. Durch Ausführen dieses Befehls, kann man verschiedenste Einstellungen tätigen, wie zum Beispiel die Version oder den Namen seiner Applikation. Diese Schritte hat unser Projektteam jedoch bis auf einen Übersprungen. Man muss nämlich das sogenannte Hauptfile bestimmen, von welchem aus das Backend gestartet werden kann. In diesem Projekt haben wir dieses File \textbf{server.js} genannt. Wenn dieser Schritt erledigt ist, kann man auch schon Express.js mit folgendem Befehl installieren:
+\begin{verbatim}
+npm install express
+\end{verbatim}
+Dadurch wird die neueste, öffentliche Version von Express.js installiert und ins package.json File, mit der verwendeten Version geschrieben. Dies ist dazu da, damit alle anderen Projektmitglieder lediglich mit dem Befehl
+\begin{verbatim}
+npm install
+\end{verbatim}
+alle hinzugefügten Modulen nachinstallieren können. Was man allerdings hierbei beachten muss, ist dass bei der Versionsnummer davor Standardmäßig ein \verb|^| gestzt wird. Dieses Zeichen bewirkt ein automatisches updaten der Version, falls eine neuere veröffentlicht worden ist. Da man dies allerdings in den meisten Fällen nicht haben möchte, da dadurch Funktionen auf einmal nicht mehr funktionieren können, hat dieses Projektteam diese Zeichen bei allen installierten Modulen entfernt und nimmt Updates manuell vor.
+\newline
+Da nun das Framework Express.js installiert ist, kann man beginnen den einfachst möglichen Server zu erstellen.
+\begin{lstlisting}
+    const express = require('express')
+    const app = express()
+    const port = 3000
+
+    app.get('/', (req, res) => {
+        res.send('Hello World')
+    })
+
+    app.listen(port, () => {
+        console.log(`Server is running on port ${port}`)
+    })
+\end{lstlisting}
+Bei diesem Beispiel wird zu Beginn mit dem Befehl \textbf{require()} ein JavaScript File gelesen, ausgeführt und das Return-Objekt zurückgegeben. Anschließend wird dieses Objekt ausgeführt und als neue Variable gespeichert. Mit dieser Variable kann man nun den ersten Endpunkt definieren. In dem obigen Beispiel wird auf der Basis-URL \verb|(/)| Hello World zurück gegeben. Im letzten Schritt, wird der Server auf dem bereits definierten Port gestartet und gibt eine Nachricht auf der Konsole aus. Den Server startet man mit dem Befehl
+\begin{verbatim}
+node server.js
+\end{verbatim}
+Voraussetzung dafür ist, dass das File server.js heißt und im \textbf{npm init} Vorgang auch als Hauptfile definiert worden ist.
