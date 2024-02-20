@@ -4,7 +4,7 @@
     \caption{Express.js Logo}
     \label{fig:enter-label}
 \end{figure}
-Express.js ist ein hoch angesehenes Node.js-Framework, das erstmals im November 2010 veröffentlicht wurde. Trotz seiner minimalistischen Ausrichtung zeichnet sich Express durch seine Erweiterbarkeit und Vielseitigkeit aus. Dies wird durch eine Fülle von Libraries und Modules ermöglicht, die in das Framework integriert sind oder von der Entwicklergemeinschaft entwickelt wurden. Diese Ressourcen erleichtern die Bewältigung komplexer Aufgaben, wie die Handhabung von Cookies, Sitzungsverwaltung, Benutzeranmeldung und viele weitere Funktionen, die für moderne Webanwendungen, von entscheidender Bedeutung sind.
+Express.js ist ein Node.js-Framework, das erstmals im November 2010 veröffentlicht wurde. Trotz seiner minimalistischen Ausrichtung zeichnet sich Express durch seine Erweiterbarkeit und Vielseitigkeit aus. Dies wird durch eine Fülle von Libraries und Modules ermöglicht, die in das Framework integriert sind oder von der Entwicklergemeinschaft entwickelt wurden. Diese Ressourcen erleichtern die Bewältigung komplexer Aufgaben, wie die Handhabung von Cookies, Sitzungsverwaltung, Benutzeranmeldung und viele weitere Funktionen, die für moderne Webanwendungen, von entscheidender Bedeutung sind.
 \newline
 Eine der architektonischen Merkmale von Express ist sein Middleware-Konzept. Dieses ermöglicht die Verarbeitung von HTTP-Anfragen in Schichten. Jede Middleware-Funktion kann spezifische Aufgaben übernehmen und ist in der Lage, Requests und Responses zu modifizieren oder zu ergänzen, bevor sie an die nächste Middleware-Funktion weitergeleitet werden. Dies bietet eine hohe Flexibilität und Kontrolle über den Anfragen- und Antwortfluss in einer Express-Anwendung.
 \cite{Express_js_Introduction}
@@ -24,7 +24,7 @@ Middleware Funktionen haben Zugriff auf das Request-Object (\textbf{req}), das R
         Durch das einfache Aufrufen von next ohne Übergabeparameter wird der Request unverändert weitergeleitet, und die Ausführung des Codes wird in der nächsten geeigneten Middleware oder Route fortgesetzt. Dieses Vorgehen ermöglicht die nahtlose Verarbeitung von Anfragen und die Kontinuität der Anwendungslogik, ohne den Request zu modifizieren oder zu unterbrechen.
     \item mit Übergabeparameter
         \newline
-        In Bezug auf die Übergabeparameter existieren zwei verschiedene Optionen. Die erste besteht darin, dass, wenn der Zeichenfolge 'route' als Parameter übergeben wird, sämtliche Middleware-Funktionen ignoriert werden, und stattdessen wird nach einer passenden Route gesucht. Falls ein anderer Wert als 'route' übergeben wird, behandelt Express diesen Aufruf Fehler und überspringt jegliche Middleware- und Route-Funktionen, die keine Fehler zurückgeben. Dieser Ansatz gewährleistet die angemessene Verarbeitung von Anfragen und ermöglicht die gezielte Steuerung des Anwendungsflusses, wobei die Behandlung von Fehlern oder das Überspringen bestimmter Schritte je nach Bedarf erfolgt.
+        In Bezug auf die Übergabeparameter existieren zwei verschiedene Optionen. Die erste besteht darin, dass, wenn die Zeichenfolge 'route' als Parameter übergeben wird, sämtliche Middleware-Funktionen ignoriert werden, und stattdessen nach einer passenden Route gesucht wird. Falls ein anderer Wert als 'route' übergeben wird, behandelt Express diesen Aufruf als Fehler und überspringt jegliche Middleware- und Route-Funktionen, die keine Fehler zurückgeben. Dieser Ansatz gewährleistet die angemessene Verarbeitung von Anfragen und ermöglicht die gezielte Steuerung des Anwendungsflusses, wobei die Behandlung von Fehlern oder das Überspringen bestimmter Schritte je nach Bedarf erfolgt.
 \end{itemize}
 In einer Express Applikation ist es möglich 5 verschiedene Arten von Middlewares einzubinden.
 
@@ -102,45 +102,13 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
             app.use(cookieParser())
         \end{lstlisting}
         Es gibt folgende Third-Party Middlewares:\newline
-        \begin{tabularx}{0.8\textwidth} { 
-            | >{\raggedright\arraybackslash}X 
-            | >{\centering\arraybackslash}X 
-            | >{\raggedleft\arraybackslash}X | }
-        \hline
-            body-parser & Parse HTTP request body & express.bodyParser \\
-        \hline
-            compression & Compress HTTP response & express.compress \\
-        \hline
-            connect-rid & Generate unique request ID & NA \\
-        \hline
-            cookie-parser & Parse cookie header and populate req.cookies & express.cookieParser \\
-        \hline
-            cookie-session & Esatblish cookie-based session & express.cookieSession \\
-        \hline
-            cors & Enable cross-origin resource sharing (CORS) with various options & NA \\
-        \hline
-            errorhandler & Development error-handler/debugging & express.errorHandler \\
-        \hline
-            method-override & Override HTTP methods using header & express.methodOverride \\
-        \hline
-            morgan & HTTP request logger & express.logger \\
-        \hline
-            multer & Handle multi-part from data & express.bodyParser \\
-        \hline
-            response-time & Record HTTP response time & express.responseTime \\
-        \hline
-            serve-favicon & Serve a favicon & express.favicon \\
-        \hline
-            serve-static & Serve static files & express.static \\
-        \hline
-            session & Establish server-based sessions (development only) & express.session \\
-        \hline
-            timeout & Set a timeout period for HTTP request processing & express.timeout \\
-        \hline
-            vhost & Create virtual domains & express.vhost \\
-        \hline
-        \cite{Express_js_third_party_middlewares}
-        \end{tabularx}
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.45\textwidth]{pics/Third-Party-Middleware.png}
+            \caption{Third Party Middlewares}
+            \cite{Express_js_third_party_middlewares}
+            \label{fig:enter-label}
+        \end{figure}
 \end{itemize}
 \cite{Express_js_writing_middleware}
 \cite{Express_js_using_middleware}
@@ -187,7 +155,7 @@ Um die Express API bereitzustellen, müssen die Request und Response Objekte von
     Object.setPrototypeOf(Object.getPrototypeOf(app.request), FakeRequest.prototype)
     Object.setPrototypeOf(Object.getPrototypeOf(app.response), FakeResponse.prototype)
 \end{lstlisting}
-In dem oben gezeigten Beispiel, wurde der Prototyp von den http.IncomingRequest/http.ServerResponse auf FakeRequest/FakeResponse umgestellt.
+In dem oben gezeigten Beispiel, wurde der Prototyp von den http.IncomingRequest/ http.ServerResponse auf FakeRequest/FakeResponse umgestellt.
 \cite{Express_js_overriding_api}
 
 \subsubsection{Fehlerbehandlung}
