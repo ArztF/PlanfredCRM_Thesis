@@ -1,0 +1,115 @@
+CSS steht für Cascading Style Sheets und macht nur in Verbindung mit HTML Sinn. CSS markiert verschiedene HTML Elemente und ordnet diesen diverse Stilinformationen wie Farbe, Abstände oder auch Größen zu. Ein CSS Dokument hat die Dateiendung .css und besteht aus einer Reihe von CSS Regeln, die immer aus zwei Teilen bestehen. Dabei gibt es zuerst den Selektor, welcher angibt welche Elemente ausgewählt werden sollen und die Deklarationen, die wiederum angeben was gemacht werden sollen.
+
+Hier ist ein Beispiel für eine CSS Regel:
+
+\begin{lstlisting}
+    p {
+      color: red;
+    }
+\end{lstlisting}
+
+Hierbei ist \textbf{p} der Selektor und gibt an das alle HTML Paragraphen, also \textbf{<p>} Tags ausgewählt werden sollten. Es gibt nur eine Deklaration, diese bestimmt das die Texte in der Farbe Rot dargestellt werden sollten.
+
+\textbf{ID-Selektoren:}
+\newline
+Man kann ebenfalls HTML Elemente, die eine id haben selektieren. Dies geht mit dem Prefix \textbf{\#}.
+
+\begin{lstlisting}
+    <p id="spezial">
+      Lorem ipsum...
+    </p>
+\end{lstlisting}
+
+\begin{lstlisting}
+    #spezial {
+      color: red;
+    }
+\end{lstlisting}
+
+In diesem Beispiel werden nicht alle <p> Tags Rot eingefärbt sondern nur der mit der id “spezial”.
+
+\textbf{Klassen-Selektoren:}
+\newline
+Ebenfalls kann man ganze Klassen selektieren. Der Unterschied zu der id liegt darin, dass man dadurch mehrere Elemente gleichzeitig selektieren kann und nicht immer nur eines.
+
+\begin{lstlisting}
+    <p class="wichtig">
+      Lorem ipsum...
+    </p>
+    
+    <p class="wichtig">
+      Lorem ipsum...
+    </p>
+\end{lstlisting}
+
+\begin{lstlisting}
+    .wichtig {
+      background-color: yellow;
+    }
+\end{lstlisting}
+
+Hier werden bei allen HTML Elemente, die die Klasse “wichtig” besitzen, der Hintergrund Gelb eingefärbt.
+
+\textbf{Universalselektor:}
+\newline
+Ebenfalls ist es möglich alle Elemente eines HTML Dokumentes auszuwählen. Dies passiert folgender Weise:
+
+\begin{lstlisting}
+    * {
+      color: blue;
+    }
+\end{lstlisting}
+
+Hierbei wird allen Elemente die Farbe Blau zugewiesen.
+
+\textbf{Einbindung:}
+\newline
+Die Einbindung eines CSS Dokumentes kann auf drei verschiedenen Arten gemacht werde
+
+1. Im Element (inline):
+\newline
+Hierbei werden die Deklarationen direkt in einer \textbf{style} Eigenschaft definiert.
+
+\begin{lstlisting}
+    <h1 style="font-size:50px; color:red">Supertitel</h1>
+\end{lstlisting}
+
+2. Im Kopf (head)
+\newline
+Hierbei werden alle CSS Regeln direkt im `<head>` Tag des HTML Dokumentes definiert. Dadurch werden die CSS Regeln auch nur in dem einen Dokument verwendet.
+
+\begin{lstlisting}
+    <head>
+    <meta charset="utf-8">
+    <title>Eine Webseite</title>
+    <style>
+      h1 {
+        font-size: 40px;
+        color: blue;
+      }
+      h2 {
+        font-size: 30px;
+        font-style: italic;
+      }
+      a {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+\end{lstlisting}
+
+3. Eigene Datei
+\newline
+Speziell bei größeren Projekten ist die übersichtlichste Methode eine eigene CSS Datei mit der Dateiendung .css zu benutzen, dies bietet mehr Freiheiten und eine strukturiertere Entwicklung. Dafür muss die CSS Datei im \textbf{<head>} verlinkt werden.
+
+\begin{lstlisting}
+    <head>
+      <meta charset="utf-8">
+      <title>Eine Webseite</title>
+      <link href="css/style.css" rel="stylesheet">
+    </head>
+\end{lstlisting}
+
+\cite{frontend_web_css}
+
+

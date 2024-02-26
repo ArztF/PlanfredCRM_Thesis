@@ -1,0 +1,83 @@
+HTML bedeutet HyperText Markup Language (Hypertext-Markierungssprache) und stellt die wichtigste Grundlage in der Webentwicklung da. Auf Webseiten kann man unterschiedliche Elemente wie Texte, Überschriften, Bilder oder auch Links erkennen. Diese werden durch HTML definiert. Somit kann man sagen, dass HTML Inhalte, Strukturen und Bedeutungen darstellt.
+
+\textbf{Geschichte:}
+\newline
+HTML wurde 1989 von Tim Berners-Lee, einem Physiker, definiert. Zu diesem Zeitpunkt gab es noch kein XML, deswegen baute er die neue Markierungssprache auf dem Vorläufer SGML, dem damaligen ISO-Standard, auf. Im Laufe der Zeit widmete sich World Wide Web Consortium (W3C) der Weiterentwicklung.
+Jedoch war der Werdegang von HTML ziemlich turbulent. Problem war die Einigung auf einen Standard im Bezug auf die Form von HTML, welche sehr wichtig war, da die Webbrowser den Code richtig übersetzen müssen. Ein Browser muss wissen, welche Elemente es gibt und wie diese angezeigt bzw. gehandhabt werden müssen. Schlussendlich einigte man sich jedoch auf den weltweiten Standard HTML5, welcher bis heute gilt.
+
+\textbf{Grundgerüst:}
+\newline
+Bei einem HTML-Dokument handelt es sich eigentlich lediglich um eine Textdatei mit der Dateiendung .html.
+Hierbei hat jedes Dokument folgendes Grundgerüst:
+
+\begin{lstlisting}
+    <!DOCTYPE html>
+    <html>
+      <head>
+      </head>
+      <body>
+      </body>
+    </html>
+\end{lstlisting}
+
+Die erste Zeile gibt an, dass es sich um ein HTML5 Dokument handelt. Im \textbf{html} Element kann dann beispielsweise die verwendete Sprache des Dokumentes bestimmt werden.
+Im folgenden Abschnitt sieht man, dass Deutsch als verwendete Sprache angegeben wurde:
+
+\begin{lstlisting}
+    <html lang="de">
+\end{lstlisting}
+
+Das \textbf{head} Element beinhaltet Informationen die vom Browser nicht direkt angezeigt werden. 
+
+Hierbei kann man zum Beispiel folgend einen Titel definieren, welcher dann in der Taskleiste angezeigt wird:
+
+\begin{lstlisting}
+    <title>Meine Homepage</title>
+\end{lstlisting}
+
+Ebenfalls sind oft sogenannte Meta-Tags zu finden, welche sowohl für diverse SEO Vorteile genutzt werden können oder auch wie im folgenden Beispiel für die Angabe der Zeichencodierung, welche hierbei UTF-8 (Unicode) enspricht.
+
+\begin{lstlisting}
+    <meta charset="UTF-8"/>
+\end{lstlisting}
+
+Das \textbf{body} Element beinhaltet jedoch den Inhalt, der tatsächlich auf der Seite angezeigt wird. Beispiele dafür sind Überschriften, Links, Tabellen oder auch Bilder.
+
+\cite{frontend_web_html}
+
+\textbf{Links:}
+\newline
+Ein Link wird in HTML als Hyperlink definiert und leitet den Benutzer auf ein anderes Dokument weiter.
+
+\begin{lstlisting}
+    <a href="url">link text</a>
+\end{lstlisting}
+
+\cite{frontend_web_html_links}
+
+\textbf{Überschriften:}
+\newline
+Man unterscheidet verschiedene Arten von Überschriften, welche anhand der Wichtigkeit anders dargestellt und definiert werden. Hierbei gibt \textbf{<h1>} die wichtigste Überschrift an. Die kleinste Überschrift ist mit \textbf{<h6>} definiert.
+
+\begin{lstlisting}
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>Heading 3</h3>
+    <h4>Heading 4</h4>
+    <h5>Heading 5</h5>
+    <h6>Heading 6</h6>
+\end{lstlisting}
+
+\cite{frontend_web_html_überschriften}
+
+\textbf{Bilder:}
+\newline
+Bilder können mit dem \textbf{<img>} Element eingebunden werden, wobei der Pfad zur Bilddatei definiert werden muss. Ebenfalls gibt es das sogenannte \textbf{alt} Attribut, welches angezeigt wird, falls das Bild nicht angezeigt werden kann, wenn zum Beispiel der Pfad nicht mehr stimmt.
+
+\begin{lstlisting}
+    <img src="url" alt="alternativtext">
+\end{lstlisting}
+
+
+
+
