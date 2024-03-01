@@ -5,6 +5,9 @@
     \cite{database_mongodb_logo}
     \label{fig:enter-label}
 \end{figure}
+
+\textbf{Grundlagen}
+
 MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungsentwicklung und Skalierung ausgelegt ist. Dabei gibt es drei verschiedene Möglichkeiten MongoDB zu verwenden: 
 \begin{itemize}
     \item \textbf{MongoDB Atlas}
@@ -29,12 +32,41 @@ MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungs
 \end{itemize}
     \item \textbf{MongoDB Community}
         \newline
-        Dies ist der Source Code von MongoDB, welcher kostenlos und selbstverwaltet ist.
+        Dies ist der Source Code von MongoDB, welcher kostenlos und selbstverwaltet zur Verfügung steht.
 \end{itemize}
 \cite{mongodb_basics}
 
-Dadurch das MongoDB ein dokumentenbasierte Datenbank ist, sind Datensätze wie man sie in SQL kennt, sogenannte Documents, welche aus mehreren Fields bestehen. Diese Fields sind die Entitäten des Datensatzes und werden als BSON (Binary JSON) dargestellt. Der Unterscheid zwischen BSON und JSON ist alleine durch betrachten der beiden Formate nicht möglich, da BSON auf JSON aufbaut. Der Unterschied liegt darin, dass in BSON Datenformate, wie Dates und Binärdaten hinzugefügt wurden und durch kodierte Typ- und Längeninformationen es wesentlich performanter ist den Datensatz zu durchlaufen. Durch BSON ist es auf möglich Arrays und andere Documents in diesen Datensatz einzufügen.
-\cite{mongodb_json_vs_bson}
+\textbf{Aufbau der Datenbank}
+\newline
+Die Datenbank ist in folgende Teile unterteilt:
+
+\begin{itemize}
+    \item \textbf{Fields}
+        \newline
+        Dies sind die kleinste Einheit in der Datenstruktur und würden in einer relationalen Datenbank einer Entität ensprechen.
+    \item \textbf{Documents}
+        \newline
+        Documents entsprechen in einer relationalen Datenbank einem Datensatz und werden mittels BSON (Binary JSON) kodiert. Im Vergleich zu JSON ist es allein durch die visuelle Inspektion der beiden Formate nicht möglich, einen Unterschied festzustellen, da BSON auf dem JSON-Format aufbaut.
+        \newline
+        Der entscheidende Unterschied zwischen BSON und JSON liegt darin, dass BSON zusätzliche Datenformate wie Datumswerte und Binärdaten unterstützt. Dies wird durch kodierte Typ- und Längeninformationen ermöglicht, was wiederum zu einer erheblichen Leistungssteigerung beim Durchlaufen des Datensatzes führt. Die Integration von BSON ermöglicht es auch, Arrays und andere Dokumente effizient in diese Datensätze einzufügen.
+        \newline
+        Der Vorteil von "Documents" sind:
+        \begin{itemize}
+            \item Dokumente entsprechen in einigen Programmiersprachen nativen Datentypen
+            \item Die Einbindung von Arrays und Documents vermeidet aufwendige JOINS
+            \item Durch das dynamische Schema kann man die Datenbankstruktur sehr vielseitig gestalten
+        \end{itemize}
+        \cite{mongodb_json_vs_bson}
+    \item \textbf{Collections}
+        \newline
+        Die "Documents" werden in sogenannten "Collections" gespeichert, welche vergleichbar mit Tabellen in relationalen Datenbanken sind. Collections besitzen eine sogenannte "dynamic schema" Eigenschaft, was bedeutet, dass "Documents" in einer "Collection" unterschiedliche "Fields" besitzen können. Wie man im unten gezeigten Beispiel sieht, können beide dieser Documents in der selben Collection gespeichert werden.
+        \begin{lstlisting}
+            {"username": "admin", "firstname": "John"}
+            {"lastname": "Doe"}
+        \end{lstlisting}
+        Man könnte also ausschließlich mit einer einzigen Collection arbeiten und in diese alle Datensätze speichern, man würde allerdings ziemlich schnell an seine Grenzen stoßen.
+        \cite{mongodb_collections}
+\end{itemize}
 
 \begin{figure}[h!]
     \centering
@@ -44,9 +76,44 @@ Dadurch das MongoDB ein dokumentenbasierte Datenbank ist, sind Datensätze wie m
     \label{fig:enter-label}
 \end{figure}
 
-Der Vorteil von Documents sind:
+\textbf{Skalierung}
+\newline
+Die die Anzahl der Daten die gespeichert werden im Laufe der Zeit immer weiter anwächst, ist es wichtig seine Datenbank einfach skalieren zu können. 
+\newline
+\textbf{Horizontale Skalierung}
+\newline
+MongoDB wurde auf die horizontale Skalierung ausgelegt. Dazu müssen neue Maschinen (Server) dazugekauft werden, auf denen anschließend die Daten verteilt werden. Durch das dokumentenbasierte Datenmodell ist es wesentlich einfacher die Daten auf verschiedene Maschinen zu verteilen, dabei achtet MongoDB selbst darauf, dass alle Server annähernd gleich ausgelastet sind. Dazu werden Daten auch von einem Server auf einen anderen Server verschoben. Dazu verwendet MongoDB Shard-Schlüssel, welcher als Field in den Documents gespeichert wird und dient dazu die Documents in den Collections zu verteilen.
+\cite{mongodb_collections}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\textwidth]{pics/vertical_scaling_mongodb.png}
+    \caption{Horizontale Skalierung MongoDB}
+    \cite{vertical_scaling_mongodb}
+    \label{fig:enter-label}
+\end{figure}
+\newline
+Wie in der obigen Grafik zu sehen, wird hier von "Shards" gesprochen. Das sogenannte Sharding stammt aus der Welt der traditionellen Datenbanken und beschreibt das zerteilen einer großen Datenbank in mehrere kleine. Die neu entstandenen kleinen Datenbanken nennt man Shards. Der Vorteil dieser Methode sind schnellere Schreib- und Lesezugriffe, da alle Shards in einem Cluster diese Befehle ausführen, wodurch ein hoher Grad der Parallelität erreicht wird.
+\newline
+MongoDB unterstützt zwei unterschiedliche Sharding-Methoden:
 \begin{itemize}
-    \item Dokumente entsprechen in einigen Programmiersprachen nativen Datentypen
-    \item Die Einbindung von Arrays und Documents vermeidet aufwendige JOINS
-    \item Durch das dynamische Schema kann man die Datenbankstruktur sehr vielseitig gestalten
+    \item \textbf{Hashed Sharding}
+        \newline
+        Bei dieser Methode wird ein Hashwert aus dem Shard-Schlüssel gebildet und anschließend wird jedem Block ein Bereich zugewiesen, der auf den gehashten Wert basiert.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.6\textwidth]{pics/hashed_sharding.png}
+            \caption{Hashed Sharding MongoDB}
+            \cite{hashed_sharding_image}
+            \label{fig:enter-label}
+        \end{figure}
+    \item \textbf{Ranged Sharding}
+        \newline
+        Bei dieser Methode werden die Daten aufgrund der Shard Schlüsselwerten in Bereiche unterteilt. Anschließend wird auf Basis der Shard-Schlüsselwerte  jedem Chunk ein entsprechender Bereich zugewiesen.
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.6\textwidth]{pics/ranged_sharding.png}
+            \caption{Ranged Sharding MongoDB}
+            \cite{range_sharding_image}
+            \label{fig:enter-label}
+        \end{figure}
 \end{itemize}
