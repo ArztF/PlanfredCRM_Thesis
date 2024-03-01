@@ -1,0 +1,122 @@
+Javascript gewann in der Vergangenheit rasch an Beliebtheit und ist heutzutage eine fundamentale Programmiersprache, speziell in der Webentwicklung. Dies sieht man schon seit langem in der Frontend-Entwicklung, jedoch gewinnt Javascript auch in der Backend-Entwicklung immer mehr an Interesse. Grund dafür ist das Framework NodeJS, auf welchem  immer mehr moderne Backend-Frameworks aufbauen.
+
+\textbf{Javascript-Engines:}
+\newline
+Man unterscheidet zwischen zwei verschiedenen Arten wie Programmiersprachen ausführbar gemacht werden kann. Hierbei gibt es den Compiler und den Interpreter, welche die Programmiersprache in die dementsprechende Maschinensprache übersetzen.
+
+"Der Unterschied besteht darin, dass ein Compiler den Code einmalig in Maschinensprache übersetzt und ab dann immer nur der Maschinencode ausgeführt wird. Ein Interpreter hingegen übersetzt während das Programm läuft immer jeweils die aktuelle Code-Zeile und führt diese aus."
+\newline
+(vgl. https://michaelkipp.de/web/javascript.html; Zugriff: 19.02.2024)
+
+Hierbei gibt es die sogenannten Javascript-Engines, welche genau diese Aufgabe für Javascript Code macht. Ursprünglich wurde dies in Form eines Interpreters bewältigt, jedoch kommt es immer öfter vor, dass solche Engines einen Compiler-Ansatz verfolgen, damit die erzielten Ergebnisse noch performanter sind.
+
+Javascript wird im Normalfall direkt im Browser ausgeführt, wobei jeder Browser eine eigene Engine verwendet. Hier sind die gängigsten Beispiele:
+
+\begin{itemize}
+  \item Chrome-Browser: V8
+  \item Firefox-Browser: SpiderMonkey
+  \item Safari-Browser:JavaScriptCore
+\end{itemize}
+
+Hierbei wird die Javascript-Engine oftmals mit der Browser-Engine verwechselt. Jedoch ist der Browser-Engine dafür da, um HTML Elemente und auch CSS Regeln anzuwenden. 
+
+\textbf{Konsole:}
+\newline
+Wie bereits erwähnt kann Javascript Code in Verbindung mit HTML auf einer Webseite ausgeführt werden. Dabei findet man die Javascript Ausgabe, also Logs oder Fehlermeldungen, in der Konsole. Konsolen Ausgaben sehen wie folgt aus:
+
+\begin{lstlisting}
+    console.log("ausgabe")
+\end{lstlisting}
+
+\textbf{Einbetten:}
+\newline
+Javascript Code wird mit einem `<script>` Tag im HTML eingebunden:
+
+\begin{lstlisting}
+    <!DOCTYPE html>
+    <html lang="de">
+      <head>
+        <meta charset="utf-8">
+        <title>JavaScript</title>
+      </head>
+      <body>
+        <script>
+          console.log("ausgabe");
+        </script>
+      </body>
+    </html>
+\end{lstlisting}
+
+Der Javascript Code kann wie in diesem Beispiel direkt im Script Tag geschrieben werden, jedoch kann man diesen auch auf ein externes File mit der Endung .js auslagern und im \textbf{<script>} Tag verlinken. 
+
+\begin{lstlisting}
+    <script src="pfad"></script>
+\end{lstlisting}
+
+Dies macht speziell bei größeren Projekte sehr viel Sinn, da der Javascript Code meist ziemlich lange und komplex wird, sobald eine Webseite viel Logik benötigt.
+
+\textbf{Kommentare:}
+\newline
+Kommentare können in Javascript auf zwei verschiedenen Arten umgesetzt werden. Die erste ist hierbei ein sogenanntes Zeilenkommentar, dieses muss nicht geschlossen werden, da es nur eine Zeile im Code auskommentiert.
+
+\begin{lstlisting}
+    // Ein Kommentar
+\end{lstlisting}
+
+Die zweite Art ist der Blockkommentar, welcher im Gegensatz geschlossen werden muss und sich somit über eine beliebige Anzahl von Zeilen ausbreiten kann.
+
+\begin{lstlisting}
+    /*
+	Ein Kommentar,
+	über mehrere zeilen
+	.
+    */
+\end{lstlisting}
+
+\textbf{Datentypen:}
+\newline
+Im Gegensatz zu vielen anderen Programmiersprachen benötigt Javascript keine direkte Typisierung und ist dafür bekannt in diesem Thema sehr locker zu sein.
+\newline
+Eine Variable muss am Anfang keinen Wert zugewiesen bekommen und hat dadurch bei der Erstellung den Wert \textbf{undefined}
+
+\begin{lstlisting}
+    var foo;
+\end{lstlisting}
+
+Ebenfalls kann man eine Variable direkt einen Wert geben, also initialisieren. Im folgenden Beispiel bekommt die Variable dadurch den Typen \textbf{number}.
+
+\begin{lstlisting}
+    var foo = 10;
+\end{lstlisting}
+
+Aus dem Präfix \textbf{var} kann man erkennen, dass es sich hierbei um eine globale Variable handelt. Lokale Variablen werden mit \textbf{let} erstellt.
+
+\begin{lstlisting}
+    let foo = 10;
+\end{lstlisting}
+
+Zusätzlich gibt es noch das Präfix \textbf{const}, welches eine Konstante deklariert. Dementsprechend kann der Wert dieser Variable nach der Initialisierung nicht mehr geändert werden.
+
+\begin{lstlisting}
+    const foo = 10;
+\end{lstlisting}
+
+Wenn bereits bei der Initialisierung ein Wert bestimmt wurde, steht der Typ der Variable dennoch nicht fest. Dieser kann nämlich aufgrund der “Dynamischen Typisierung” jederzeit geändert werden.
+
+\begin{lstlisting}
+    foo = 12;
+    foo = "test";
+\end{lstlisting}
+
+In Javascript gibt es dennoch eine Vielzahl an verschiedenen Typen:
+
+\begin{itemize}
+  \item string
+  \item number
+  \item boolean
+  \item object
+  \item function
+  \item undefined
+\end{itemize}
+
+\cite{frontend_web_javascript}
