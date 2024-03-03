@@ -1,0 +1,38 @@
+In dem Fall dieser Projektarbeit, war bereits eine Datenbank gegeben auf die das Projektteam zugreifen musste. Dennoch mussten Collections erstellt werden, die Begründung dafür, wird im Kapitel "Performance der Datenbank" erläutert. In diesem Abschnitt werden die verwendeten Collections erläutert und ihre Schlüsselfelder, die für das Projekt notwendig war, aufgelistet.
+
+\subsubsection{Users}
+\begin{itemize}
+    \item \_id
+    \item email
+    \item crm: Statistiken über Benutzer
+        \begin{itemize}
+            \item numberOfProjects: Anzahl der eigenen Projekte
+        \end{itemize}
+    \item payment: Zahlungsinformationen
+        \begin{itemize}
+            \item customerbillingplan
+            \begin{itemize}
+                \item plan: Ausgewähltes Abonnement
+            \end{itemize}
+        \end{itemize}
+    \item enabled: Boolean, ob Benutzer:in gelöscht ist
+    \item profile: Persönliche Benutzerdaten zum Beispiel Name, Adresse,...
+\end{itemize}
+
+\subsubsection{Projects}
+\begin{itemize}
+    \item \_id
+    \item created
+    \item participants: Array aller Benutzer:innen die in dem Projekt beteiligt sind
+        \begin{itemize}
+            \item \_id
+            \item permission: Rolle welcher Benutzer:in in dem Projekt hat
+            \item \_user\_id: ID der Benutzerin / des Benutzers
+        \end{itemize}
+    \item title
+    \item usedStorage: Größe des Speicherplatz, welches das Projekt benötigt
+    \item lastRevisionUploadDocuments: Datum des letzten Dokumentuploads
+    \item lastRevisionUploadPlans: Datum des letzen Planuploads
+    \item trashed: Boolean, ob Projekt gelöscht ist
+\end{itemize}
+Dies sind nicht alle Fields in den Collections, jedoch die wesentlichen, welche für die Abfragen bzw. die Anzeige notwendig waren.
