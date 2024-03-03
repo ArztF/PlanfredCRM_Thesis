@@ -261,5 +261,81 @@ Möchte man nun allerdings nicht nur "einfache" Vergleichsabfragen durchführen,
                 Gibt ein Array an Documents zurück, in dem nur Documents enthalten sind, welche in einem angegebenen Field nur unterschiedliche Werte besitzen.
         \end{itemize}
 \end{itemize}
-Im Zuge dieser Diplomarbeit war vor allem die Aggregation-Pipeline essentiell, des weiteren war auch die Single Purpose Aggregation Methode estimatedDocumentCount() für die Statistik-Seite  verwendet. Es wurde sich für diese Aggregation entschieden, da es nicht wichtig war, dass die Anzahl zu 100 Prozent korrekt ist und die Performance bei dieser Aggregation wesentlich besser ist.
+Im Verlauf dieser Diplomarbeit erwies sich insbesondere die Aggregation-Pipeline als essenziell. Darüber hinaus wurde die Single-Purpose-Aggregation-Methode "estimatedDocumentCount()" für die Statistik Seite genutzt. Die Auswahl dieser Aggregation erfolgte aufgrund der geringeren Relevanz einer exakten Genauigkeit bei der Anzahl sowie der signifikant verbesserten Performance dieser Aggregation.
 \cite{mongodb_aggregation_basics}
+Zwei weitere wichtige Anforderungen in diesem Projekt waren zum einen, dass JOINen von zwei verschiedenen Collections und das eliminieren von Daten aus einem Array, abhängig von einer Kondition. Für den JOIN wurde das Schlüsselwort \$lookup verwendet. Dieses führt einen left outer join durch, dabei wird ein neues Array-Field, mit den gefundenen Documents, in das Document hinzugefügt. Bei dem \$lookup Befehl werden folgende Felder benötigt:
+\begin{lstlisting}
+{
+   $lookup:
+     {
+       from: <collection to join>,
+       localField: <field from the input documents>,
+       foreignField: <field from the documents of the "from" collection>,
+       as: <output array field>
+     }
+}
+\end{lstlisting}
+Dabei wird bei "from" die Collection angegeben mit der, der JOIN durchgeführt werden soll. Das "localField" beschreibt das Field aus der ursprünglichen Collection, welches für den JOIN verwendet werden soll und das "foreignField" beschreibt das Field der anderen Collection. Lookup führt dabei einen Vergleichscheck zwischen den beiden Feldern durch. Falls ein Input dieses Field nicht enthält, wird der Wert als NULL gewertet und mit diesem der Vergleich durchgeführt. Das "as" Feld gibt den Namen an, in welches das gejointe Array gespeichert wird.
+\cite{mongodb_aggregation_lookup}
+\newline
+Das eliminieren von Daten aus einem Array, wurde in diesem Fall für eine Abfrage benötigt in dem ermittelt werden musste, wie viele Projekte ein Benutzer besitzt und wie hoch der verbrauchte Speicherplatz ist. Da die Teilnehmer eines Projektes, einschließlich des Projektbesitzers, in einem Array-Field "participants" gespeichert ist, war es notwendig alle anderen Teilnehmer aus diesem Array zu löschen und nur den Benutzer mit der Rolle "owner" in diesem Array zu belassen. Dies wurde wie folgt gelöst:
+\begin{lstlisting}
+const projects = await collection.aggregate([
+    {
+      $match: {
+        $or: [
+          { trashed: { $exists: false } },
+          { trashed: false }
+        ]
+      }
+    },
+    {
+      $project: {
+        participants: {
+          $filter: {
+            input: '$participants',
+            as: 'item',
+            cond: {
+              $eq: [
+                '$$item.permission',
+                'owner'
+              ]
+            }
+          }
+        },
+        usedStorage: true
+      }
+    },
+    {
+      $project: { ownerId: { $arrayElemAt: ['$participants', 0] }, usedStorage: true }
+    },
+    { $group: { _id: { owner: '$ownerId.user' }, usedStorage: { $sum: '$usedStorage' } } },
+    {
+      $lookup: {
+        from: 'users',
+        localField: '_id.owner',
+        foreignField: '_id',
+        as: 'user_details'
+      }
+    }
+  ]).toArray()
+\end{lstlisting}
+In diesem Beispiel wurden sich die unterschiedlichen Phasen zu Nutze gemacht.
+\begin{itemize}
+    \item \textbf{1. Phase}
+        \newline
+        In dieser Phase werden die Projekte zuerst gefiltert und nur die Projekte in die nächste Phase übergeben, die noch nicht gelöscht worden sind.
+    \item \textbf{2. Phase}
+        \newline
+        In dieser Phase wird das Feld "participants" mithilfe der \textbf{\$filter-Operation} gefiltert. Innerhalb dieser Operation ist es erforderlich, im "input"-Feld ein Feld anzugeben, das gefiltert werden soll, und ein Array ist. Das "as"-Feld ist optional und bezeichnet den Namen der Variable, die jedes einzelne Objekt nacheinander im Array repräsentiert. Im Feld "cond" muss die Bedingung spezifiziert werden, unter der das Objekt im Array beibehalten wird. In diesem speziellen Fall muss das Feld "permission" den Wert "owner" aufweisen. Man könnte auch noch das Feld "limit" definieren, welches die Treffer der Kondition limitiert und nur die angegebene Anzahl im Array belässt.
+    \item \textbf{3. Phase}
+        \newline
+        In dieser Phase wird das neu produzierte Array aus der vorherigen Phase aufgelöst und als neues Field in das Document gespeichert und an die nächste Phase übergeben.
+    \item \textbf{4. Phase}
+        \newline
+        Das übergebene Array aus der vorherigen Phase wird nun mit der \textbf{\$group} Operation nach dem Projektbesitzer gruppiert und der verwendete Speicherplatz aller seiner Projekte zusammengezählt.
+    \item \textbf{5. Phase}
+        \newline
+        In der letzten Phase wird ein JOIN auf die User Collection durchgeführt, um alle Benutzerdaten in das Field "user\_details" gespeichert.
+\end{itemize}
+\cite{mongodb_aggregation_filter}
