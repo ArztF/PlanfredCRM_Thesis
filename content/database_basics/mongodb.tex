@@ -196,6 +196,70 @@ Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren 
         \hline
         \$type & Selects documents if a field is of the specified type \\
         \hline
+        \$regex & Selects documents where values match a specified regular expression \\
+        \hline
     \end{tabular}
 \end{center}
 \cite{mongodb_query_operations}
+\newline
+Die Syntax um oben dargestellten Befehle zu verwenden sieht wie folgt aus:
+\newline
+\begin{lstlisting}
+    const res = await db.collection.find(
+        {
+            "firstname": { $exists: true }
+        }
+    ).toArray()
+
+    const res1 = await db.collection.find(
+        {
+            $and: [
+                "firstname": { $exists: true },
+                "lastname": "Doe"
+            ]
+        }
+    ).toArray()
+\end{lstlisting}
+\cite{mongodb_query_basics}
+\newline
+Möchte man nun allerdings nicht nur "einfache" Vergleichsabfragen durchführen, sondern möchte Documents gruppieren, oder einen Join auf eine andere Collection machen, benötigt man die Aggregation-Operation. Diese Operationen verarbeiten mehrere Documents, aus verschiedenen Collections, und können Berechnungen dieser Documents zurück geben. Es gibt zwei verschiedene Arten von Aggregation-Operationen:
+\begin{itemize}
+    \item \textbf{Aggregation Pipelines}
+        \newline
+         Eine Aggregation-Pipeline besteht aus einem oder mehreren Phasen, welche die Documents durchlaufen:
+        \begin{itemize}
+            \item In jeder Phase wird eine Operation an dem Document durchgeführt.
+            \item Die Documents welche von einer Phase ausgegeben werden, werden an die nächste Phase übergeben.
+            \item Gibt ein gruppiertes Ergebnis zurück, in dem man ein Minimum, Maximum, Durchschnitt oder Gesamtergebnis berechnen kann.
+        \end{itemize}
+        Im folgenden Beispiel wird eine Aggregation gezeigt, welche aus zwei Phasen besteht. Dabei filtert die ersten Phase die Bestellungen nach ihrer Größe und gibt alle Bestellungen an die nächste Phase weiter, welche die Größe Medium besitzen. In der zweiten Phase werden die übergeben Documents gruppiert und die Anzahl summiert.
+        \begin{lstlisting}
+            db.orders.aggregate( [
+                // Phase 1
+               {
+                  $match: { size: "medium" }
+               },
+            
+               // Phase 2
+               {
+                  $group: { _id: "$name", totalQuantity: { $sum: "$quantity" } }
+               }
+            ] )
+        \end{lstlisting}
+    \item \textbf{Single Purpose Aggregation Methods}
+        \newline
+        Diese Aggregation verarbeiten nur Documente aus einer einzigen Collection, sind daher auch nicht so mächtig wie die Aggregation-Pipelines. Es gibt folgende Aggregatinosmethoden:
+        \begin{itemize}
+            \item \textbf{estimatedDocumentCount()}
+                \newline
+                Diese Aggregation gibt die ungefähre Anzahl aller Documents in einer View oder Collection zurück.
+            \item \textbf{count()}
+                \newline
+                Diese Aggregation gibt die genaue Anzahl aller Documents in einer View oder Collection zurück.
+            \item \textbf{distinct()}
+                \newline
+                Gibt ein Array an Documents zurück, in dem nur Documents enthalten sind, welche in einem angegebenen Field nur unterschiedliche Werte besitzen.
+        \end{itemize}
+\end{itemize}
+Im Zuge dieser Diplomarbeit war vor allem die Aggregation-Pipeline essentiell, des weiteren war auch die Single Purpose Aggregation Methode estimatedDocumentCount() für die Statistik-Seite  verwendet. Es wurde sich für diese Aggregation entschieden, da es nicht wichtig war, dass die Anzahl zu 100 Prozent korrekt ist und die Performance bei dieser Aggregation wesentlich besser ist.
+\cite{mongodb_aggregation_basics}
