@@ -36,8 +36,7 @@ MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungs
 \end{itemize}
 \cite{mongodb_basics}
 
-\textbf{Aufbau der Datenbank}
-\newline
+\subsubsection{Aufbau der Datenbank}
 Die Datenbank ist in folgende Teile unterteilt:
 
 \begin{itemize}
@@ -78,12 +77,11 @@ Die Datenbank ist in folgende Teile unterteilt:
         \cite{mongodb_collections}
 \end{itemize}
 
-\textbf{Skalierung}
-\newline
+\subsubsection{Skalierung}
 Die die Anzahl der Daten die gespeichert werden im Laufe der Zeit immer weiter anwächst, ist es wichtig seine Datenbank einfach skalieren zu können. 
-\newline
-\textbf{Horizontale Skalierung}
-\newline
+
+\subsubsection{Horizontale Skalierung}
+
 MongoDB wurde auf die horizontale Skalierung ausgelegt. Dazu müssen neue Maschinen (Server) dazugekauft werden, auf denen anschließend die Daten verteilt werden. Durch das dokumentenbasierte Datenmodell ist es wesentlich einfacher die Daten auf verschiedene Maschinen zu verteilen, dabei achtet MongoDB selbst darauf, dass alle Server annähernd gleich ausgelastet sind. Dazu werden Daten auch von einem Server auf einen anderen Server verschoben. Dazu verwendet MongoDB Shard-Schlüssel, welcher als Field in den Documents gespeichert wird und dient dazu die Documents in den Collections zu verteilen.
 \cite{mongodb_collections}
 
@@ -121,6 +119,5 @@ MongoDB unterstützt zwei unterschiedliche Sharding-Methoden:
 \end{itemize}
 \cite{mongodb_sharding}
 
-\textbf{Vertikale Skalierung}
-\newline
+\subsubsection{Vertikale Skalierung}
 Es gibt allerdings auch die Möglichkeit eine MongoDB Datenbank vertikal zu Skalieren. Dabei wird die Kapazität eines einzigen Servers gesteigert, indem man eine stärkere CPU, mehr RAM oder mehr Speicherplatz einbaut. In diesem Fall ist man allerdings an den technologischen Fortschritt angewiesen und es ist nicht unendlich möglich diese Skalierungsvariante zu verwenden. Des weiteren ist in den meisten Fällen eine horizontale Skalierung wesentlich kosteneffizienter als eine vertikale.
