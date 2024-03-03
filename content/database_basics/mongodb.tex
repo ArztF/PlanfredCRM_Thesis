@@ -6,8 +6,7 @@
     \label{fig:enter-label}
 \end{figure}
 
-\textbf{Grundlagen}
-
+\subsubsection{Grundlagen}
 MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungsentwicklung und Skalierung ausgelegt ist. Dabei gibt es drei verschiedene Möglichkeiten MongoDB zu verwenden: 
 \begin{itemize}
     \item \textbf{MongoDB Atlas}
@@ -81,7 +80,6 @@ Die Datenbank ist in folgende Teile unterteilt:
 Die die Anzahl der Daten die gespeichert werden im Laufe der Zeit immer weiter anwächst, ist es wichtig seine Datenbank einfach skalieren zu können. 
 
 \subsubsection{Horizontale Skalierung}
-
 MongoDB wurde auf die horizontale Skalierung ausgelegt. Dazu müssen neue Maschinen (Server) dazugekauft werden, auf denen anschließend die Daten verteilt werden. Durch das dokumentenbasierte Datenmodell ist es wesentlich einfacher die Daten auf verschiedene Maschinen zu verteilen, dabei achtet MongoDB selbst darauf, dass alle Server annähernd gleich ausgelastet sind. Dazu werden Daten auch von einem Server auf einen anderen Server verschoben. Dazu verwendet MongoDB Shard-Schlüssel, welcher als Field in den Documents gespeichert wird und dient dazu die Documents in den Collections zu verteilen.
 \cite{mongodb_collections}
 
@@ -117,7 +115,87 @@ MongoDB unterstützt zwei unterschiedliche Sharding-Methoden:
             \label{fig:enter-label}
         \end{figure}
 \end{itemize}
-\cite{mongodb_sharding}
 
 \subsubsection{Vertikale Skalierung}
 Es gibt allerdings auch die Möglichkeit eine MongoDB Datenbank vertikal zu Skalieren. Dabei wird die Kapazität eines einzigen Servers gesteigert, indem man eine stärkere CPU, mehr RAM oder mehr Speicherplatz einbaut. In diesem Fall ist man allerdings an den technologischen Fortschritt angewiesen und es ist nicht unendlich möglich diese Skalierungsvariante zu verwenden. Des weiteren ist in den meisten Fällen eine horizontale Skalierung wesentlich kosteneffizienter als eine vertikale.
+\cite{mongodb_sharding}
+
+\subsubsection{Abfragen in MongoDB}
+Dadurch, dass MongoDB keine relationale Datenbank ist, sehen die Abfragen auch anders aus wie bei SQL-basierte Datenbanken. In diesem Abschnitt wird auf die grundlegenden Abfragen in Kombination mit einem JavaScript Backend eingegangen. Bevor man allerdings mit den Abfragen beginnen kann, muss man zuerst eine Verbindung zur Datenbank aufbauen. Im untenstehenden Beispiel ist gezeigt wie dieser Verbinungsaufbau im Fall eines express.js Backends funktioniert.
+\begin{lstlisting}
+    const client = new MongoClient('<connection_string>')
+    const result = client.connect()
+    const db = result.db('<collection_name>')
+\end{lstlisting}
+Da nun die Verbindung zur Datenbank beseteht und eine Collection ausgewählt wurde (Zeile 3, obiger Codesnippet) kann man mit den Abfragen beginnen.
+\newline
+Möchte man aus einer Collection, Documents abfragen, gibt es zwei verschiedene Varianten, dies zu machen. Sind "einfache" Abfragen, wie zum Beispiel vergleiche von einzelnen oder mehreren Fields notwendig, benötigt es die "find"-Methode. In der "find"-Methode kann man die Query, in Form eines Objekts übergeben, lässt man es allerdings leer, werden alle Documents aus der Collection zurückgegeben.
+\begin{lstlisting}
+    const res1 = await db.collection.find({}).toArray()
+    const res1 = await db.collection.find(
+        {
+            "firstname": "John"
+        }
+    ).toArray()
+\end{lstlisting}
+Wie im obigen Beispiel zu sehen ist, benötigt es nach der find-Methode eine weitere Methode, um das Ergebnis anzeigen zu können. Von diesen Methoden gibt es mehrere, anbei sind die zu finden, welche in dieser Diplomarbeit verwendet wurden.
+\begin{center}
+    \begin{tabular}{ | m{3cm} | m{2.3cm}| m{8cm} | } 
+        \hline
+        Name & Übergabetyp & Beschreibung \\ [0.5ex] 
+        \hline\hline
+        limit & number & Limitiert Documents die zurückgegeben werden \\
+        \hline
+        sort & object & Sortiert Documents nach Field z.B. \{'<field>': 1\} \\
+        \hline
+        project & object & Fields die zurückgegeben werden \\
+        \hline
+        skip & number & Überspringt n Documents \\
+        \hline
+    \end{tabular}
+\end{center}
+\cite{mongodb_query_methods}
+Es können noch andere Methoden definiert werden, weitere Methoden sind im folgenden Link zu finden.
+\newline
+\url{https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#find}
+\newline
+Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren zugreifen. Folgende Operatoren gibt es in MongoDB:
+\begin{center}
+    \begin{tabular}{ | m{1.5cm} | m{13cm} | } 
+        \hline
+        Name & Beschreibung \\ [0.5ex] 
+        \hline\hline
+        \$eq & Matches values that are equal to a specified value \\
+        \hline
+        \$gt & Matches values that are greater than a specified value \\
+        \hline
+        \$gte & Matches values that are greater than or equal to a specified value \\
+        \hline
+        \$in & Matches any of the values specified in an array \\
+        \hline
+        \$lt & Matches values that are less than a specified value \\
+        \hline
+        \$lte & Matches values that are less than or equal to a specified value \\
+        \hline
+        \$ne & Matches all values that are not equal to a specified value \\
+        \hline
+        \$nin & Matches none of the values specified in an array \\
+        \hline
+        \$and & Joins query clauses with a logical AND returns all documents that match the conditions of both clauses \\
+        \hline
+        \$not & Inverts the effect of a query expression and returns documents that do not match the query expression \\
+        \hline
+        \$nor & Joins query clauses with a logical NOR returns all documents that fail to match both clauses \\
+    \end{tabular}
+\end{center}
+\begin{center}
+    \begin{tabular}{ | m{1.5cm} | m{13cm} | } 
+        \$or & Joins query clauses with a logical OR returns all documents that match the conditions of either clause \\
+        \hline
+        \$exists & Matches documents that have the specified field \\
+        \hline
+        \$type & Selects documents if a field is of the specified type \\
+        \hline
+    \end{tabular}
+\end{center}
+\cite{mongodb_query_operations}

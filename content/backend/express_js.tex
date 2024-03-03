@@ -206,22 +206,23 @@ DEBUG=express:* node index.js
 set DEBUG=express:* & node index.js
 \end{verbatim}
 Man hat nun auch die Möglichkeit weitere Optionen fürs debugen zu definieren.
-\begin{tabularx}{0.8\textwidth} { 
-    | >{\raggedright\arraybackslash}X 
-    | >{\centering\arraybackslash}X 
-    | >{\raggedleft\arraybackslash}X | }
-    \hline
-        DEBUG & Enables/disables specific debugging namespaces \\
-    \hline
-        DEBUG\char`_COLORS & Whether or not to use colors in the debug output \\
-    \hline
-        DEBUG\char`_DEPTH & Object inspection depth \\
-    \hline
-        DEBUG\char`_FD & File descriptor to write debug output to \\
-    \hline
-        DEBUG\char`_SHOW\char`_HIDDEN & Shows hidden properties on inspected objects \\
-\end{tabularx}
-\newline
+\begin{center}
+    \begin{tabular}{||c c||} 
+        \hline
+        Befehl & Beschreibung \\ [0.5ex] 
+        \hline\hline
+        DEBUG & Enables/disables specific debugging namespaces \\ 
+        \hline
+        DEBUG\_COLORS & Whether or not to use colors in the debug output \\
+        \hline
+        DEBUG\_DEPTH & Object inspection depth \\
+        \hline
+        DEBUG\_FD & File descriptor to write debug output to \\
+        \hline
+        DEBUG\_SHOW\_HIDDEN & Shows hidden properties on inspected object \\ [1ex] 
+        \hline
+    \end{tabular}
+\end{center}
 \cite{Express_js_third_party_middlewares}
 
 Die Identifizierung von Fehlern und die Debugging-Funktionalität in Visual Studio Code (VS Code) bieten die Möglichkeit, nicht nur die internen Ausgaben zu erhalten, sondern auch eigens verfasste Funktionen zu überprüfen. Diese Funktionalität wird durch das Setzen von Breakpoints ermöglicht, die einfach neben der Zeilennummer platziert werden. Der Debugger wird daraufhin in der Menüleiste gestartet. Das Starten des Debuggers bewirkt, dass VS Code die Anwendung ausführt und den Debugger aktiviert. Bei Aufruf der zu überprüfenden Funktion pausiert das Programm an der Stelle, an der zuvor der Breakpoint gesetzt wurde. Hierbei stehen sämtliche existierenden Variablen zur Inspektion zur Verfügung, und der Code kann schrittweise durchlaufen werden.
