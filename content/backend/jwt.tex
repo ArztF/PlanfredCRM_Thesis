@@ -10,6 +10,13 @@ Ein JWT ist grundlegend in drei Bereiche gegliedert:
 \item \textbf{Signatur}
 \end{itemize}
 
+Es ist grundsätzlich ein einfacher Zeichenstring welcher in drei verschiedene Teile gegliedert wird, welche jeweils nur mit einem Punkt getrennt sind und mit Base64 kodiert sind. Ein Token lässt sich in folgender Form darstellen:
+
+\begin{lstlisting}
+Header.Payload.Signatur
+\end{lstlisting}
+
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{pics/jwt.png}
@@ -17,20 +24,22 @@ Ein JWT ist grundlegend in drei Bereiche gegliedert:
     \label{fig:enter-label}
 \end{figure}
 
-\subsection{Session vs. JSON Web Token}
 
+\subsubsection{Header}
 
 Der Header wird auch als JOSE (JSON Object Signing and Encryption) bezeichnet. In diesem sind ausschließlich Informationen über die Signierung und Verschlüsselung des JWT enthalten.
+
 
 Typischerweise enthält die Struktur eines JWT-Headers eine Information über den Algorithmus, welcher zur Erstellung der Signatur verwendet wurde, sowie eine Definition, dass es sich um ein Json Web Token handelt. Dabei ist zu beachten, dass die Angabe des Typs optional ist, jedoch häufig auf "JWT" festgelegt wird. Dies ist besonders relevant für Anwendungen, die auch andere Typen, wie beispielsweise einen Access Token, akzeptieren, welcher jedoch in einer ähnlichen Datenstruktur vorliegt, um die verschiedenen Typen leicht voneinander unterscheiden zu können.
 
 \begin{lstlisting}
-    {
+{
   "alg": "HS256",
   "typ": "JWT"
 }
 \end{lstlisting}
 
+\subsubsection{Payload}
 Der zweite Part des JSON Web Token ist die Payload. Diese beinhaltet drei verschiedene Arten von Claims. 
 Registrierte, Public und Private Claims
 
@@ -41,9 +50,23 @@ Die Public Claims können nach Belieben definiert werden. Um jedoch Kollisionen 
 Die Privaten Claims sind individuelle Ansprüche, die erstellt wurden, um Informationen zwischen Parteien auszutauschen, die sich darauf einigen, sie zu verwenden, und die weder registrierte noch öffentliche Ansprüche sind.
 
 
+\subsubsection{Signatur}
 
+Der dritte Teil des JWT ist die Signatur diese ist in RFC 7515 definiert. Es kann sein das kein Algorithmus definiert wurde in diesem Fall entfällt die Signatur. Es gibt allerdings ganz seltene Fälle in denen dieses Verhalten erwünscht ist. 
+
+\newline
+
+Das zweite Verfahren wurde bereits erläutert. Dabei wird ein Algorithmus wie HS256 oder RS256 verwendet, um anhand der Daten einen eindeutigen Wert zu generieren und mögliche Manipulationen der Payload auszuschließen.
+
+\newline
+
+Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem privaten Schlüssel verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein.
+
+\subsection{Session vs. JSON Web Token}
 
 \cite{JWT_1}
 https://jwt.io/introduction
 \cite{JWT_2"}
 https://hellocoding.de/blog/coding-language/allgemein/json-web-token
+\cite{JWT_3}
+https://www.security-insider.de/was-ist-json-web-token-jwt-a-1094265/#:~:text=Den%20Abschluss%20eines%20JWT%20bildet,Signatur%2D%20beziehungsweise%20Verschlüsselungsmethode%20angewandt%20wird.
