@@ -1,0 +1,53 @@
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{pics/cypress-logo.png}
+    \caption{Cypress}
+    \label{fig:enter-label}
+\end{figure}
+
+
+Cypress is ein sehr neuer Testrunner, welcher JavaScript Tests automatisch ausführen kann.
+Cypress unterstützt drei verschiedene Arten von Tests:
+
+\begin{itemize}
+\item \textbf{End-to-End-Tests}
+\item \textbf{Integration-Tests}
+\item \textbf{Unit-Tests}
+\end{itemize}
+
+In dieser Diplomarbeit wurde Cypress benutzt um Frontend aber sowohl auch API-Tests zu schreiben
+
+Dies ist ein Beispiel für einen API - Test:
+
+\begin{lstlisting}
+it('get all projects', () => {
+        cy
+            .request({
+                method: 'POST',
+                url: 'http://localhost:3000/api/v1/login',
+                failOnStatusCode: false,
+                body: {
+                    email: 'write@domain.com',
+                    password: Cypress.env('password')
+                }
+            }).then((xhr) => {
+                cy
+                    .request({
+                        method: 'GET',
+                        url: 'http://localhost:3000/api/v1/projects',
+                        failOnStatusCode: false,
+                        headers: {
+                            authorization: `Bearer ${xhr.body.data.auth_token}`
+                        }
+                    }).then((xhr) => {
+                        expect(xhr.body.data.projects.length).to.eq(7)
+                    })
+            })
+    })
+\end{lstlisting}
+
+Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" in der Arrow Function start dann der Test. Dieser beginnt immer mit "cy". Alles was danach kommt hat immer einen Punkt vor sich, in diesem Fall will man einen Request testen, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Weiters wird eine URL benötigt auf welche der Request abzielen soll. Nun kann noch ein Body Objekt und eine failOnStatusCode Flag hinzugefügt werden. Wird diese auf true gesetzt failed der Test sobald ein Request einen StatusCode im 400er Bereich zurückbekommt. Diese Option gibt es daher, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
+
+
+\cite{Cypress}
+https://www.testautomatisierung.org/cypress/
