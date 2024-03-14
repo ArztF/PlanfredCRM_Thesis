@@ -1,0 +1,73 @@
+Grundsätzlich werden die Middleware-Headers als Sicherheitsmaßnahmen verwendet. Das heißt es macht es Hackern schwieriger Infomrationen über die Software herauszufinden. Es gibt einige verschiedene Middleware-Header:
+
+\begin{itemize}
+    \item \textbf{Allow-Cors Header}
+        \newline
+        Cors (Cross-Origin Resource Sharing) wurde als Sicherheitsmethode von Webbrowsern implementiert um den Zugriff auf auf Ressourcen von einer anderen Domain einzuschränken. Wenn ein Client eine Anfrage an einen Server sendet, kann der Server durch Hinzufügen eines speziellen Headers namens Access-Control-Allow-Origin bestimmen, welche Domains Zugriff auf seine Ressourcen haben dürfen. Sollte die anfragende Domain nicht in der erlaubten Liste enthalten sein, wird der Browser die Anfrage blockieren.
+
+        Im Fall dieser Diplomarbeit wurde Cors folgendermaßen verwendet:
+
+\begin{lstlisting}
+    const cors = require('cors');
+    app.use(cors())
+\end{lstlisting}
+        
+
+        \cite{Cors}
+        https://saragam.medium.com/cors-in-node-js-with-express-99b355e93def
+    \item \textbf{Compression Header}
+        \newline
+        Wenn eine API eine Response mit einer sehr großen Datenmenge von sich gibt, kann hier der Compression Header verwendet werden um die Antworten vom Server zu schmälern. Wenn eine HTTP-Anfrage mit dem Header "Accept-Encoding" gesendet wird, ermöglicht dies dem Server, die Antwort im unterstützten Format komprimiert zu senden.
+
+        Simulation einer Server Response von (~550k bytes) und Einbindung des Compression-Headers:
+            \begin{lstlisting}
+                const express = require('express');
+                const app = express();
+                const compression = require('compression');
+                app.use(compression());
+                app.get('/', function(req, res) {
+                    res.send('hello world'.repeat(50000));
+                });
+                app.listen(3000, function(err) {
+                    if (err) console.log(err);
+                    console.log("Server listening on PORT 3000");
+                });
+            \end{lstlisting}
+    \item \textbf{Helmet}
+        \newline
+        Helmet dient zur Sicherung der HTTP Headers. Es ist eine Sammlung von insgesamt 12 Node-Modulen. Jedes einzelne davon bietet Konfigurationsoptionen zur Sicherung der verschiedenen HTTP-Header. Hier ist eine Liste der verschiedene Node-Module welche gesichert werden.
+        \begin{itemize}
+            \item Content-Security-Policy
+            \item Cross-Origin-Embedder-Policy
+            \item Cross-Origin-Opener-Policy
+            \item Cross-Origin-Resource-Policy
+            \item Origin-Agent-Cluster
+            \item Referrer-Policy
+            \item Strict-Transport-Security
+            \item X-Content-Type-Options
+            \item X-DNS-Prefetch-Control
+            \item X-Download-Options
+            \item X-Frame-Options
+            \item X-Permitted-Cross-Domain-Policies
+            \item X-Powered-By
+            \item X-XSS-Protection
+        \end{itemize}
+
+        Die Einbindung von Helmet erfolgte folgendermaßen:
+
+            \begin{lstlisting}
+                const express = require('express');
+                const app = express();
+                const helmet = require('helmet')
+                app.use(helmet())
+            \end{lstlisting}
+
+        \cite{Helmet}
+        https://helmetjs.github.io
+    \item \textbf{Sicherheitstest}
+        \newline
+        Bei diesen Tests wird sichergestellt, das keine externen Personen Zugriff auf geschützte Daten bekommen.
+    \item \textbf{Sicherheitstest}
+        \newline
+        Hierbei wird überprüft, ob die API korrekt entwickelt wurde und ob jeder Enpunkt problemlos funktioniert.
+\end{itemize}
