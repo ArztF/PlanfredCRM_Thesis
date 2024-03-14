@@ -16,7 +16,7 @@ Cypress unterstützt drei verschiedene Arten von Tests:
 \end{itemize}
 
 In dieser Diplomarbeit wurde Cypress benutzt um Frontend aber sowohl auch API-Tests zu schreiben
-
+\cite{Cypress}
 \subsection{API Test}
 Mit einem API (Application Programming Interface) Test kann festgestellt werden ob die Anforderungen in Sachen Funktionalität, Leistung, Zuverlässigkeit und Sicherheit erfüllen. Das Ziel eines solchen Test ist es Fehler oder unerwartete Verhaltenswiesen zu finden. So stellt man sicher, dass der Endbenutzer kein fehlerhaftes oder unsichers Produkt zur Verfügung gestellt bekommt. 
 
@@ -73,7 +73,7 @@ it('get all projects', () => {
 \end{lstlisting}
 
 Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" in der Arrow Function start dann der Test. Dieser beginnt immer mit "cy". Alles was danach kommt hat immer einen Punkt vor sich, in diesem Fall will man einen Request testen, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Weiters wird eine URL benötigt auf welche der Request abzielen soll. Nun kann noch ein Body Objekt und eine failOnStatusCode Flag hinzugefügt werden. Wird diese auf true gesetzt failed der Test sobald ein Request einen StatusCode im 400er Bereich zurückbekommt. Diese Option gibt es daher, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
-
+\cite{API_Tests}
 \subsection{APP Test}
 Mit einem wie oben beschriebenen API Test wird das Backend getestet. Mit einem APP Test hingegen wird das Frontend auf Fehler überprüft. 
 
@@ -96,6 +96,7 @@ Nun sollte sich der Ordner "cypress" im Projektverzeichnis befinden. Dieser enth
 \end{lstlisting}
 
 ausgeführt werden.
+\cite{Integration_von_Cypress}
 
 \subsubsection{Erstellung eines simplen Testfalls}
 Im folgenden Testbeispiel wird überprüft ob die Projektsuchen funktioniert. Im ersten Schritt wird in die Suchleiste der Titel eingegeben. Danach wird anhand von den angezeigten Eigenschaften des Projekts überprüft, ob auch das richtige Projekt vom Such-Algorithmus gefunden wurde. 
@@ -151,11 +152,9 @@ Zwei Nachteile die Cypress besitzt sind, dass es JavaScript Kenntnisse voraussge
 
 
 
-\cite{Integration_von_Cypress}
-https://blog.ordix.de/frontend-e2e-testing-mit-cypress#:~:text=Bei%20Cypress%20handelt%20es%20sich,dem%20DOM%20einer%20Web%2DAnwendung.
 
-\cite{Cypress}
-https://www.testautomatisierung.org/cypress/
 
-\cite{API_Tests}
-https://www.lucidchart.com/blog/de/api-tests-grundlagen-und-best-prectices
+
+
+
+
