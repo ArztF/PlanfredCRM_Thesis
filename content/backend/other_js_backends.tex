@@ -1,0 +1,94 @@
+Im Zuge dieser Diplomarbeit standen lediglich die zwei oben genannten Frameworks zur Auswahl, in der Node.js Welt gibt es allerdings noch weitere Frameworks welche im folgenden Kapitel kurz erläutert werden.
+
+\subsubsection{Hapi.js}
+Bei diesem Framework handelt es sich um ein Open-Source Node.js Backend, welches sehr ähnlich zu express.js ist. Der wohl größte Unterschied zwischen den beiden ist, dass man bei express.js Middlewares benötigt, um Objekte zu parsen, allerdings bei Hapi.js nicht benötigt wird. Weitere Unterschiede sind, dass Hapi.js eine konfigurationszentrierte Struktur und vorgefertigte Cache- und Authentifizierungsfunktionen bietet. Bei den integrierten Autorisierungsschmeta kann man zwischen folgenden auswählen:
+\begin{itemize}
+    \item anonyme
+    \item basisiauthentifizierung
+    \item cookie-basiert
+    \item tokenbasiert
+\end{itemize}
+Des weiteren bietet dieses Framework client- und serverseitiges Caching über Catbox.
+\newline
+\textbf{Vorteile}
+\begin{itemize}
+    \item Robuste Plugins
+    \item Sicheres Framework
+        \newline
+        Dies wird unter anderem dadurch gewährleistet, indem Fehlermeldungen blockiert werden, welche Daten asugeben könnten.
+    \item Performance
+        \newline
+        Durch das dauerhafte Cachen wird die Performance der Web Anwendung verbessert.
+    \item Integrierte Authentifizierung
+\end{itemize}
+
+\textbf{Nachteile}
+\begin{itemize}
+    \item Kompatibilität
+        \newline
+        Manche Hapi-Module sind nicht mit anderen Backend-Frameworks, wie zum Beispiel express.js kompatibel.
+    \item Testen
+        \newline
+        Das Testen von Endpunkten muss manuell erfolgen, da dieses Framework über kaum Automatisierung verfügt.
+\end{itemize}
+\cite{backend_hapi}
+
+\subsubsection{Meteor.js}
+Meteor.js ist ein "full-stack" JavaScript Plattform, welche zum Entwickeln von Web- und Mobilen-Anwendungen geeignet ist. Das Ziel von Meteor ist, dass sich der Entwickler und die Entwicklerin auf das Erstellen von Funktionalität konzentrieren kann und sich nicht mit Konfigurationen beschäftigen muss. Des weiteren bietet Meteor ein eigenes Hosting (Galaxy), welches keinerlei Kenntnisse in diesem Bereich benötigt. 
+\newline
+Beim Erstellen von einer neuen Meteor Applikation, wird standardmäßig ein HTML/JavaScript Frontend und ein Node/MongoDB Backend erstellt. Dies kann man allerdings mit dem Befehl
+\begin{verbatim}
+    meteor add-platform <platform>
+\end{verbatim}
+ändern. Kompatible Plattformen in Meteor sind:
+\begin{itemize}
+    \item React
+    \item Vue.js
+    \item Svelte
+    \item Tailwind CSS
+    \item Electron ...
+\end{itemize}
+Für alle kompatiblen Plattformen siehe \url{https://www.meteor.com/}
+\newline
+\textbf{Vorteile}
+\begin{itemize}
+    \item Hohe Kompatibilität mit JavaScript Frontend Frameworks
+    \item Full-Stack Framework
+    \item Eigenes Hosting
+\end{itemize}
+\textbf{Nachteile}
+\begin{itemize}
+    \item Ausschließlich mit MongoDB kompatibel
+    \item Full-Stack Framework
+\end{itemize}
+\cite{backend_meteor}
+\cite{backend_meteor_1}
+\newline
+Es gibt auch außerhalb der Nodes.js Welt Backend-Frameworks die eine durchaus überlegenswerte Alternative darstellen würde.
+
+\subsubsection{Laravel}
+Ist ein PHP basiertes Backend Framework, welches auf dem Symfony Framework aufbaut und daher über einige gut getestete Komponente verfügt. Des weiteren verfügt es über eine eingebaute CLI (command line interface), über welches man Code generieren oder Tasks aufrufen kann. Es verfügt ebenfalls über ein eingebautes routing-System und einem ORM (object relational mapping), wodurch man mit der Datenbank mittels PHP-Objekten kommunizieren kann, anstatt SQL-Abfragen zu schreiben.
+\newline
+\textbf{Vorteile}
+\begin{itemize}
+    \item Testen
+        \newline
+        Durch das eingebaute Framework PHPUnit ist das automatische Testen vom Programmcode wesentlich vereinfacht. Mit der Funktion "mocking" ist es des weiteren möglich unterschiedliche Szenarien zu testen.
+    \item Vue.js
+    \item Svelte
+    \item Tailwind CSS
+    \item Electron ...
+\end{itemize}
+
+\textbf{Nachteile}
+\begin{itemize}
+    \item Kompatibilität mit Mikroservice
+        \newline
+        Damit Laravel mit Mikroservice kompatibel werden muss man diese in einem config File registrieren.
+    \item Vue.js
+    \item Svelte
+    \item Tailwind CSS
+    \item Electron ...
+\end{itemize}
+
+\subsubsection{Quarkus}
