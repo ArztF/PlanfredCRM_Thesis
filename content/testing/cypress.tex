@@ -1,4 +1,4 @@
-\begin{figure}
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.5\linewidth]{pics/cypress-logo.png}
     \caption{Cypress}
@@ -17,8 +17,34 @@ Cypress unterstützt drei verschiedene Arten von Tests:
 
 In dieser Diplomarbeit wurde Cypress benutzt um Frontend aber sowohl auch API-Tests zu schreiben
 
-Dies ist ein Beispiel für einen API - Test:
+\subsection{API Test}
+Mit einem API (Application Programming Interface) Test kann festgestellt werden ob die Anforderungen in Sachen Funktionalität, Leistung, Zuverlässigkeit und Sicherheit erfüllen. Das Ziel eines solchen Test ist es Fehler oder unerwartete Verhaltenswiesen zu finden. So stellt man sicher, dass der Endbenutzer kein fehlerhaftes oder unsichers Produkt zur Verfügung gestellt bekommt. 
 
+Dennoch gestalten sich API-Tests oft komplexer als gedacht. APIs bedienen sich in der Regel Protokollen und Standards, mit denen Sie normalerweise nicht direkt interagieren. Diese Normen sind unerlässlich, um die Kommunikation zwischen verschiedenen Plattformen, Anwendungen und Systemen zu ermöglichen. Daher ist es erforderlich, nicht nur die Funktionalität einer API zu prüfen, sondern auch ihre Leistung, Sicherheit und das reibungslose Zusammenspiel aller Komponenten, um eine zuverlässige Schnittstelle zu gewährleisten.
+
+\subsubsection{Welche verschiedenen Arten von API Tests gibt es?}
+
+Die Art der Tests hängt davon ab was genau zu testen ist. Es gibt eine Vielzahl von verschiedene Arten von Tests:
+
+\begin{itemize}
+    \item \textbf{Funktionstests}
+        \newline
+        Mit dieser Art von Tests werden verschiedene Funktion der API getestet.
+    \item \textbf{Zuverlässigkeitstests}
+        \newline
+        Hier wird überprüft, ob die API innerhalb von einer bestimmten Zeitspanne ohne Ausfälle funktioniert.
+    \item \textbf{Lasttest}
+        \newline
+        Hierbei wird die Leistung der API überprüft. 
+    \item \textbf{Sicherheitstest}
+        \newline
+        Bei diesen Tests wird sichergestellt, das keine externen Personen Zugriff auf geschützte Daten bekommen.
+    \item \textbf{Sicherheitstest}
+        \newline
+        Hierbei wird überprüft, ob die API korrekt entwickelt wurde und ob jeder Enpunkt problemlos funktioniert.
+\end{itemize}
+
+\subsubsection{Beispiel eines API Tests}
 \begin{lstlisting}
 it('get all projects', () => {
         cy
@@ -48,6 +74,37 @@ it('get all projects', () => {
 
 Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" in der Arrow Function start dann der Test. Dieser beginnt immer mit "cy". Alles was danach kommt hat immer einen Punkt vor sich, in diesem Fall will man einen Request testen, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Weiters wird eine URL benötigt auf welche der Request abzielen soll. Nun kann noch ein Body Objekt und eine failOnStatusCode Flag hinzugefügt werden. Wird diese auf true gesetzt failed der Test sobald ein Request einen StatusCode im 400er Bereich zurückbekommt. Diese Option gibt es daher, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
 
+\subsection{APP Test}
+Mit einem wie oben beschriebenen API Test wird das Backend getestet. Mit einem APP Test hingegen wird das Frontend auf Fehler überprüft. 
+
+
+\subsection{Integration von Cypress}
+Die Installation von Cypress erfolgt meist über einen Paketmanager, hierbei kann entweder npm oder yarn verwendet werden. Ansonsten kann Cypress besteht auch noch die Möglichkeit Cypress direkt über die offiziele Website herunterzuladen (https://docs.cypress.io/guides/getting-started/installing-cypress).
+Im Projektverzeichnis muss der Befehl:
+
+\begin{lstlisting}
+    npm install cypress --save-dev -> Für NPM
+    yarn add cypress --dev -> Für Yarn
+\end{lstlisting}
+
+ausgeführt werden.
+Nun sollte sich der Ordner "cypress" im Projektverzeichnis befinden. Dieser enthält mehrere Unterordner, welche jedoch nicht weiter relevant sind. Wenn alles installiert ist kann Cypress über den Befehl:
+
+\begin{lstlisting}
+    npx cypress open -> Für NPM
+    yarn run cypress open -> Für Yarn
+\end{lstlisting}
+
+ausgeführt werden.
+
+\subsubsection{Erstellung eines simplen Testfalls}
+
+
+\cite{Integration_von_Cypress}
+https://blog.ordix.de/frontend-e2e-testing-mit-cypress#:~:text=Bei%20Cypress%20handelt%20es%20sich,dem%20DOM%20einer%20Web%2DAnwendung.
 
 \cite{Cypress}
 https://www.testautomatisierung.org/cypress/
+
+\cite{API_Tests}
+https://www.lucidchart.com/blog/de/api-tests-grundlagen-und-best-prectices
