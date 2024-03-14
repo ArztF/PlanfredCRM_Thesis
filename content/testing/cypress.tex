@@ -83,21 +83,72 @@ Die Installation von Cypress erfolgt meist über einen Paketmanager, hierbei kan
 Im Projektverzeichnis muss der Befehl:
 
 \begin{lstlisting}
-    npm install cypress --save-dev -> Für NPM
-    yarn add cypress --dev -> Für Yarn
+    npm install cypress --save-dev -> Fuer NPM
+    yarn add cypress --dev -> Fuer Yarn
 \end{lstlisting}
 
 ausgeführt werden.
 Nun sollte sich der Ordner "cypress" im Projektverzeichnis befinden. Dieser enthält mehrere Unterordner, welche jedoch nicht weiter relevant sind. Wenn alles installiert ist kann Cypress über den Befehl:
 
 \begin{lstlisting}
-    npx cypress open -> Für NPM
-    yarn run cypress open -> Für Yarn
+    npx cypress open -> Fuer NPM
+    yarn run cypress open -> Fuer Yarn
 \end{lstlisting}
 
 ausgeführt werden.
 
 \subsubsection{Erstellung eines simplen Testfalls}
+Im folgenden Testbeispiel wird überprüft ob die Projektsuchen funktioniert. Im ersten Schritt wird in die Suchleiste der Titel eingegeben. Danach wird anhand von den angezeigten Eigenschaften des Projekts überprüft, ob auch das richtige Projekt vom Such-Algorithmus gefunden wurde. 
+
+\begin{lstlisting}
+describe('Project template spec', () => {
+    beforeEach(() => {
+        cy
+            .FIXTURES_setupBasicProjects()
+
+})
+    
+    it('search for projects - title ', () => {
+        cy
+            .authenticateAs("test@domain.com")
+            .visit('projects')
+            .getId('email-search')
+            .type('1 Fixture-Project')
+            .get('[data-testid="email-search"] [data-testid="submit-search"]')
+            .click()
+            .getId('project-title-0')
+            .should('contain', 'Fixture-Project')
+            .getId('project-created-0')
+            .should('contain', '28.04.2017 02:17')
+            .getId('project-storage-0')
+            .should('contain', '5.74 MB')
+    })
+\end{lstlisting}
+
+Der Test beginnt mit einem "describe()" in diesem Block befindet sich eine kurze Zusammenfassung und der "beforeEach()" Block. Dieser wird vor jedem Test neu ausgeführt und lädt in diesem Fall die Testdaten aus den Fixtures.
+
+Der eigentliche Test beginnt dann beim "it()" Block. Als erstes Authentifiziert sich der User und besucht die Seite "projects". Danach sucht der nach der data-testid "email-search" wählt diese aus und schreibt in diese den Projekt Titel nach welchem gesucht werden soll. In weiterer Folge wird danach der Submit Button gedrückt und wieder mit einer data-testid nach den Eigenschaften des gefundenen Projekts geschaut.
+
+\subsubsection{Ausführung des Testfalls}
+
+Um den Testfall danach auszuführen muss der Testrunner zunächst mit dem Befehl:
+
+\begin{lstlisting}
+    npx cypress open -> Fuer NPM
+    yarn run cypress open -> Fuer Yarn
+\end{lstlisting}
+
+gestartet werden.
+Im Anschluss kann muss der richtige Test ausgewählt werden und es öffnet sich ein neues Fenster in dem der Test ausgeführt wird. Auf der rechten Seite des neuen Fensters befindet sich ein Vorschau Fenster durch welches man immer den aktuellen Status des Tests beobachten kann und auf der linken Seite wird genau dokumentiert welcher Schritt gerade ausgeführt wird.
+
+\subsection{Vor und Nachteile von Cypress}
+
+Die Intention der Entwickler von Cypress war es, das Testen im Browser zu vereinfache. Das Einbinden von Cypress in eine Applikation ist sehr einfach, es braucht keine extra Konfiguration. Auch das Verständnis der Sytnax ist sehr einfach. Ein großer Pluspunkt in Cypress ist, dass das warten auf DOM-Elemente mithilfe eines Mechanismus vereinfacht wurde. Funktionen wie "sleep" oder "wait" entfallen also. 
+FÜr die Entwicklung von Cypress Tests sind JavaScript Kenntnisse erforderlich. Dies ist auch die einzige vom Cypress unterstützte Sprache.
+
+
+
+
 
 
 \cite{Integration_von_Cypress}
