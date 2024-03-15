@@ -64,10 +64,24 @@ Grundsätzlich werden die Middleware-Headers als Sicherheitsmaßnahmen verwendet
 
         \cite{Helmet}
         https://helmetjs.github.io
-    \item \textbf{Sicherheitstest}
+    \item \textbf{No-Cache-Header}
         \newline
-        Bei diesen Tests wird sichergestellt, das keine externen Personen Zugriff auf geschützte Daten bekommen.
-    \item \textbf{Sicherheitstest}
-        \newline
-        Hierbei wird überprüft, ob die API korrekt entwickelt wurde und ob jeder Enpunkt problemlos funktioniert.
+        Im Caching Header werden die Caching-Rechtlagen für Client-Anfragen und Server Antworten festgelegt. Die Caching-Richtlinien bestimmen, wie die Ressource zwischengespeichert wird, wo sie zwischengespeichert wird und für welche Dauer sie zwischengespeichert werden kann, bevor sie abläuft. Der Cache Header besitzt ein "Expires" Property, dieses gibt an nach welchem Datum die Anfrage als abgelaufen gilt. Wenn dieser Wert sehr genau sein muss kann der Parameter "max-age" in Sekunden gesetzt werden.
+
+        In dieser Diplomarbeit wurde der No-Cache-Header folgendermaßen umgesetzt:
+
+        \begin{lstlisting}
+        module.exports = (req, res, next) => {
+            res.header({
+            'Cache-Control': 'public, max-age=0',
+            Expires: new Date(Date.now()).toUTCString()
+        })
+        next()
+        }
+        \end{lstlisting}
+
+        In diesem Fall wird das Property "Expires" auf das aktuelle Datum gesetzt, somit ist läuft der Cache im selben Moment ab und es wird nichts gecached.
+
+        \cite{No_Cache_Header}
+        https://reqbin.com/req/nodejs/doog8aai/http-headers-to-prevent-caching
 \end{itemize}

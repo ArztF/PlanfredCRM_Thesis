@@ -33,7 +33,60 @@ Zuerst wird ein Client angelegt:
 \begin{lstlisting}
 new postmark.ServerClient(config.postmark.apikey)
 \end{lstlisting}
-In der Config ist der API-Key definiert welcher benötigt wird um Postmarkt verwenden zu können
+In der Config ist der API-Key definiert welcher benötigt wird um Postmark verwenden zu können.
+
+Die Funktion "client.sendEmail()" braucht einige Parameter:
+
+\begin{itemize}
+    \item \textbf{From}
+        \newline
+        Hier wird die Absender E-Mail Adresse definiert. Diese kann beliebig gewählt werden.
+    \item \textbf{To}
+        \newline
+        In diesem Parameter wird die Empfänger E-Mail definiert.
+    \item \textbf{Subject}
+        \newline
+        Im Subject wird der Betreff des E-Mails definiert.
+    \item \textbf{HtmlBody}
+        \newline
+        Im HtmlBody wird der Inhalt in die E-Mail geschrieben. Dieser kann als HTML Code geschrieben werden.
+\end{itemize}
+
+
+Weiteres können noch andere Properties wie zum Beispiel Header, TextBody, oder Cc gesetzt werden:
+
+\begin{lstlisting}
+{
+  "From": "sender@example.com",
+  "To": "receiver@example.com",
+  "Cc": "copied@example.com",
+  "Bcc": "blank-copied@example.com",
+  "Subject": "Test",
+  "Tag": "Invitation",
+  "HtmlBody": "<b>Hello</b>",
+  "TextBody": "Hello",
+  "ReplyTo": "reply@example.com",
+  "Metadata": {
+      "Color":"blue",
+      "Client-Id":"12345"
+  },
+  "Headers": [
+    {
+      "Name": "CUSTOM-HEADER",
+      "Value": "value"
+    }
+  ],
+  "TrackOpens": true,
+  "TrackLinks": "HtmlOnly",
+  "MessageStream": "outbound"
+}
+\end{lstlisting}
+
+
+
+
+
+
 
 Mit der "mail" Funktion wird also eine Email versendet diese funktioniert einfach nur durch 
 \begin{lstlisting}
