@@ -1,11 +1,11 @@
-In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die Benutzerin zurück gegeben. Aufgrund von der Performance, werden bei allen Endpunkten nur die ersten 25 Objekte aus der Datenbank abgefragt und mit einem Button im Frontend, kann man die nachfolgenden 25 Benutzer nachladen. Folgende Endpunkte wurden dabei definiert und erledigen folgende Aufgaben:
+In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die Benutzerin zurückgegeben. Aufgrund von der Performance, werden bei allen Endpunkten nur die ersten 25 Objekte aus der Datenbank abgefragt und mit einem Button im Frontend, kann man die nachfolgenden 25 Benutzer nachladen. Folgende Endpunkte wurden dabei definiert und erledigen folgende Aufgaben:
 \begin{itemize}
     \item \textbf{/users-all}
         \newline
         Bei diesem Endpunkt werden alle Benutzer aus der Datenbank zurückgeliefert. Es gibt die Option die Benutzer nach Login-Datum bzw. ...... zu sortieren.
     \item \textbf{/users-search-email}
         \newline
-        Bei diesem Endpunkt werden ebenfalls standardmäßig alle Benutzer abgefragt, es gibt jedoch die Möglichkeit nach einer Email zu suchen. Dabei wird der eingegebene String ebenfalls als Übergabeparameter ans Backend übermittelt und dort überprüft, ob der String in der Email enthalten ist.
+        Bei diesem Endpunkt werden ebenfalls standardmäßig alle Benutzer abgefragt, es gibt jedoch die Möglichkeit nach einer E-Mail zu suchen. Dabei wird der eingegebene String ebenfalls als Übergabeparameter ans Backend übermittelt und dort überprüft, ob der String in der E-Mail enthalten ist.
     \item \textbf{/users-without-project}
         \newline
         Bei diesem Endpunkt werden alle Benutzer zurückgegeben, welche sich selbst registriert haben (eigene Entity in Collection) und kein eigenes Projekt haben (ebenfalls eigene Entity in Collection).
@@ -26,16 +26,16 @@ In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die 
         Bei diesem wird die ID ans Backend übergeben und der User mit dieser zurückgegeben.
     \item \textbf{/users-domain-search}
         \newline
-        Dies ist ein eigener Endpunkt bei welchem nur auf die Domain der Email-Adresse geschaut wird und auf einen Treffer überprüft wird.
+        Dies ist ein eigener Endpunkt, bei welchem nur auf die Domain der Email-Adresse geschaut wird und auf einen Treffer überprüft wird.
     \item \textbf{/users-secret-users}
         \newline
         Bei diesem Endpunkt werden alle Benutzer zurückgeliefert, welche keinen Zahlungsplan ausgewählt haben, jedoch trotzdem ein eigenes Projekt besitzen, in welchem in den letzten 30 Tagen ein Upload durchgeführt worden ist.
     \item \textbf{/users-domain-plan-search}
         \newline
-        Bei diesem Endpunkt können alle Benutzer zurückgegeben werden, die keinen Zahlungsplan aktiviert haben und einen bestimmten Teil in der Email haben.
+        Bei diesem Endpunkt können alle Benutzer zurückgegeben werden, die keinen Zahlungsplan aktiviert haben und einen bestimmten Teil in der E-Mail haben.
     \item \textbf{/changePlan/:id}
         \newline
-        Bei diesem Endpunkt kann man den Zahlungsplans eines Benutzer auf none stellen.
+        Bei diesem Endpunkt kann man den Zahlungsplans eines Benutzers auf none stellen.
     \item \textbf{/editPlan/:id}
         \newline
         Bei diesem Endpunkt kann man den Zahlungsplan individuell verändern. Man kann zum Beispiel den Speicherplatz verändern oder einen anderen vordefinierten Zahlungsplan auswählen.

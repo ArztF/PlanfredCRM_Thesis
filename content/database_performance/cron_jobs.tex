@@ -1,4 +1,4 @@
-Cron-Jobs sind automatisierte Aufgaben den in unixartigen Betriebssystemen, wie Linux, MacOS und Serverumgebungen ausgeführt werden können. Es gibt den sogenannten Cron-Daemon, welcher die Grundlagen für die Cron-Jobs bildet und im Hintergrund mitläuft. Dieser gibt die zeitlichen Impulse für die Aufgaben und führt diese zur angegebenen Zeit aus. Die Syntax um einen Cron-Job an einer bestimmten Uhrzeit zu starten ist wie folgt:
+Cron-Jobs sind automatisierte Aufgaben den in unixartigen Betriebssystemen, wie Linux, MacOS und Serverumgebungen ausgeführt werden können. Es gibt den sogenannten Cron-Daemon, welcher die Grundlagen für die Cron-Jobs bildet und im Hintergrund mitläuft. Dieser gibt die zeitlichen Impulse für die Aufgaben und führt diese zur angegebenen Zeit aus. Die Syntax, um einen Cron-Job an einer bestimmten Uhrzeit zu starten ist wie folgt:
 \cite{cron_jobs_basics}
 \newline
 \begin{lstlisting}
@@ -14,7 +14,7 @@ Der zweite Stern gibt an zu welcher Stunde der Befehl ausgeführt werden soll. D
 \newline
 Der erste Stern gibt die Minuten an und kann Zahlen von 0 bis 59 annehmen.
 \newline
-Es ist ebenfalss möglich die Sterne nicht durch Zahlen zu ersetzen, dies würde bedeuten, dass der Befehl jede Minute, jede Stunde, jeden Tag, jeden Monat oder jeden Wochentag ausgeführt werden würde. Möchte man den Befehl zum Beispiel jeden Tag um 8 und um 20 Uhr ausführen würde der Befehl wiefolgt aussehen:
+Es ist ebenfalls möglich die Sterne nicht durch Zahlen zu ersetzen, dies würde bedeuten, dass der Befehl jede Minute, jede Stunde, jeden Tag, jeden Monat oder jeden Wochentag ausgeführt werden würde. Möchte man den Befehl zum Beispiel jeden Tag um 8 und um 20 Uhr ausführen würde der Befehl wie folgt aussehen:
 \newline
 \begin{lstlisting}
 '0 8,20 * * *', <auszufuehrender Befehl>

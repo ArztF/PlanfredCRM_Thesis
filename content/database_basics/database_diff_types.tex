@@ -1,13 +1,12 @@
 \subsubsection{Relationale Datenbank}
-\newline
-Eine relationale Datenbank basiert auf einem relationalen Modell und stellt die Daten in einer Tabelle dar. Dabei ist jede Zeile in dieser Tabelle genau ein Datensatz, welcher mit einer eindeutigen ID (Schlüssel) versehen ist. Die Spalten der Tabelle stellen die Attribute dar, welche gespeichert werden können. Bei einer relationalen Datenbank sind die logischen Datenstrukturen, sprich die Datentabellen, Ansichten und Indizes, von den physischen Datenstrukturen getrennt. Dies ermöglicht es den Datenbankadministrator bzw. die Datenbankadministratorin physische Datenstrukturen zu verändern ohne dabei die logische Datenstruktur zu beeinträchtigen. 
+Eine relationale Datenbank basiert auf einem relationalen Modell und stellt die Daten in einer Tabelle dar. Dabei ist jede Zeile in dieser Tabelle genau ein Datensatz, welcher mit einer eindeutigen ID (Schlüssel) versehen ist. Die Spalten der Tabelle stellen die Attribute dar, welche gespeichert werden können. Bei einer relationalen Datenbank sind die logischen Datenstrukturen, sprich die Datentabellen, Ansichten und Indizes, von den physischen Datenstrukturen getrennt. Dies ermöglicht es den Datenbankadministrator bzw. die Datenbankadministratorin physische Datenstrukturen zu verändern, ohne dabei die logische Datenstruktur zu beeinträchtigen. 
 \newline
 Der wohl größte Vorteil einer relationalen Datenbank ist die \textbf{ACID-Eigenschaft}, dabei steht ACID für: \textbf{A}tomicity, \textbf{C}onsistency, \textbf{I}solation und \textbf{D}urability.
 
 \begin{itemize}
     \item \textbf{Atomicity}
         \newline
-        Atomicity beschreibt, dass entweder die Transaktion als ganzes durchgeführt wird, oder gar nicht. Das bedeutet, sollte ein Teil der Transaktion fehlerhaft sein, wird alles zurückgesetzt und nichts persistiert. Nur wenn alle Abschnitte der Transaktion erfolgreich waren, werden die Daten persistiert.
+        Atomicity beschreibt, dass entweder die Transaktion als Ganzes durchgeführt wird oder gar nicht. Das bedeutet, sollte ein Teil der Transaktion fehlerhaft sein, wird alles zurückgesetzt und nichts persistiert. Nur wenn alle Abschnitte der Transaktion erfolgreich waren, werden die Daten persistiert.
     \item \textbf{Consistency}
         \newline
        Consistency beschreibt den Zustand der Daten. Das Ziel einer relationalen Datenbank ist, dass diese immer im Konsistenten Zustand sind, das bedeutet, dass sie allen Regeln der Datenbank entsprechen und zu jeder Zeit und auf allen Instanzen (Kopien der Datenbank) dem neuesten Stand entsprechen.

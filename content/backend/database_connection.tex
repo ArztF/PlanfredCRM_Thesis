@@ -1,4 +1,4 @@
-Die Datenbankverbindung werden grundsätzlich beim Starten des Servers aufgebaut und erst wenn diese erfolgreich waren, wird der Server tatsächlich gestartet. Die Datenbankverbindung in express.js wird grundsätzlich wie folgt aufgebaut:
+Die Datenbankverbindung wird grundsätzlich beim Starten des Servers aufgebaut und erst wenn diese erfolgreich waren, wird der Server tatsächlich gestartet. Die Datenbankverbindung in express.js wird grundsätzlich wie folgt aufgebaut:
 \newline
 \begin{lstlisting}
     const client = new MongoClient(<Connection_String>)
@@ -14,9 +14,9 @@ Dazu wurde ein config-File erstellt in welchem die Connection-Strings der beiden
     \caption{Config-File}
     \label{fig:enter-label}
 \end{figure}
-Wie man in dem obigen Screenshot erkennen kann wurde ebenfalls noch die Möglichkeit implementiert durch auskommentieren des if-Statements auf eine Datenbank zuzugreifen, welche weniger Einträge enthält.
+Wie man in dem obigen Screenshot erkennen kann, wurde ebenfalls noch die Möglichkeit implementiert durch Auskommentieren des if-Statements auf eine Datenbank zuzugreifen, welche weniger Einträge enthält.
 \newline
-Anschließend wird in einem weiteren File dieses JSON importiert und eine Funktion erstellt in welcher wie im oben gezeigten Beispiel die Verbindung aufgebaut wird.
+Anschließend wird in einem weiteren File dieses JSON importiert und eine Funktion erstellt, in welcher wie im oben gezeigten Beispiel die Verbindung aufgebaut wird.
 \begin{lstlisting}
 async connect () {
     const client = new MongoClient(this.dbConfig.connectionString)

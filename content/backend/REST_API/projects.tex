@@ -1,11 +1,11 @@
-In diesem Endpunkt werden nur Projekt Objekte zurückgegeben, wie auch bei den User werden hier nur die ersten 25 Objekte geladen. Folgende Endpunkte wurden hier implementiert:
+In diesem Endpunkt werden nur Projekt Objekte zurückgegeben, wie auch bei den Usern werden hier nur die ersten 25 Objekte geladen. Folgende Endpunkte wurden hier implementiert:
 \begin{itemize}
     \item \textbf{projects-all}
         \newline
         Bei diesem Endpunkt werden alle Projekte abgerufen.
     \item \textbf{projects-deleted}
         \newline
-        Wenn ein Projekt vom Benutzer gelöscht wird, wird es nicht aus der Datenbank gelöscht sondern lediglich das Field "trashed" auf true gesetzt. Bei diesem Endpunkt werden daher alle gelöschten Projekte zurückgegeben, bei welchem trashed = true ist.
+        Wenn ein Projekt vom Benutzer gelöscht wird, wird es nicht aus der Datenbank gelöscht, sondern lediglich das Field "trashed" auf true gesetzt. Bei diesem Endpunkt werden daher alle gelöschten Projekte zurückgegeben, bei welchem trashed = true ist.
     \item \textbf{projects-search-title}
         \newline
         Bei diesem Endpunkt werden defaultmäßig alle Projekte angezeigt, man kann allerdings nach dem Titel suchen. Dabei wird ein String ans Backend übergeben und dort überprüft, ob er in der Collection vorkommt.

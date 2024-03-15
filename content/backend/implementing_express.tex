@@ -10,7 +10,7 @@ Dadurch wird die neueste, öffentliche Version von Express.js installiert und in
 \begin{verbatim}
 npm install
 \end{verbatim}
-alle hinzugefügten Modulen nachinstallieren können. Was man allerdings hierbei beachten muss, ist dass bei der Versionsnummer davor Standardmäßig ein \verb|^| gestzt wird. Dieses Zeichen bewirkt ein automatisches updaten der Version, falls eine neuere veröffentlicht worden ist. Da man dies allerdings in den meisten Fällen nicht haben möchte, da dadurch Funktionen auf einmal nicht mehr funktionieren können, hat dieses Projektteam diese Zeichen bei allen installierten Modulen entfernt und nimmt Updates manuell vor.
+alle hinzugefügten Module nachinstallieren können. Was man allerdings hierbei beachten muss, ist das bei der Versionsnummer davor Standardmäßig ein \verb|^| gesetzt wird. Dieses Zeichen bewirkt ein automatisches Updaten der Version, falls eine neuere veröffentlicht worden ist. Da man dies allerdings in den meisten Fällen nicht haben möchte, da dadurch Funktionen auf einmal nicht mehr funktionieren können, hat dieses Projektteam diese Zeichen bei allen installierten Modulen entfernt und nimmt Updates manuell vor.
 \newline
 \cite{installing_express_js}
 \newline
@@ -28,7 +28,7 @@ Da nun das Framework Express.js installiert ist, kann man beginnen den einfachst
         console.log(`Server is running on port ${port}`)
     })
 \end{lstlisting}
-Bei diesem Beispiel wird zu Beginn mit dem Befehl \textbf{require()} ein JavaScript File gelesen, ausgeführt und das Return-Objekt zurückgegeben. Anschließend wird dieses Objekt ausgeführt und als neue Variable gespeichert. Mit dieser Variable kann man nun den ersten Endpunkt definieren. In dem obigen Beispiel wird auf der Basis-URL \verb|(/)| Hello World zurück gegeben. Im letzten Schritt, wird der Server auf dem bereits definierten Port gestartet und gibt eine Nachricht auf der Konsole aus. Den Server startet man mit dem Befehl
+Bei diesem Beispiel wird zu Beginn mit dem Befehl \textbf{require()} ein JavaScript File gelesen, ausgeführt und das Return-Objekt zurückgegeben. Anschließend wird dieses Objekt ausgeführt und als neue Variable gespeichert. Mit dieser Variable kann man nun den ersten Endpunkt definieren. In dem obigen Beispiel wird auf der Basis-URL \verb|(/)| Hello World zurück gegeben. Im letzten Schritt wird der Server auf dem bereits definierten Port gestartet und gibt eine Nachricht auf der Konsole aus. Den Server startet man mit dem Befehl
 \begin{verbatim}
 node server.js
 \end{verbatim}
