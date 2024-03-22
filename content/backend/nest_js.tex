@@ -10,13 +10,13 @@ Nest.js ist ein auf NodeJS basierendes Framework, welches Typescript und Vanilla
 \newline
 "„Vanilla JavaScript“ ist ein Begriff, den Entwickler verwenden, um gewöhnliches JavaScript zu beschreiben. Er definiert die Verwendung der eingebauten JavaScript-Methoden und -Objekte ohne zusätzliche Frameworks oder Bibliotheken."
 \newline
-(vgl. \url{https://www.yuhiro.de/was-ist-vanilla-javascript/}; Stand 20.02.2024)
+(\url{https://www.yuhiro.de/was-ist-vanilla-javascript/}; Stand 20.02.2024)
 \newline
 Es kombiniert Elemente von Object Oriented Programming, Functional Programming und Functional Reactive Programming. Im Hintergrund verwendet Nest.js, Express.js als robustes HTTP-Server Framework, dadurch verfügt Nest über eine gewisse Abstraktionsebene.
 \cite{Nest_js_Introduction}
 
-\subsubsection{Controllers}
-Die Aufgabe eines Controllers besteht darin, requests der Applikation entgegenzunehmen und anschließend eine Response an den Client zurück zu liefern.
+\subsubsection{Controller}
+Die Aufgabe eines Controllers besteht darin, Requests der Applikation entgegenzunehmen und anschließend eine Response an den Client zurück zu liefern.
 
 \begin{figure}[h]
     \centering
@@ -28,7 +28,7 @@ Die Aufgabe eines Controllers besteht darin, requests der Applikation entgegenzu
 
 Eingehende Requests werden durch den Routing Mechanismus an den zuständigen Controller weitergeleitet, welcher nun auf den Request reagieren kann und eine dementsprechende Response an den Client sendet. Um einen Controller zu erstellen, werden Klassen und Decorators benötigt. Decorators stellen erforderliche Metadaten, für die jeweiligen Klassen zur Verfügung, dies ermöglicht es Nest, eine Routing-Map zu erstellen, um die Requests an die jeweilig zuständigen Controller weiterzuleiten.
 \newline
-Der @Controller Decorator ist nötig, um einen neuen Basiscontroller zu erstellen. In diesem Decorator kann man einen Pfad Prefix definieren, um ähnliche Pfade leichter zu gruppieren und dadurch Codeverdoppelungen zu vermeiden. In der Klasse, welche mit dem Controller Decorator definiert wurde, kann man nun folgende HTTP-Methoden erstellen:
+Der @Controller Decorator ist nötig, um einen neuen Basiscontroller zu erstellen. In diesem Decorator kann man einen Pfad Prefix definieren, um ähnliche Pfade leichter zu gruppieren und dadurch Codeverdoppelungen zu vermeiden. In dem, mit dem Controller Decorator defnierten, Klasse können folgende HTTP-Methoden erstellt werden:
 
 \begin{itemize}
     \item Get
@@ -55,7 +55,7 @@ export class UsersController {
 }
 \end{lstlisting}
 
-Der oben gezeigte Beispielcode stellt einen vereinfachten Controller dar, welcher einen GET-Endpoint besitzt. Dieser gibt in folgendem Fall, den oben definierten String zurück.
+Der oben gezeigte Beispielcode stellt einen vereinfachten Controller dar, welcher einen GET-Endpoint besitzt. Dieser gibt im vorliegenden Fall, den oben definierten String zurück.
 \cite{Nest_js_Controllers}
 
 
@@ -63,25 +63,25 @@ Der oben gezeigte Beispielcode stellt einen vereinfachten Controller dar, welche
 \begin{itemize}
     \item Leistungsstark
     \newline
-    Das Framework wurde so entwickelt, dass sich der Programmierer: in ausschließlich auf das Schreiben des Codes konzentrieren kann. Nest erledigt alle anderen Aspekte, wie zum Beispiel das Thema Sicherheit.
+    Das Framework wurde so entwickelt, dass sich die Programmiererin, der Programmierer ausschließlich auf das Schreiben des Codes konzentrieren kann. Nest erledigt alle anderen Aspekte, wie zum Beispiel das Thema Sicherheit.
     \item Syntax
     \newline
-    Die Syntax von Nest basiert auf dem Frontend Framework Angular, was es für Neulinge einfacher macht, sich in der Projektstruktur zurecht zu finden.
+    Die Syntax von Nest basiert auf dem Frontend Framework Angular. Dies macht es für Neulinge einfacher macht, sich in der Projektstruktur zurecht zu finden.
     \item Dokumentation
     \newline
     Die Dokumentation von Nest ist sehr detailliert und leicht zu verstehen.
     \item Typescript
     \newline
-    Durch die Kompatibilität mit Typescript, verringert es die Fehleranfälligkeit des Codes, da man im Typescript Kompiliefehler und Warnungen angezeigt bekommt.
+    Durch die Kompatibilität mit Typescript verringert sich die Fehleranfälligkeit des Codes, da man im Typescript Kompilierfehler und Warnungen angezeigt bekommt.
 \end{itemize}
 
 \subsubsection{Nachteile}
 \begin{itemize}
     \item Kompliziert für Anfänger
     \newline
-    Für Entwickler: innen die nicht mit Angular vertraut sind, kann das Erlernen von Nest durchaus Schwierigkeiten mit sich bringen.
+    Für Entwicklerinnen und Entwickler, die nicht mit Angular vertraut sind, kann das Erlernen von Nest durchaus Schwierigkeiten mit sich bringen.
     \item Kein Know-How in Unternehmen
     \newline
-    In Bezug auf diese Projektarbeit, ist einer der größten Nachteile für das Team, dass im Kooperationsunternehmen kein Know-How für Nest.js vorhanden ist, da dieses mit Express.js arbeitet.
+    In Bezug auf diese Projektarbeit ist einer der größten Nachteile für das Team, dass im Kooperationsunternehmen kein Know-How für Nest.js vorhanden ist, da dieses mit Express.js arbeitet.
 \end{itemize}
 \cite{Nest_js_Pros_Cons}

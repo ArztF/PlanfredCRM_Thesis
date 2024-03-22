@@ -1,17 +1,17 @@
-Um Cron-Jobs in diesem express.js Projekt zu implementieren muss man lediglich das NPM-Package \textbf{node-cron} installieren.
+Um Cron-Jobs in diesem express.js Projekt zu implementieren, muss man das NPM-Package \textbf{node-cron} installieren.
 \begin{verbatim}
 npm install node-cron
 \end{verbatim}
-Nach Abschluss der Installation wurde ein eigenes JavaScript File erstellt, in welchem das Cron-Modul importiert wird.
+Nach Abschluss der Installation wird das Cron-Modul in ein eigens erstelltes JavaScript File importiert.
 \begin{verbatim}
 const cron = require('node-cron')
 \end{verbatim}
-Mit der oben erstellen cron-Variable ist es nun möglich jegliche Cron-Jobs einzuplanen.
+Mit der oben erstellen cron-Variable ist es nun möglich, jegliche Cron-Jobs einzuplanen.
 \newline
 \begin{lstlisting}
 cron.schedule('0 22 * * *', <auszufuehrender Befehl>)
 \end{lstlisting}
-Dabei wurde im Zuge dieser Diplomarbeit ebenfalls noch ein if-Statement eingebaut, welches mittels .env Variablen überprüft, ob der Server gerade im sogenannten "production" Modus läuft. Falls das Backend also lokal gestartet wird, werden alle Cron-Jobs erneut ausgeführt, unabhängig von der eingeplanten Zeit. Im folgenden Codebeispiel sieht man die oben beschriebenen Funktionen.
+Dabei wird dieser Diplomarbeit ebenfalls noch ein if-Statement eingebaut, welches mittels .env Variablen überprüft, ob der Server gerade im sogenannten "production" Modus läuft. Falls das Backend lokal gestartet wird, werden alle Cron-Jobs erneut ausgeführt, unabhängig von der eingeplanten Zeit. Im folgenden Codebeispiel sieht man die oben beschriebenen Funktionen.
 \newline
 \begin{lstlisting}
 const cronJobs = async () => {

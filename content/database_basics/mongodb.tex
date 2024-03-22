@@ -6,7 +6,7 @@
     \label{fig:enter-label}
 \end{figure}
 
-\subsubsection{Grundlagen}
+\subsection{Grundlagen}
 MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungsentwicklung und Skalierung ausgelegt ist. Dabei gibt es drei verschiedene Möglichkeiten MongoDB zu verwenden: 
 \begin{itemize}
     \item \textbf{MongoDB Atlas}
@@ -14,7 +14,7 @@ MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungs
         Dieses ist ein Multi-Cloud Datenbankdienst, welcher das Deployen und Verwalten der Datenbank vereinfacht, aber gleichzeitig die Vielseitigkeit bietet, die zum Erstellen von leistungsstarken Anwendungen benötigt werden.
     \item \textbf{MongoDB Enterprise}
         \newline
-        Dies ist eine abonnementbasierte und selbstverwaltete Version von MongoDB und umfasst mehr Funktionen:
+        Dies ist eine abonnementbasierte und selbstverwaltete Version von MongoDB und umfasst mehrere Funktionen:
         \begin{itemize}
             \item \textbf{LDAP-Authentifizierung}
                 \newline
@@ -22,11 +22,11 @@ MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungs
                 \cite{ldap_auth}
             \item \textbf{Kerberos Authentifizierung}
                 \newline
-                Ist ein Sicherheitsprotkoll, welches mit dem KDC (Key Distribution Center) arbeitet, welches alle Clients, User und Dienste verwenden müssen, um zu authentifizieren. Außerdem wird beim Authentifizierungsprozess ein KDC-Ticket vergeben. Dieses Authentifizierungsverfahren ist die Standardmethode für das Betriebssystem Microsoft Windows.
+                Ist ein Sicherheitsprotkoll, welches mit dem KDC (Key Distribution Center) arbeitet, das alle Clients, User und Dienste verwenden müssen, um zu authentifizieren. Außerdem wird beim Authentifizierungsprozess ein KDC-Ticket vergeben. Dieses Authentifizierungsverfahren ist die Standardmethode für das Betriebssystem Microsoft Windows.
                 \cite{kerberos_auth}
             \item \textbf{Audit Events}
                 \newline
-                Audit-Events sind sicherheitsrelevante Ereignisse in einem System zum Beispiel ein Verstoß gegen Systemzugriffskontroll- oder Verantwortlichkeitssicherheitsrichtlinien und melden diese Verstöße an den System-Audit-Logger, welcher als Teil des Kernels ausgeführt wird. Es werden Name des Ereignisses, Erfolg oder Misserfolg und alle anderen ereignisspezifischen Informationen übermittelt.
+                Audit-Events sind sicherheitsrelevante Ereignisse in einem System zum Beispiel ein Verstoß gegen Systemzugriffskontroll- oder Verantwortlichkeitssicherheitsrichtlinien. Sie melden diese Verstöße an den System-Audit-Logger, welcher als Teil des Kernels ausgeführt wird. Übermittelt werden Name des Ereignisses, Erfolg oder Misserfolg und alle anderen ereignisspezifischen Informationen.
                 \cite{audit_events}
 \end{itemize}
     \item \textbf{MongoDB Community}
@@ -35,20 +35,20 @@ MongoDB ist eine dokumentenbasierte Datenbank, die für eine einfache Anwendungs
 \end{itemize}
 \cite{mongodb_basics}
 
-\subsubsection{Aufbau der Datenbank}
+\subsection{Aufbau der Datenbank}
 Die Datenbank ist in folgende Teile unterteilt:
 
 \begin{itemize}
     \item \textbf{Fields}
         \newline
-        Dies sind die kleinste Einheit in der Datenstruktur und würden in einer relationalen Datenbank einer Entität entsprechen.
+        Dies sind die kleinsten Einheiten in der Datenstruktur und entsprechen in einer relationalen Datenbank einer Entität.
     \item \textbf{Documents}
         \newline
         Documents entsprechen in einer relationalen Datenbank einem Datensatz und werden mittels BSON (Binary JSON) kodiert. Im Vergleich zu JSON ist es allein durch die visuelle Inspektion der beiden Formate nicht möglich, einen Unterschied festzustellen, da BSON auf dem JSON-Format aufbaut.
         \newline
-        Der entscheidende Unterschied zwischen BSON und JSON liegt darin, dass BSON zusätzliche Datenformate wie Datumswerte und Binärdaten unterstützt. Dies wird durch kodierte Typ- und Längeninformationen ermöglicht, was wiederum zu einer erheblichen Leistungssteigerung beim Durchlaufen des Datensatzes führt. Die Integration von BSON ermöglicht es auch, Arrays und andere Dokumente effizient in diese Datensätze einzufügen.
+        Der entscheidende Unterschied zwischen BSON und JSON liegt darin, dass BSON zusätzliche Datenformate, wie Datumswerte und Binärdaten, unterstützt. Dies wird durch kodierte Typ- und Längeninformationen ermöglicht, was wiederum zu einer erheblichen Leistungssteigerung beim Durchlaufen des Datensatzes führt. Die Integration von BSON ermöglicht auch, Arrays und andere Dokumente effizient in diese Datensätze einzufügen.
         \newline
-        Der Vorteil von "Documents" sind:
+        Die Vorteile von "Documents" sind:
         \begin{itemize}
             \item Dokumente entsprechen in einigen Programmiersprachen nativen Datentypen
             \item Die Einbindung von Arrays und Documents vermeidet aufwendige JOINS
@@ -69,21 +69,21 @@ Die Datenbank ist in folgende Teile unterteilt:
             {"username": "admin", "firstname": "John"}
             {"lastname": "Doe"}
         \end{lstlisting}
-        Man könnte also ausschließlich mit einer einzigen Collection arbeiten und in diese alle Datensätze speichern, man würde allerdings ziemlich schnell an seine Grenzen stoßen.
+        Man könnte also ausschließlich mit einer einzigen Collection arbeiten und in diese alle Datensätze speichern. Man würde allerdings ziemlich schnell an seine Grenzen stoßen.
     \item \textbf{Cluster}
         \newline
-        In einem Cluster sind alle Server der Datenbank gespeichert in denen sich die Collections befinden. Diese Cluster können Replica Sets sein, also Kopien aller Daten, oder Sharded-Cluster sein. Zu diesem Cluster wird im Laufe dieses Kapitels noch genauer eingegangen.
+        In einem Cluster sind alle Server der Datenbank gespeichert, in denen sich die Collections befinden. Diese Cluster können Replica Sets, also Kopien aller Daten, oder Sharded-Cluster sein. Auf dieses Cluster wird im Laufe dieses Kapitels noch genauer eingegangen.
         \cite{mongodb_collections}
 \end{itemize}
 
-\subsubsection{Skalierung}
-Die die Anzahl der Daten, die gespeichert werden im Laufe der Zeit immer weiter anwächst, ist es wichtig seine Datenbank einfach skalieren zu können. 
+\subsection{Skalierung}
+Da die Anzahl der Daten, die im Laufe der Zeit gespeichert werden, immer weiter anwächst, ist es wichtig, eine Datenbank einfach skalieren zu können. 
 
 \subsubsection{Horizontale Skalierung}
-MongoDB wurde auf die horizontale Skalierung ausgelegt. Dazu müssen neue Maschinen (Server) dazugekauft werden, auf denen anschließend die Daten verteilt werden. Durch das dokumentenbasierte Datenmodell ist es wesentlich einfacher die Daten auf verschiedene Maschinen zu verteilen, dabei achtet MongoDB selbst darauf, dass alle Server annähernd gleich ausgelastet sind. Dazu werden Daten auch von einem Server auf einen anderen Server verschoben. Dazu verwendet MongoDB Shard-Schlüssel, welcher als Field in den Documents gespeichert wird, und dient dazu die Documents in den Collections zu verteilen.
+MongoDB ist auf die horizontale Skalierung ausgelegt. Dazu müssen neue Maschinen (Server) angekauft werden, auf denen anschließend die Daten verteilt werden. Durch das dokumentenbasierte Datenmodell ist es wesentlich einfacher, die Daten auf verschiedene Maschinen zu verteilen. Dabei achtet MongoDB selbst darauf, dass alle Server annähernd gleich ausgelastet sind. Dazu werden Daten auch von einem Server auf einen anderen Server verschoben. MongoDB verwendet einen Shard-Schlüssel, welcher als Field in den Documents gespeichert wird, und damit die Documents in den Collections verteilt.
 \cite{mongodb_collections}
 
-Wie in der untenstehenden Grafik zu sehen, wird hier von "Shards" gesprochen. Das sogenannte Sharding stammt aus der Welt der traditionellen Datenbanken und beschreibt das Zerteilen einer großen Datenbank in mehrere kleine. Die neu entstandenen kleinen Datenbanken nennt man Shards. Der Vorteil dieser Methode sind schnellere Schreib- und Lesezugriffe, da alle Shards in einem Cluster diese Befehle ausführen, wodurch ein hoher Grad der Parallelität erreicht wird.
+Wie in der untenstehenden Grafik zu sehen, wird hier von "Shards" gesprochen. Das sogenannte Sharding stammt aus der Welt der traditionellen Datenbanken und beschreibt das Zerteilen einer großen Datenbank in mehrere kleine. Die neu entstandenen kleinen Datenbanken nennt man Shards. Vorteil dieser Methode liegen in schnelleren Schreib- und Lesezugriffen, da alle Shards in einem Cluster diese Befehle ausführen, wodurch ein hoher Grad der Parallelität erreicht wird.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{pics/vertical_scaling_mongodb.png}
@@ -106,7 +106,7 @@ MongoDB unterstützt zwei unterschiedliche Sharding-Methoden:
         \end{figure}
     \item \textbf{Ranged Sharding}
         \newline
-        Bei dieser Methode werden die Daten aufgrund der Shard Schlüsselwerten in Bereiche unterteilt. Anschließend wird auf Basis der Shard-Schlüsselwerte jedem Chunk ein entsprechender Bereich zugewiesen.
+        Bei dieser Methode werden die Daten aufgrund der Shard Schlüsselwerte in Bereiche unterteilt. Anschließend wird auf Basis dieser Werte jedem Chunk ein entsprechender Bereich zugewiesen.
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.5\textwidth]{pics/ranged_sharding.png}
@@ -117,17 +117,17 @@ MongoDB unterstützt zwei unterschiedliche Sharding-Methoden:
 \end{itemize}
 
 \subsubsection{Vertikale Skalierung}
-Es gibt allerdings auch die Möglichkeit eine MongoDB Datenbank vertikal zu Skalieren. Dabei wird die Kapazität eines einzigen Servers gesteigert, indem man eine stärkere CPU, mehr RAM oder mehr Speicherplatz einbaut. In diesem Fall ist man allerdings an den technologischen Fortschritt angewiesen und es ist nicht unendlich möglich diese Skalierungsvariante zu verwenden. Des Weiteren ist in den meisten Fällen eine horizontale Skalierung wesentlich kosteneffizienter als eine vertikale.
+Es gibt allerdings auch die Möglichkeit eine MongoDB Datenbank vertikal zu skalieren. Dabei wird die Kapazität eines einzigen Servers gesteigert, indem man eine stärkere CPU, mehr RAM oder mehr Speicherplatz einbaut. In diesem Fall ist man allerdings auf den technologischen Fortschritt angewiesen und es ist nicht unendlich möglich, diese Skalierungsvariante zu verwenden. Des Weiteren ist in den meisten Fällen eine horizontale Skalierung wesentlich kosteneffizienter als eine vertikale.
 \cite{mongodb_sharding}
 
-\subsubsection{Abfragen in MongoDB}
-Dadurch, dass MongoDB keine relationale Datenbank ist, sehen die Abfragen auch anders aus wie bei SQL-basierte Datenbanken. In diesem Abschnitt wird auf die grundlegenden Abfragen in Kombination mit einem JavaScript Backend eingegangen. Bevor man allerdings mit den Abfragen beginnen kann, muss man zuerst eine Verbindung zur Datenbank aufbauen. Im untenstehenden Beispiel ist gezeigt wie dieser Verbinungsaufbau im Fall eines express.js Backends funktioniert.
+\subsection{Abfragen in MongoDB}
+Dadurch, dass MongoDB keine relationale Datenbank ist, sehen die Abfragen auch anders aus wie bei SQL-basierten Datenbanken. In diesem Abschnitt wird auf die grundlegenden Abfragen in Kombination mit einem JavaScript Backend eingegangen. Bevor man allerdings mit den Abfragen beginnen kann, muss man zuerst eine Verbindung zur Datenbank aufbauen. Im untenstehenden Beispiel ist gezeigt, wie dieser Verbindungsaufbau im Fall eines express.js Backends funktioniert.
 \begin{lstlisting}
     const client = new MongoClient('<connection_string>')
     const result = client.connect()
     const db = result.db('<collection_name>')
 \end{lstlisting}
-Da nun die Verbindung zur Datenbank besteht und eine Collection ausgewählt wurde (Zeile 3, obiger Codesnippet) kann man mit den Abfragen beginnen.
+Nach dem Aufbau der Verbindung zur Datenbank und der Auswahl einer Collection (Zeile 3, obiger Codesnippet), kann man mit den Abfragen beginnen.
 \newline
 Möchte man aus einer Collection, Documents abfragen, gibt es zwei verschiedene Varianten, dies zu machen. Sind "einfache" Abfragen, wie zum Beispiel vergleiche von einzelnen oder mehreren Fields notwendig, benötigt es die "find"-Methode. In der "find"-Methode kann man die Query, in Form eines Objekts übergeben, lässt man es allerdings leer, werden alle Documents aus der Collection zurückgegeben.
 \begin{lstlisting}
@@ -138,24 +138,24 @@ Möchte man aus einer Collection, Documents abfragen, gibt es zwei verschiedene 
         }
     ).toArray()
 \end{lstlisting}
-Wie im obigen Beispiel zu sehen ist, benötigt es nach der find-Methode eine weitere Methode, um das Ergebnis anzeigen zu können. Von diesen Methoden gibt es mehrere, anbei sind die zu finden, welche in dieser Diplomarbeit verwendet wurden.
+Wie im obigen Beispiel zu sehen ist, benötigt es nach der find-Methode eine weitere Methode, um das Ergebnis anzeigen zu können. Es gibt mehrere Methoden, folgende werden in dieser Diplomarbeit verwendet.
 \begin{center}
     \begin{tabular}{ | m{3cm} | m{2.3cm}| m{8cm} | } 
         \hline
         Name & Übergabetyp & Beschreibung \\ [0.5ex] 
         \hline\hline
-        limit & number & Limitiert Documents die zurückgegeben werden \\
+        limit & number & Limitiert Documents, die zurückgegeben werden \\
         \hline
         sort & object & Sortiert Documents nach Field z.B. \{'<field>': 1\} \\
         \hline
-        project & object & Fields die zurückgegeben werden \\
+        project & object & Fields, die zurückgegeben werden \\
         \hline
         skip & number & Überspringt n Documents \\
         \hline
     \end{tabular}
 \end{center}
 \cite{mongodb_query_methods}
-Es können noch andere Methoden definiert werden, weitere Methoden sind im folgenden Link zu finden.
+Es können noch andere Methoden definiert werden, weitere Methoden sind im folgenden Link zu finden:
 \newline
 \url{https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#find}
 \newline
@@ -202,7 +202,7 @@ Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren 
 \end{center}
 \cite{mongodb_query_operations}
 \newline
-Die Syntax, um oben dargestellten Befehle zu verwenden sieht wie folgt aus:
+Die Syntax, um oben dargestellte Befehle zu verwenden, sieht wie folgt aus:
 \newline
 \begin{lstlisting}
     const res = await db.collection.find(
@@ -222,17 +222,17 @@ Die Syntax, um oben dargestellten Befehle zu verwenden sieht wie folgt aus:
 \end{lstlisting}
 \cite{mongodb_query_basics}
 \newline
-Möchte man nun allerdings nicht nur "einfache" Vergleichsabfragen durchführen, sondern möchte Documents gruppieren, oder einen Join auf eine andere Collection machen, benötigt man die Aggregation-Operation. Diese Operationen verarbeiten mehrere Documents, aus verschiedenen Collections, und können Berechnungen dieser Documents zurückgeben. Es gibt zwei verschiedene Arten von Aggregation-Operationen:
+Möchte man allerdings nicht nur "einfache" Vergleichsabfragen durchführen, sondern Documents gruppieren, oder einen Join auf eine andere Collection machen, benötigt man die Aggregation-Operation. Diese Operationen verarbeiten mehrere Documents, aus verschiedenen Collections, und können Berechnungen dieser Documents zurückgeben. Es gibt zwei verschiedene Arten von Aggregation-Operationen:
 \begin{itemize}
     \item \textbf{Aggregation Pipelines}
         \newline
          Eine Aggregation-Pipeline besteht aus einem oder mehreren Phasen, welche die Documents durchlaufen:
         \begin{itemize}
             \item In jeder Phase wird eine Operation an dem Document durchgeführt.
-            \item Die Documents welche von einer Phase ausgegeben werden, werden an die nächste Phase übergeben.
+            \item Die Documents, welche von einer Phase ausgegeben werden, werden an die nächste Phase übergeben.
             \item Gibt ein gruppiertes Ergebnis zurück, in dem man ein Minimum, Maximum, Durchschnitt oder Gesamtergebnis berechnen kann.
         \end{itemize}
-        Im folgenden Beispiel wird eine Aggregation gezeigt, welche aus zwei Phasen besteht. Dabei filtert die erste Phase die Bestellungen nach ihrer Größe und gibt alle Bestellungen an die nächste Phase weiter, welche die Größe Medium besitzen. In der zweiten Phase werden die übergeben Documents gruppiert und die Anzahl summiert.
+        Im folgenden Beispiel wird eine Aggregation gezeigt, welche aus zwei Phasen besteht. Die erste Phase filtert die Bestellungen nach ihrer Größe und gibt alle Bestellungen an die nächste Phase weiter, welche die Größe Medium besitzen. In der zweiten Phase werden die übergeben Documents gruppiert und die Anzahl summiert.
         \begin{lstlisting}
             db.orders.aggregate( [
                 // Phase 1
@@ -275,10 +275,10 @@ Zwei weitere wichtige Anforderungen in diesem Projekt waren zum einen, dass JOIN
      }
 }
 \end{lstlisting}
-Dabei wird bei "from" die Collection angegeben mit der, der JOIN durchgeführt werden soll. Das "localField" beschreibt das Field aus der ursprünglichen Collection, welches für den JOIN verwendet werden soll und das "foreignField" beschreibt das Field der anderen Collection. Lookup führt dabei einen Vergleichscheck zwischen den beiden Feldern durch. Falls ein Input dieses Field nicht enthält, wird der Wert als NULL gewertet und mit diesem der Vergleich durchgeführt. Das "as" Feld gibt den Namen an, in welches das gejointe Array gespeichert wird.
+Dabei wird bei "from" die Collection angegeben, mit der der JOIN durchgeführt werden soll. Das "localField" beschreibt das Field aus der ursprünglichen Collection, welches für den JOIN verwendet werden soll. Das "foreignField" beschreibt das Field der anderen Collection. Lookup führt dabei einen Vergleichscheck zwischen den beiden Feldern durch. Falls ein Input dieses Field nicht enthält, wird der Wert als NULL gewertet und mit diesem der Vergleich durchgeführt. Das "as" Feld gibt den Namen an, in welches das gejointe Array gespeichert wird.
 \cite{mongodb_aggregation_lookup}
 \newline
-Das Eliminieren von Daten aus einem Array, wurde in diesem Fall für eine Abfrage benötigt in dem ermittelt werden musste, wie viele Projekte ein Benutzer besitzt und wie hoch der verbrauchte Speicherplatz ist. Da die Teilnehmer eines Projektes, einschließlich des Projektbesitzers, in einem Array-Field "participants" gespeichert ist, war es notwendig alle anderen Teilnehmer aus diesem Array zu löschen und nur den Benutzer mit der Rolle "owner" in diesem Array zu belassen. Dies wurde wie folgt gelöst:
+Das Eliminieren von Daten aus einem Array wird in diesem Fall für eine Abfrage benötigt in dem ermittelt wird, wie viele Projekte ein Benutzer besitzt und wie hoch der verbrauchte Speicherplatz ist. Da die Teilnehmer eines Projektes, einschließlich des Projektbesitzers, in einem Array-Field "participants" gespeichert ist, ist es notwendig, alle anderen Teilnehmer aus diesem Array zu löschen und nur den Benutzer mit der Rolle "owner" in diesem Array zu belassen. Dies ist wie folgt gelöst:
 \begin{lstlisting}
 const projects = await collection.aggregate([
     {
@@ -320,20 +320,20 @@ const projects = await collection.aggregate([
     }
   ]).toArray()
 \end{lstlisting}
-In diesem Beispiel wurden sich die unterschiedlichen Phasen zu Nutze gemacht.
+In diesem Beispiel werden die unterschiedlichen Phasen genutzt.
 \begin{itemize}
     \item \textbf{1. Phase}
         \newline
-        In dieser Phase werden die Projekte zuerst gefiltert und nur die Projekte in die nächste Phase übergeben, die noch nicht gelöscht worden sind.
+        In dieser Phase werden die Projekte zuerst gefiltert und nur jene Projekte in die nächste Phase übergeben, die noch nicht gelöscht worden sind.
     \item \textbf{2. Phase}
         \newline
         In dieser Phase wird das Feld "participants" mithilfe der \textbf{\$filter-Operation} gefiltert. Innerhalb dieser Operation ist es erforderlich, im "input"-Feld ein Feld anzugeben, das gefiltert werden soll, und ein Array ist. Das "as"-Feld ist optional und bezeichnet den Namen der Variable, die jedes einzelne Objekt nacheinander im Array repräsentiert. Im Feld "cond" muss die Bedingung spezifiziert werden, unter der das Objekt im Array beibehalten wird. In diesem speziellen Fall muss das Feld "permission" den Wert "owner" aufweisen. Man könnte auch noch das Feld "limit" definieren, welches die Treffer der Kondition limitiert und nur die angegebene Anzahl im Array belässt.
     \item \textbf{3. Phase}
         \newline
-        In dieser Phase wird das neu produzierte Array aus der vorherigen Phase aufgelöst und als neues Field in das Document gespeichert und an die nächste Phase übergeben.
+        In dieser Phase wird das neu produzierte Array aus Phase 2 aufgelöst, als neues Field in das Document gespeichert und an die nächste Phase übergeben.
     \item \textbf{4. Phase}
         \newline
-        Das übergebene Array aus der vorherigen Phase wird nun mit der \textbf{\$group} Operation nach dem Projektbesitzer gruppiert und der verwendete Speicherplatz aller seiner Projekte zusammengezählt.
+        Das übergebene Array aus Phase 3 wird nun mit der \textbf{\$group} Operation nach dem Projektbesitzer gruppiert und der verwendete Speicherplatz aller seiner Projekte zusammengezählt.
     \item \textbf{5. Phase}
         \newline
         In der letzten Phase wird ein JOIN auf die User Collection durchgeführt, um alle Benutzerdaten in das Field "user\_details" gespeichert.

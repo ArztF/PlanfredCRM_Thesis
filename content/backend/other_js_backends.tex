@@ -1,12 +1,12 @@
 Im Zuge dieser Diplomarbeit standen lediglich die zwei oben genannten Frameworks zur Auswahl, in der Node.js Welt gibt es allerdings noch weitere Frameworks, welche im folgenden Kapitel kurz erläutert werden.
 
 \subsubsection{Hapi.js}
-Bei diesem Framework handelt es sich um ein Open-Source Node.js Backend, welches sehr ähnlich zu express.js ist. Der wohl größte Unterschied zwischen den beiden ist, dass man bei express.js Middlewares benötigt, um Objekte zu parsen, allerdings bei Hapi.js nicht benötigt wird. Weitere Unterschiede sind, dass Hapi.js eine konfigurationszentrierte Struktur und vorgefertigte Cache- und Authentifizierungsfunktionen bietet. Bei den integrierten Autorisierungsschmeta kann man zwischen folgenden auswählen:
+Bei diesem Framework handelt es sich um ein Open-Source Node.js Backend, welches sehr ähnlich zu Express.js ist. Der wohl größte Unterschied zwischen den beiden ist, dass man bei Express.js Middlewares benötigt, um Objekte zu parsen, die allerdings bei Hapi.js nicht benötigt werden. Weitere Unterschiede sind, dass Hapi.js eine konfigurationszentrierte Struktur und vorgefertigte Cache- und Authentifizierungsfunktionen bietet. Bei den integrierten Autorisierungsschemata kann man zwischen Folgenden auswählen:
 \begin{itemize}
-    \item anonyme
-    \item basisiauthentifizierung
-    \item cookie-basiert
-    \item tokenbasiert
+    \item anonyme Authentifizierung
+    \item basisi Authentifizierung
+    \item cookie-basiert Authentifizierung
+    \item tokenbasiert Authentifizierung
 \end{itemize}
 Des Weiteren bietet dieses Framework client- und serverseitiges Caching über Catbox.
 \newline
@@ -26,10 +26,10 @@ Des Weiteren bietet dieses Framework client- und serverseitiges Caching über Ca
 \begin{itemize}
     \item Kompatibilität
         \newline
-        Manche Hapi-Module sind nicht mit anderen Backend-Frameworks, wie zum Beispiel express.js kompatibel.
+        Manche Hapi-Module sind nicht mit anderen Backend-Frameworks, wie zum Beispiel Express.js, kompatibel.
     \item Testen
         \newline
-        Das Testen von Endpunkten muss manuell erfolgen, da dieses Framework über kaum Automatisierung verfügt.
+        Das Testen von Endpunkten muss manuell erfolgen, da dieses Framework kaum über Automatisierung verfügt.
 \end{itemize}
 \cite{backend_hapi}
 
@@ -46,9 +46,9 @@ Beim Erstellen von einer neuen Meteor Applikation, wird standardmäßig ein HTML
     \item Vue.js
     \item Svelte
     \item Tailwind CSS
-    \item Electron ...
+    \item Electron
 \end{itemize}
-Für alle kompatiblen Plattformen siehe \url{https://www.meteor.com/}
+Dies sind nicht alle kompatiblen Plattformen, für eine ausführlichere Auflistung siehe: \url{https://www.meteor.com/}
 \newline
 \textbf{Vorteile}
 \begin{itemize}
@@ -68,16 +68,16 @@ Full-Stack Framework steht sowohl als Vor- und Nachteil, da dies in manchen Fäl
 Es gibt auch außerhalb der Nodes.js Welt Backend-Frameworks, die eine durchaus überlegenswerte Alternative darstellen würde.
 
 \subsubsection{Laravel}
-Ist ein PHP basiertes Backend Framework, welches auf dem Symfony Framework aufbaut und daher über einige gut getestete Komponente verfügt. Des Weiteren verfügt es über eine eingebaute CLI (command line interface), über welches man Code generieren oder Tasks aufrufen kann. Es verfügt ebenfalls über ein eingebautes routing-System und einem ORM (object relational mapping), wodurch man mit der Datenbank mittels PHP-Objekten kommunizieren kann, anstatt SQL-Abfragen zu schreiben.
+Ist ein PHP basiertes Backend Framework, welches auf dem Symfony Framework aufbaut und daher über einige gut getestete Komponenten verfügt. Des Weiteren kann man über eine eingebaute CLI (command line interface), Code generieren und/oder Tasks aufrufen. Es verfügt ebenfalls über ein eingebautes routing-System und einem ORM (object relational mapping), wodurch man mit der Datenbank mittels PHP-Objekten kommunizieren kann, anstatt SQL-Abfragen zu schreiben.
 \newline
 \textbf{Vorteile}
 \begin{itemize}
     \item Testen
         \newline
-        Durch das eingebaute Framework PHPUnit ist das automatische Testen vom Programmcode wesentlich vereinfacht. Mit der Funktion "mocking" ist es des Weiteren möglich unterschiedliche Szenarien zu testen.
+        Durch das eingebaute Framework PHPUnit ist das automatische Testen vom Programmcode wesentlich vereinfacht. Mit der Funktion "mocking" ist es möglich unterschiedliche Szenarien zu testen.
     \item Syntax
         \newline
-        Bietet eine klare und ausdrucksstarke Syntax, was das Schreiben und Lesen von Code vereinfacht.
+        Bietet eine klare und ausdrucksstarke Syntax, wodurch das Schreiben und Lesen von Code vereinfacht wird.
     \item MVC-Architektur
         \newline
         Nutzt das Model-View-Controller (MVC) Prinzip, wodurch Datenmodell, Präsentationsschicht und Anwendungslogik klar voneinander getrennt sind.

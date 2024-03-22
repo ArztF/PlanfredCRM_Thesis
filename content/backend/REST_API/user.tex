@@ -1,14 +1,14 @@
-In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die Benutzerin zurückgegeben. Aufgrund von der Performance, werden bei allen Endpunkten nur die ersten 25 Objekte aus der Datenbank abgefragt und mit einem Button im Frontend, kann man die nachfolgenden 25 Benutzer nachladen. Folgende Endpunkte wurden dabei definiert und erledigen folgende Aufgaben:
+In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die Benutzerin zurückgegeben. Aufgrund von der Performance, werden bei allen Endpunkten nur die ersten 25 Objekte aus der Datenbank abgefragt. Mit einem Button im Frontend kann man die nachfolgenden 25 Benutzer nachladen. Folgende Endpunkte wurden dabei definiert und erledigen folgende Aufgaben:
 \begin{itemize}
     \item \textbf{/users-all}
         \newline
-        Bei diesem Endpunkt werden alle Benutzer aus der Datenbank zurückgeliefert. Es gibt die Option die Benutzer nach Login-Datum bzw. ...... zu sortieren.
+        Bei diesem Endpunkt werden alle Benutzer aus der Datenbank zurückgeliefert. Es gibt die Option, die Benutzer nach Login-Datum bzw. ...... zu sortieren.
     \item \textbf{/users-search-email}
         \newline
-        Bei diesem Endpunkt werden ebenfalls standardmäßig alle Benutzer abgefragt, es gibt jedoch die Möglichkeit nach einer E-Mail zu suchen. Dabei wird der eingegebene String ebenfalls als Übergabeparameter ans Backend übermittelt und dort überprüft, ob der String in der E-Mail enthalten ist.
+        Bei diesem Endpunkt werden ebenfalls standardmäßig alle Benutzer abgefragt, es gibt jedoch die Möglichkeit nach einer E-Mail zu suchen. Dabei wird der eingegebene String ebenfalls als Übergabeparameter an das Backend übermittelt und dort überprüft, ob der String in der E-Mail enthalten ist.
     \item \textbf{/users-without-project}
         \newline
-        Bei diesem Endpunkt werden alle Benutzer zurückgegeben, welche sich selbst registriert haben (eigene Entity in Collection) und kein eigenes Projekt haben (ebenfalls eigene Entity in Collection).
+        Bei diesem Endpunkt werden alle Benutzer zurückgegeben, welche sich selbst registriert (eigene Entity in Collection) und kein eigenes Projekt haben (ebenfalls eigene Entity in Collection).
     \item \textbf{/users-storage-exceeded}
         \newline
         Bei diesem Endpunkt werden alle Benutzer ermittelt, welche mit ihren eigenen Projekten den gebuchten Speicherplatz überschritten haben.
@@ -17,16 +17,16 @@ In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die 
         Bei diesem Endpunkt werden alle Benutzer zurückgegeben, welche noch keinen Zahlungsplan ausgewählt haben oder lediglich die Benutzer, welche einen Zahlungsplan ausgewählt haben. Diese Unterscheidung wird ebenfalls mit einem Übergabeparameter gelöst.
     \item \textbf{/users-deleted}
         \newline
-        Grundsätzlich ist wichtig zu erwähnen, dass wenn ein Benutzer seinen Account eigenständig löscht, dieser nicht komplett aus der Datenbank entfernt wird, sondern eine Entity in der Collection auf true gesetzt wird. Deshalb werden bei diesem Endpunkt alle Benutzer angezeigt, welche ihren Account gelöscht haben.
+        Grundsätzlich ist wichtig zu erwähnen, dass, wenn ein Benutzer seinen Account eigenständig löscht, dieser nicht komplett aus der Datenbank entfernt wird, sondern eine Entity in der Collection auf true gesetzt wird. Deshalb werden bei diesem Endpunkt alle Benutzer angezeigt, welche ihren Account gelöscht haben.
     \item \textbf{/users-full-text-search}
         \newline
         Bei diesem Endpunkt werden alle Entitäten der Collection untersucht und auf einen Treffer geprüft und anschließend ans Frontend gesendet.
     \item \textbf{/users-search-id}
         \newline
-        Bei diesem wird die ID ans Backend übergeben und der User mit dieser zurückgegeben.
+        Hier wird die ID an das Backend übergeben und der User mit dieser zurückgegeben.
     \item \textbf{/users-domain-search}
         \newline
-        Dies ist ein eigener Endpunkt, bei welchem nur auf die Domain der Email-Adresse geschaut wird und auf einen Treffer überprüft wird.
+        Dies ist ein eigener Endpunkt, bei welchem nur auf die Domain der Email-Adresse auf einen Treffer überprüft wird.
     \item \textbf{/users-secret-users}
         \newline
         Bei diesem Endpunkt werden alle Benutzer zurückgeliefert, welche keinen Zahlungsplan ausgewählt haben, jedoch trotzdem ein eigenes Projekt besitzen, in welchem in den letzten 30 Tagen ein Upload durchgeführt worden ist.

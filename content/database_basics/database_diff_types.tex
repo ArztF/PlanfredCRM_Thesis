@@ -1,15 +1,15 @@
-\subsubsection{Relationale Datenbank}
-Eine relationale Datenbank basiert auf einem relationalen Modell und stellt die Daten in einer Tabelle dar. Dabei ist jede Zeile in dieser Tabelle genau ein Datensatz, welcher mit einer eindeutigen ID (Schlüssel) versehen ist. Die Spalten der Tabelle stellen die Attribute dar, welche gespeichert werden können. Bei einer relationalen Datenbank sind die logischen Datenstrukturen, sprich die Datentabellen, Ansichten und Indizes, von den physischen Datenstrukturen getrennt. Dies ermöglicht es den Datenbankadministrator bzw. die Datenbankadministratorin physische Datenstrukturen zu verändern, ohne dabei die logische Datenstruktur zu beeinträchtigen. 
+\subsection{Relationale Datenbank}
+Eine relationale Datenbank basiert auf einem relationalen Modell und stellt die Daten in einer Tabelle dar. Dabei ist jede Zeile in dieser Tabelle genau ein Datensatz, welcher mit einer eindeutigen ID (Schlüssel) versehen ist. Die Spalten der Tabelle stellen die Attribute dar, welche gespeichert werden können. Bei einer relationalen Datenbank sind die logischen Datenstrukturen, sprich die Datentabellen, Ansichten und Indizes, von den physischen Datenstrukturen getrennt. Dies ermöglicht es dem Datenbankadministrator bzw. der Datenbankadministratorin physische Datenstrukturen zu verändern, ohne dabei die logische Datenstruktur zu beeinträchtigen. 
 \newline
 Der wohl größte Vorteil einer relationalen Datenbank ist die \textbf{ACID-Eigenschaft}, dabei steht ACID für: \textbf{A}tomicity, \textbf{C}onsistency, \textbf{I}solation und \textbf{D}urability.
 
 \begin{itemize}
     \item \textbf{Atomicity}
         \newline
-        Atomicity beschreibt, dass entweder die Transaktion als Ganzes durchgeführt wird oder gar nicht. Das bedeutet, sollte ein Teil der Transaktion fehlerhaft sein, wird alles zurückgesetzt und nichts persistiert. Nur wenn alle Abschnitte der Transaktion erfolgreich waren, werden die Daten persistiert.
+        Atomicity beschreibt, dass entweder die Transaktion als Ganzes durchgeführt wird oder gar nicht. Das bedeutet, sollte ein Teil der Transaktion fehlerhaft sein, wird alles zurückgesetzt und nichts gespeichert. Nur wenn alle Abschnitte der Transaktion erfolgreich waren, werden die Daten persistiert.
     \item \textbf{Consistency}
         \newline
-       Consistency beschreibt den Zustand der Daten. Das Ziel einer relationalen Datenbank ist, dass diese immer im Konsistenten Zustand sind, das bedeutet, dass sie allen Regeln der Datenbank entsprechen und zu jeder Zeit und auf allen Instanzen (Kopien der Datenbank) dem neuesten Stand entsprechen.
+       Consistency beschreibt den Zustand der Daten. Das Ziel einer relationalen Datenbank ist, dass diese immer im konsistenten Zustand sind, das bedeutet, dass sie allen Regeln der Datenbank entsprechen und zu jeder Zeit und auf allen Instanzen (Kopien der Datenbank) dem neuesten Stand entsprechen.
     \item \textbf{Isolation}
         \newline
         Isolation beschreibt den Vorgang, dass jede Transaktion verborgen von den anderen abläuft und erst nach beenden der Transaktion in der Datenbank "veröffentlicht" wird. Dadurch wird verhindert, dass sich die Transaktionen gegenseitig beeinflussen bzw. beeinträchtigen und trotzdem parallel ablaufen können.
@@ -17,9 +17,9 @@ Der wohl größte Vorteil einer relationalen Datenbank ist die \textbf{ACID-Eige
         \newline
         Durability ist die Versicherung, dass alle Daten dauerhaft gespeichert werden, sobald die Transaktion abgeschlossen ist.
 \end{itemize}
-Zusammenfassend lässt sich sagen, dass eine relationale Datenbank besonders geeignet ist, wenn eine Vielzahl von Daten in einer sicheren, regelbasierten (Atomicity) und konsistenten (Consistency) Weise gespeichert werden sollen, insbesondere wenn diese Daten untereinander in Beziehung stehen. In diesem speziellen Fall der vorliegenden Diplomarbeit war dies durchaus eine Anforderung, da zahlreiche Daten gespeichert werden mussten und eine klare Beziehung zwischen den einzelnen Tabellen vorhanden war.
+Zusammenfassend lässt sich sagen, dass eine relationale Datenbank besonders geeignet ist, wenn eine Vielzahl von Daten in einer sicheren, regelbasierten (Atomicity) und konsistenten (Consistency) Weise gespeichert werden sollen, insbesondere wenn diese Daten untereinander in Beziehung stehen. Im Fall der vorliegenden Diplomarbeit ist dies eine Anforderung, da zahlreiche Daten gespeichert werden müssen und eine klare Beziehung zwischen den einzelnen Tabellen vorhanden ist.
 \newline
-Trotz dieser Anforderungen entschied sich das Projektteam aufgrund des umfangreichen Know-Hows in der Kollaborationsfirma für den Einsatz von objektorientierten Datenbanken. Diese Entscheidung führte zur Auswahl von MongoDB als Datenbanktyp, da die benötigten Daten bereits in einer MongoDB-Datenbank gespeichert waren. Ein Wechsel zu einer relationalen Datenbank wäre aufgrund des damit verbundenen Aufwands nicht gerechtfertigt gewesen.
+Trotz dieser Anforderungen wurde das Projekt aufgrund des umfangreichen Know-Hows in der Kollaborationsfirma mit objektorientierten Datenbanken umgesetzt. Diese Entscheidung führt zur Auswahl von MongoDB als Datenbanktyp, da die benötigten Daten bereits in einer MongoDB-Datenbank gespeichert sind. Ein Wechsel zu einer relationalen Datenbank wäre aufgrund des damit verbundenen Aufwands nicht gerechtfertigt.
 \newline
 Rückblickend ist anzumerken, dass sich mit der Verwendung einer relationalen Datenbank viele Abfragen wesentlich einfacher gestaltet hätten. Einige Abfragen erforderten in MongoDB die Durchführung eines JOINs über zwei Collections, was sich als durchaus anspruchsvoll erwies.
 \cite{database_relational}
