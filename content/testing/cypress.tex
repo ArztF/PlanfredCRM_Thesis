@@ -39,7 +39,7 @@ Die Art der Tests hängt davon ab was genau zu testen ist. Es gibt eine Vielzahl
     \item \textbf{Sicherheitstest}
         \newline
         Bei diesen Tests wird sichergestellt, das keine externen Personen Zugriff auf geschützte Daten bekommen.
-    \item \textbf{Sicherheitstest}
+    \item \textbf{Endpunkt-Tests}
         \newline
         Hierbei wird überprüft, ob die API korrekt entwickelt wurde und ob jeder Enpunkt problemlos funktioniert.
 \end{itemize}
@@ -75,7 +75,22 @@ it('get all projects', () => {
 Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" in der Arrow Function start dann der Test. Dieser beginnt immer mit "cy". Alles was danach kommt hat immer einen Punkt vor sich, in diesem Fall will man einen Request testen, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Weiters wird eine URL benötigt auf welche der Request abzielen soll. Nun kann noch ein Body Objekt und eine failOnStatusCode Flag hinzugefügt werden. Wird diese auf true gesetzt failed der Test sobald ein Request einen StatusCode im 400er Bereich zurückbekommt. Diese Option gibt es daher, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
 \cite{API_Tests}
 \subsection{APP Test}
-Mit einem wie oben beschriebenen API Test wird das Backend getestet. Mit einem APP Test hingegen wird das Frontend auf Fehler überprüft. 
+Mit einem wie oben beschriebenen API Test wird das Backend getestet. Mit einem APP Test hingegen wird das Frontend auf Fehler überprüft. Hierbei wird die Anwendung auf Funktionstüchtigkeit, Leistung, Nutzerfreundlichkeit und Sicherheit getestet
+
+Zu den verschiedenen Kategorien der APP-Tests gehören:
+
+\begin{itemize}
+    \item \textbf{Funktionstests}
+        \newline
+        Der Funktionstest gewährleistet die ordnungsgemäße Funktionsweise der App gemäß den vorgegebenen Zielen. Typischerweise sind diese Ziele bereits festgelegt. Dabei müssen Standard-Softwareoperationen wie Installation, Deinstallation, sämtliche In-App-Funktionen sowie das Minimieren und Wiederaufrufen der App fehlerfrei durchgeführt werden.
+    \item \textbf{Usability-Tests}
+        \newline
+        Für diesen Usability-Test werden Probanden herangezogen, um die Benutzerfreundlichkeit Ihrer Anwendung und ihr Layout zu bewerten. Idealerweise sollten die Probanden Ihrer geplanten Zielgruppe angehören, um aussagekräftigere Ergebnisse zu erzielen. Die potenziellen Nutzer erkunden Ihre App und prüfen, wie reibungslos die Navigation funktioniert, wie einfach der Zugriff auf wichtige Funktionen ist und ob Icons, Links und Texte gut erreichbar und ausreichend groß sind.
+    \item \textbf{Penetrationstests}
+        \newline
+        Bei der Entwicklung mobiler Apps sollte ein Schwerpunkt auf Sicherheit gelegt werden, insbesondere auf den Schutz der Nutzerdaten. Penetrationstests bieten eine effektive Methode, um Sicherheitsschwachstellen aufzudecken. Ein erfahrenes Testteam sollte versuchen, in das System einzudringen und potenzielle Sicherheitsprobleme zu identifizieren. Auf diese Weise können potenzielle Datenlecks frühzeitig erkannt und Maßnahmen ergriffen werden, um einen Diebstahl von Daten zu verhindern.
+\end{itemize}
+
 
 
 \subsection{Integration von Cypress}
