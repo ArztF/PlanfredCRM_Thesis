@@ -155,6 +155,7 @@ Wie im obigen Beispiel zu sehen ist, benötigt es nach der find-Methode eine wei
     \end{tabular}
 \end{center}
 \cite{mongodb_query_methods}
+\newline
 Es können noch andere Methoden definiert werden, weitere Methoden sind im folgenden Link zu finden:
 \newline
 \url{https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#find}
@@ -186,12 +187,12 @@ Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren 
         \$not & Inverts the effect of a query expression and returns documents that do not match the query expression \\
         \hline
         \$nor & Joins query clauses with a logical NOR returns all documents that fail to match both clauses \\
+        \hline
+        \$or & Joins query clauses with a logical OR returns all documents that match the conditions of either clause \\
     \end{tabular}
 \end{center}
 \begin{center}
     \begin{tabular}{ | m{1.5cm} | m{13cm} | } 
-        \$or & Joins query clauses with a logical OR returns all documents that match the conditions of either clause \\
-        \hline
         \$exists & Matches documents that have the specified field \\
         \hline
         \$type & Selects documents if a field is of the specified type \\
@@ -233,6 +234,7 @@ Möchte man allerdings nicht nur "einfache" Vergleichsabfragen durchführen, son
             \item Gibt ein gruppiertes Ergebnis zurück, in dem man ein Minimum, Maximum, Durchschnitt oder Gesamtergebnis berechnen kann.
         \end{itemize}
         Im folgenden Beispiel wird eine Aggregation gezeigt, welche aus zwei Phasen besteht. Die erste Phase filtert die Bestellungen nach ihrer Größe und gibt alle Bestellungen an die nächste Phase weiter, welche die Größe Medium besitzen. In der zweiten Phase werden die übergeben Documents gruppiert und die Anzahl summiert.
+        \newpage
         \begin{lstlisting}
             db.orders.aggregate( [
                 // Phase 1
@@ -263,11 +265,11 @@ Möchte man allerdings nicht nur "einfache" Vergleichsabfragen durchführen, son
 \end{itemize}
 Im Verlauf dieser Diplomarbeit erwies sich insbesondere die Aggregation-Pipeline als essenziell. Darüber hinaus wurde die Single-Purpose-Aggregation-Methode "estimatedDocumentCount()" für die Statistik Seite genutzt. Die Auswahl dieser Aggregation erfolgte aufgrund der geringeren Relevanz einer exakten Genauigkeit bei der Anzahl sowie der signifikant verbesserten Performance dieser Aggregation.
 \cite{mongodb_aggregation_basics}
+\newline
 Zwei weitere wichtige Anforderungen in diesem Projekt waren zum einen, dass JOINen von zwei verschiedenen Collections und das eliminieren von Daten aus einem Array, abhängig von einer Kondition. Für den JOIN wurde das Schlüsselwort \$lookup verwendet. Dieses führt einen left outer join durch, dabei wird ein neues Array-Field, mit den gefundenen Documents, in das Document hinzugefügt. Bei dem \$lookup Befehl werden folgende Felder benötigt:
 \begin{lstlisting}
 {
-   $lookup:
-     {
+   $lookup: {
        from: <collection to join>,
        localField: <field from the input documents>,
        foreignField: <field from the documents of the "from" collection>,
