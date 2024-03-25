@@ -33,7 +33,7 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
         \newline
         Diese Middleware wird als Instanz des App-Objekts eingebunden, indem man entweder app.use() oder app.METHOD() benutzt. Bei einer Method Funktion, kann man die drei HTTP-Methoden get, put oder post benutzen. Diese müssen allerdings in Kleinbuchstaben geschrieben werden.
         \newline
-        Im folgenden Codebeispiel wird eine Middleware-Funktion implementiert, die bei jedem Request an die App das aktuelle Datum ausgibt. Nachdem das Datum auf der Konsole ausgegeben wird, wird next() aufgerufen, wodurch der Request unverändert bleibt. Falls der Pfad der Syntax "user/:id" entspricht, wird die Ausführung an die erste Middleware weitergeleitet. Wenn die ID den Wert null aufweist, wird next mit dem Übergabeparameter "route" aufgerufen, der auf die nächste Route verweist. In diesem Fall würde die Ausgabe "special" als Antwort erzeugen. Wenn die ID jedoch von null verschieden ist, wird next ohne Übergabeparameter aufgerufen, und der Request wird an die nächste Middleware-Funktion weitergeleitet. In diesem Fall würde die Antwort "regular" lauten.
+        Im folgenden Codebeispiel wird eine Middleware-Funktion implementiert, die bei jedem Request an die App das aktuelle Datum ausgibt. Nachdem das Datum auf der Konsole ausgegeben wird, wird next() aufgerufen, wodurch der Request unverändert bleibt. Falls der Pfad der Syntax "user/:id" entspricht, wird die Ausführung an die erste Middleware weitergeleitet. Wenn die ID den Wert Null aufweist, wird next mit dem Übergabeparameter "route" aufgerufen, der auf die nächste Route verweist. In diesem Fall würde die Middleware "special" als Antwort zurückliefern. Wenn die ID jedoch von null verschieden ist, wird next ohne Übergabeparameter aufgerufen, und der Request wird an die nächste Middleware-Funktion weitergeleitet. In diesem Fall würde die Antwort "regular" lauten.
         \newline
         \begin{lstlisting}
             const express = require('express')
@@ -173,7 +173,7 @@ Im oben gezeigten Beispiel ist die Fehlerbehandlung von Express automatisch impl
 
 \textbf{Default Fehlerbehandlung}
 \newline
-Express stellt eine bereits eingebaute Fehlerbehandlung zur Verfügung, welcher sich um jeglichen Fehler in der Applikation kümmert. Diese Fehlerbehandlung muss lediglich am Ende des Middleware Funktionen Stacks eingebunden werden. Falls man nun mittels next einen Fehler übergibt, behandelt diese den Fehler und gibt den Fehler am Client aus. Tritt ein Fehler auf, werden folgende Informationen im Response Objekt gespeichert:
+Express stellt eine bereits eingebaute Fehlerbehandlung zur Verfügung, welcher sich um jeglichen Fehler in der Applikation kümmert. Diese Fehlerbehandlung muss lediglich am Ende des Middleware-Funktionen-Stacks eingebunden werden. Falls man nun mittels next einen Fehler übergibt, behandelt diese Middleware den Fehler und gibt diesen am Client aus. Tritt ein Fehler auf, werden folgende Informationen im Response Objekt gespeichert:
 \begin{itemize}
     \item res.statusCode
         \newline

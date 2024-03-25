@@ -69,7 +69,7 @@ Die Datenbank ist in folgende Teile unterteilt:
             {"username": "admin", "firstname": "John"}
             {"lastname": "Doe"}
         \end{lstlisting}
-        Man könnte also ausschließlich mit einer einzigen Collection arbeiten und in diese alle Datensätze speichern. Man würde allerdings ziemlich schnell an seine Grenzen stoßen.
+        Man könnte also ausschließlich mit einer einzigen Collection arbeiten und in diese alle Datensätze speichern. Man würde allerdings ziemlich schnell an seine Grenzen stoßen, da man eine ziemlich aufwendige Logik schreiben muss, um zwischen den einzelnen Documents zu unterscheiden und man weiß nie, welches Field in welchem Document vorhanden ist.
     \item \textbf{Cluster}
         \newline
         In einem Cluster sind alle Server der Datenbank gespeichert, in denen sich die Collections befinden. Diese Cluster können Replica Sets, also Kopien aller Daten, oder Sharded-Cluster sein. Auf dieses Cluster wird im Laufe dieses Kapitels noch genauer eingegangen.
@@ -280,7 +280,7 @@ Zwei weitere wichtige Anforderungen in diesem Projekt waren zum einen, dass JOIN
 Dabei wird bei "from" die Collection angegeben, mit der der JOIN durchgeführt werden soll. Das "localField" beschreibt das Field aus der ursprünglichen Collection, welches für den JOIN verwendet werden soll. Das "foreignField" beschreibt das Field der anderen Collection. Lookup führt dabei einen Vergleichscheck zwischen den beiden Feldern durch. Falls ein Input dieses Field nicht enthält, wird der Wert als NULL gewertet und mit diesem der Vergleich durchgeführt. Das "as" Feld gibt den Namen an, in welches das gejointe Array gespeichert wird.
 \cite{mongodb_aggregation_lookup}
 \newline
-Das Eliminieren von Daten aus einem Array wird in diesem Fall für eine Abfrage benötigt in dem ermittelt wird, wie viele Projekte ein Benutzer besitzt und wie hoch der verbrauchte Speicherplatz ist. Da die Teilnehmer eines Projektes, einschließlich des Projektbesitzers, in einem Array-Field "participants" gespeichert ist, ist es notwendig, alle anderen Teilnehmer aus diesem Array zu löschen und nur den Benutzer mit der Rolle "owner" in diesem Array zu belassen. Dies ist wie folgt gelöst:
+Das Eliminieren von Daten aus einem Array wird in dieser Diplomarbeit für eine Abfrage benötigt in der ermittelt wird, wie viele Projekte ein Benutzer besitzt und wie hoch der verbrauchte Speicherplatz ist. Da die Teilnehmer eines Projektes, einschließlich des Projektbesitzers, in einem Array-Field "participants" gespeichert ist, ist es notwendig, alle anderen Teilnehmer aus diesem Array zu löschen und nur den Benutzer mit der Rolle "owner" in diesem Array zu belassen. Dies ist wie folgt gelöst:
 \begin{lstlisting}
 const projects = await collection.aggregate([
     {

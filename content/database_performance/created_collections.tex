@@ -1,0 +1,21 @@
+Dadurch, dass die Cron-Jobs nur einmal am Tag ausgeführt werden, müssen die Daten dementsprechend zwischengespeichert werden, um dauerhaft dem Supportteam zur Verfügung zu stehen. Dazu wurden folgende Collections erstellt:
+\begin{itemize}
+    \item \textbf{Statistics}
+        \newline
+        In dieser Collection werden die Anzahl an Benutzer, Projektbesitzer, hochgeladenen Plane und alle weiteren relevanten Statistiken, welche auf der Startseite angezeigt werden gespeichert.
+    \item \textbf{ProjectOwners}
+        \newline
+        In dieser Collection werden alle IDs der Benutzer gespeichert, welche ein eigenes Projekt besitzen (permission=owner)
+    \item \textbf{SecretUsers}
+        \newline
+        In dieser Collection werden alle Benutzer und Projekte dieses Benutzer gespeichert, welche keinen Zahlungsplan aktiviert haben, ein eigenes aktives Projekt besitzen, in welchem in den letzten 10 Wochen ein Upload durchgeführt wurde. Dadurch wird verhindert, dass ein nicht zahlender Kunde, trotzdem ein Projekt verwaltet.
+    \item \textbf{UsersWithExceededStorage}
+        \newline
+        In dieser Collection werden alle Benutzer gespeichert, welche ihren gebuchten Speicherplatz überschritten haben.
+    \item \textbf{UsersWithoutProjectsAndParticipants}
+        \newline
+        In dieser Collection werden alle Benutzer gespeichert, welche sich ausschließlich einen Account erstellt haben, allerdings Planfred nicht aktiv nutzen.
+    \item \textbf{ChangeLogs}
+        \newline
+        In diese Collection werden alle Write-Operationen des Supportteams dokumentiert, um diese auf einer eigenen Log-Seite anzuzeigen, um evtl. Fehler leichter zu finden und diese einfacher rückgängig zu machen.
+\end{itemize}

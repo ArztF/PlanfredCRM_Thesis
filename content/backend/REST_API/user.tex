@@ -2,7 +2,7 @@ In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die 
 \begin{itemize}
     \item \textbf{/users-all}
         \newline
-        Bei diesem Endpunkt werden alle Benutzer aus der Datenbank zurückgeliefert. Es gibt die Option, die Benutzer nach Login-Datum bzw. ...... zu sortieren.
+        Bei diesem Endpunkt werden alle Benutzer aus der Datenbank zurückgeliefert. Es gibt die Optionen, die Benutzer nach Logindatum, Registrierungsdatum oder Anzahl der Projekte zu sortieren.
     \item \textbf{/users-search-email}
         \newline
         Bei diesem Endpunkt werden ebenfalls standardmäßig alle Benutzer abgefragt, es gibt jedoch die Möglichkeit nach einer E-Mail zu suchen. Dabei wird der eingegebene String ebenfalls als Übergabeparameter an das Backend übermittelt und dort überprüft, ob der String in der E-Mail enthalten ist.
@@ -14,7 +14,7 @@ In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die 
         Bei diesem Endpunkt werden alle Benutzer ermittelt, welche mit ihren eigenen Projekten den gebuchten Speicherplatz überschritten haben.
     \item \textbf{/users-have-billing-plan}
         \newline
-        Bei diesem Endpunkt werden alle Benutzer zurückgegeben, welche noch keinen Zahlungsplan ausgewählt haben oder lediglich die Benutzer, welche einen Zahlungsplan ausgewählt haben. Diese Unterscheidung wird ebenfalls mit einem Übergabeparameter gelöst.
+        In diesem Endpunkt gibt es zwei verschiedene Möglichkeiten die Benutzer anzeigen zu lassen. Einerseits kann man alle Benutzer anzeigen, die noch keinen Zahlungsplan ausgewählt haben. Andererseits ist es möglich alle Benutzer die einen Zahlungsplan ausgewählt haben anzuzeigen. Diese Unterscheidung wird ebenfalls mit einem Übergabeparameter gelöst.
     \item \textbf{/users-deleted}
         \newline
         Grundsätzlich ist wichtig zu erwähnen, dass, wenn ein Benutzer seinen Account eigenständig löscht, dieser nicht komplett aus der Datenbank entfernt wird, sondern eine Entity in der Collection auf true gesetzt wird. Deshalb werden bei diesem Endpunkt alle Benutzer angezeigt, welche ihren Account gelöscht haben.
@@ -35,7 +35,7 @@ In diesem Endpunkt werden ausschließlich User Objekte an den Benutzer oder die 
         Bei diesem Endpunkt können alle Benutzer zurückgegeben werden, die keinen Zahlungsplan aktiviert haben und einen bestimmten Teil in der E-Mail haben.
     \item \textbf{/changePlan/:id}
         \newline
-        Bei diesem Endpunkt kann man den Zahlungsplans eines Benutzers auf none stellen.
+        Bei diesem Endpunkt kann man den Zahlungsplans eines Nutzers auf none setzen, sodass kein Zahlungsplan mehr aktiv ist und der Benutzer nichts mehr bezahlen muss.
     \item \textbf{/editPlan/:id}
         \newline
         Bei diesem Endpunkt kann man den Zahlungsplan individuell verändern. Man kann zum Beispiel den Speicherplatz verändern oder einen anderen vordefinierten Zahlungsplan auswählen.
