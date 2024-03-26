@@ -109,6 +109,14 @@ Das zweite Verfahren wurde bereits erläutert. Dabei wird ein Algorithmus wie HS
 
 Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem privaten Schlüssel verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein.
 
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{pics/jwt-funktion.png}
+    \caption{Funktionsweise eines JWT}
+    \label{fig:enter-label}
+\end{figure}
+
 \subsection{Was ist ein Session Cookie?}
 
 
@@ -131,6 +139,14 @@ app.use(cookieSession({
   maxAge: 24 * 60 * 60 * 1000 // 24 hours
 }))
 \end{lstlisting}
+
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{pics/session-cookie-funktion.png}
+    \caption{Funktionsweise eines Session Cookie}
+    \label{fig:enter-label}
+\end{figure}
 
 \subsubsection{Session Cookie vs JSON Web Token}
 
