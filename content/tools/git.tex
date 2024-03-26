@@ -48,6 +48,14 @@ Ein Merge wird mit folgendem Befehl ausgeführt:
 
 Hierbei kann es zu Konflikten kommen. Dies geschieht normalerweise, wenn zwei oder mehr Zweige gleichzeitig Änderungen an derselben Stelle in einer Datei oder an einer Datei vornehmen. Git kann hier nicht automatisch entscheiden welche Version es behalten soll und so muss der User manuell entsheiden welche Version verwertet und welche verworfen werden soll. Mit dieser Funktion können Änderungen von Zweigen sehr einfach in den Main Branch gebracht werden.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/merge.png}
+    \caption{Wie funktioniert ein Merge}
+    \label{fig:enter-label}
+\end{figure}
+
+
 \subsubsection{Submodules}
 
 In der Softwareentwicklung kommt es des öfteren vor, dass während der Entwicklung auch andere Projekte oder Libraries benötigt werden. Häuftig entsteht dabei das Problem, dass beide Projekte seperat behandelt werden müssen. Git behebt diese Problem mit der Hilfe von Submodulen. Diese ermöglichen es ein Projekt als Unterverzeichnis in ein anderes Projekt zu implementieren.
@@ -110,17 +118,19 @@ Um das Planfred Projekt zu initialisieren wurden im 'package.json' folgendes Scr
 
 Im ersten Schritt wird überprüft ob im Verzeichnis "planfred" eine Datei mit dem Name "package.json" vorhanden ist. Im nächsten Schritt wird mit "cd planfred" in das Verzeichnis gewechselt und mit "npm i" werden alle nötigen Abhängigkeiten des Projekts (wie in der "package.json"-Datei angegeben) installiert. Falls die "package.json"-Datei nicht gefunden wird, wird der Teil nach || ausgeführt. In diesem Fall wird eine Meldung ausgegeben, die besagt, dass die "package.json"-Datei nicht gefunden wurde und daher keine Installation durchgeführt wurde.
 
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.6\linewidth]{pics/git-submodules.jpg}
+    \caption{Git Submodules}
+    \label{fig:enter-label}
+\end{figure}
+
+
 
 
 
 https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.6\linewidth]{pics/merge.png}
-    \caption{Wie funktioniert ein Merge}
-    \label{fig:enter-label}
-\end{figure}
 
 \subsection{Git cloud solutions}
 

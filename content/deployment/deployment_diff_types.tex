@@ -1,7 +1,7 @@
 \subsection{Was ist Deployment}
 
-Wenn man vom Deployment spricht meint man die Bereitstellung von Software. Dies erfolgt meistens alles über halb- oder automatisierte Prozesse, mittels derer die Installation und Konfiguration der Softwarelösungen erfolgt. Im Deployment sind Aspekte wie die Installation, Konfiguration Aktualisierung und Wartung von Systemene enthalten.
-Die meisten IT-Organisationen und Softwareentwickler führen regelmäßig Software-Updates und Patches mithilfe von teils vollautomatischen Prozessen durch. Es gibt verschiedene Arten von Deployment die jeweils verschiedene Risiken mit sich bringen. Dennoch wird überall dasselbe Ziel verfolgt: Die Verteilung von Software auf Computern für Endbenutzer.
+Wenn man vom Deployment spricht, meint man die Bereitstellung von Software. Dies erfolgt meistens alles über halb- oder automatisierte Prozesse, mittels derer die Installation und Konfiguration der Softwarelösungen erfolgt. Im Deployment sind Aspekte wie die Installation, Konfiguration, Aktualisierung und Wartung von Systemen enthalten.
+Die meisten IT-Organisationen und Softwareentwickler führen regelmäßig Software-Updates und Patches mithilfe von teils vollautomatischen Prozessen durch. Es gibt verschiedene Arten von Deployment, die jeweils verschiedene Risiken mit sich bringen. Dennoch wird überall dasselbe Ziel verfolgt: Die Verteilung von Software auf Computern für Endbenutzer.
 
 \begin{figure}[h!]
     \centering
@@ -13,10 +13,10 @@ Die meisten IT-Organisationen und Softwareentwickler führen regelmäßig Softwa
 
 \subsection{Verschiedene Arten von Deployment}
 
-Grundsätzlich gibt es verschiedene Arten von Deployment. Diese werden prinzipell folgendermaßen kategorisiert:
+Grundsätzlich gibt es verschiedene Arten von Deployment. Diese werden prinzipiell folgendermaßen kategorisiert:
     \begin{itemize}
     \item Traditionelles Deployment
-    \item Virtuelles Depoyment
+    \item Virtuelles Deployment
     \item Container Deployment
     \end{itemize}
 
@@ -24,10 +24,10 @@ Grundsätzlich gibt es verschiedene Arten von Deployment. Diese werden prinzipel
 
 Früher wurde eine Anwendung auf einem physischen Server deployed. Damals sah das ganze folgendermaßen aus.
 
-Es wurde ein physischer Server aufgesetzt auf welchem in Folge ein Betriebssystem installiert wurde auf welchen Die Software laufen soll. Im nächsten Schritt wurden auf dem Server benötigte Tools oder Packages wie zum Beispiel Node oder NPM installiert. Danach wurden alle Dateien der Software auf den Server kopiert. Im letzten Schritt wird dann die Anwendung auf diesem Server gestartet.
+Zunächst wurde ein physischer Server eingerichtet, auf dem ein Betriebssystem installiert wurde, das als Plattform für die auszuführende Software dient. Anschließend wurden auf diesem Server alle erforderlichen Tools oder Pakete, wie zum Beispiel Node oder NPM, installiert. Danach wurden sämtliche Dateien der Software auf den Server kopiert. Im letzten Schritt wird die Anwendung auf diesem Server gestartet, um sie funktionsfähig zu machen.
 
 
-Solange nur eine einzige Anwendung auf diesem Server läuft, stellt dies kein Problem dar. Sogar im Gegenteil die Anwendung läuft dann sehr performant auf dem Server, da er jegliche Ressourcen die der Server frei hat benutzt. Sobald dann aber mehr als nur eine Anwendung auf einem Server laufen, führt dies zu Problemen, diese können sein:
+Solange nur eine einzige Anwendung auf diesem Server läuft, stellt dies kein Problem dar. Im Gegenteil, die Anwendung kann sehr performant auf dem Server laufen, da sie alle verfügbaren Ressourcen des Servers nutzen kann. Sobald jedoch mehrere Anwendungen auf einem Server laufen, können verschiedene Probleme auftreten, darunter:
 
 \begin{itemize}
     \item Fehlende Ressourcen - auf einem physischen Server gibt es keine Möglichkeit, die Ressourcen für eine Applikation zu begrenzen. Eine Überlastung der Ressourcen kann somit den gesamten Server zum abstürzen bringen.
@@ -65,20 +65,19 @@ Um diese Probleme zu lösen, begann man die Software virtuell zu deployen. In di
 \cite{Virtuelles_Deployment}
 
 \subsection{Container Deployment}
-Um auch die Probleme des virtuellen Deployments zu lösen, deployte man die Software nun in Containern.
-Container sind in sich geschlossene, autarke Einheiten, die sämtlichen Anwendungscode und sämtliche erforderlichen Abhängigkeiten in sich tragen. Neben Docker, einem der prominentesten Werkzeuge zur Containerisierung von Anwendungen, stehen auch Alternativen zur Verfügung, darunter Lösungen wie Kubernetes und Podman. Container besitzen den Vorteil, dass sie sehr leichtgewichtig sind und daher in wenigen Sekunde oder Millisekunden gestartet werden können. Zudem sind Container im Gegenteil zu Virtuellen Maschinen äußerst portabel und skalierbar.
+Um die Probleme des virtuellen Deployments zu überwinden, hat man sich entschieden, die Software nun in Containern zu deployen. Container sind eigenständige Einheiten, die den gesamten Anwendungscode sowie alle erforderlichen Abhängigkeiten in sich tragen. Neben Docker, einem der bekanntesten Tools zur Containerisierung von Anwendungen, stehen auch Alternativen wie Kubernetes und Podman zur Verfügung. Container bieten den Vorteil, dass sie sehr leichtgewichtig sind und daher innerhalb weniger Sekunden oder sogar Millisekunden gestartet werden können. Zudem sind Container im Gegensatz zu virtuellen Maschinen äußerst portabel und skalierbar.
 
 
 
 \subsubsection{Vorgang des Container Deployment}
 
-Als erstes wird die gesamte Anwendung in ein Container Image verpackt. In diesem Image befindet sich der Anwendungscode, die Laufzeitumgebung und alle erforderlichen Abhängigkeiten wie zum Beipsiel Node oder NPM.
+Als Erstes wird die gesamte Anwendung in ein Container Image verpackt. In diesem Image befindet sich der Anwendungscode, die Laufzeitumgebung und alle erforderlichen Abhängigkeiten wie zum Beipsiel Node oder NPM.
 
-Als nächstes wird das erstellte Container Image in einem Container-Image-Repository wie Docker Hub registriert und gespeichert.
+Als Nächstes wird das erstellte Container Image in einem Container-Image-Repository wie Docker Hub registriert und gespeichert.
 
-Danach müssen die Container Images bereitgestellt werden dies geschieht überlicherweise auf einem Container-Orchestrierungs-Framework wie Kubernetes oder Docker Swarm.
+Danach müssen die Container Images bereitgestellt werden, dies geschieht überlicherweise auf einem Container-Orchestrierungs-Framework wie Kubernetes, oder Docker Swarm.
 
-Als letzten Schritt muss der Container noch konfiguriert werden und mögliche Umgebungsvariablen gesetzt werden.
+Als letzten Schritt, muss der Container noch konfiguriert werden und mögliche Umgebungsvariablen werden gesetzt.
 
 Wenn eine neue Version der Anwendung verfügbar ist, kann das Container-Deployment-Framework verwendet werden, um die Container schrittweise zu aktualisieren, ohne die Verfügbarkeit der Anwendung zu beeinträchtigen.
 
@@ -153,6 +152,18 @@ Mit Docker ist es möglich einen Teil einer Anwendung zu aktualisieren oder repa
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{pics/docker-logo.png}
+    \caption{Docker Logo}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection{Container}
+Ein Container ist eine standardisierte Einheit von Software, die den Code sowie alle benötigten Abhängigkeiten zusammenfasst. Dadurch kann die Anwendung schnell und zuverlässig von einer Rechenumgebung in eine andere verschoben werden. Ein Docker-Containerimage ist ein schlankes, eigenständiges und ausführbares Softwarepaket. Es beinhaltet alles Notwendige, um eine Anwendung auszuführen: den Code selbst, die Laufzeitumgebung, Systemwerkzeuge, Systembibliotheken und Einstellungen.\newline
+
+Während der Ausführung werden Containerimages zu Containern. Im Fall von Docker-Containern geschieht dies, wenn sie auf dem Docker Engine laufen. Diese Technologie ist sowohl für Linux- als auch für Windows-Anwendungen verfügbar. Containerisierte Software wird unabhängig von der zugrunde liegenden Infrastruktur immer konsistent arbeiten. Container isolieren die Software von ihrer Umgebung und gewährleisten eine gleichbleibende Funktionalität, selbst wenn sich die Umgebungen, beispielsweise zwischen Entwicklungs- und Produktionsumgebungen, unterscheiden.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\linewidth]{pics/docker-container.png}
     \caption{Docker Logo}
     \label{fig:enter-label}
 \end{figure}

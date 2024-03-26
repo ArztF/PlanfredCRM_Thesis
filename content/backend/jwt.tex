@@ -1,4 +1,4 @@
-JWT steht für "JSON Web Token" und repräsentiert einen offenen Standard (RFC 7519). Er ist zur Authentifizierung und Autorisierung gedacht, dieser Token kann sowohl vom Server als auch vom Client ausgelesen werden. Er kann verwendet werden um Daten sicher zwischen verschiedenen Anwendungen zu übermitteln. Durch die Signatur des JWT kann immer sichergestellt werden, dass nichts vom Inhalt manipuliert wurde.
+JWT steht für "JSON Web Token" und repräsentiert einen offenen Standard (RFC 7519). Er ist zur Authentifizierung und Autorisierung gedacht, dieser Token kann sowohl vom Server als auch vom Client ausgelesen werden. Er kann verwendet werden, um Daten sicher zwischen verschiedenen Anwendungen zu übermitteln. Durch die Signatur des JWT kann immer sichergestellt werden, dass nichts vom Inhalt manipuliert wurde.
 
 \begin{figure}[h]
     \centering
@@ -61,7 +61,7 @@ const verifyToken = (token) => {
 }
 \end{lstlisting}
 
-Zuerst wird der JSON Web Token mit Hilfe der Funktion "generateToken" generiert. Hierfür wird die E-Mail Adresse als Parameter übergeben und als Payload mitgegeben. Außerdem wird noch ein Expire Date gesetzt auf in diesem Fall 100 Stunden.
+Zuerst wird der JSON Web Token mit Hilfe der Funktion "generateToken" generiert. Hierfür wird die E-Mail Adresse als Parameter übergeben und als Payload mitgegeben. In diesem Fall wurde außerdem noch das Property Expire Date auf 100 Stunden gesetzt. Somit müssen sich User:innen erst nach über vier Tagen wieder erneut anmelden.
 
 In der Funktion "verifyToken" können JSON Web Tokens validiert werden. Mit
 
@@ -69,7 +69,7 @@ In der Funktion "verifyToken" können JSON Web Tokens validiert werden. Mit
     payload = jwt.verify(token, 'secretkeyappearshere')
 \end{lstlisting}
 
-wird der Token validiert und geschaut ob dieser noch gültig ist wird hier ein Fehler returned wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.
+wird der Token validiert und geschaut ob dieser noch gültig ist. Wird hier ein Fehler returned wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich, wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.
 
 
 \subsubsection{Header}
@@ -77,7 +77,7 @@ wird der Token validiert und geschaut ob dieser noch gültig ist wird hier ein F
 Der Header wird auch als JOSE (JSON Object Signing and Encryption) bezeichnet. In diesem sind ausschließlich Informationen über die Signierung und Verschlüsselung des JWT enthalten.
 
 
-Typischerweise enthält die Struktur eines JWT-Headers eine Information über den Algorithmus, welcher zur Erstellung der Signatur verwendet wurde, sowie eine Definition, dass es sich um ein Json Web Token handelt. Dabei ist zu beachten, dass die Angabe des Typs optional ist, jedoch häufig auf "JWT" festgelegt wird. Dies ist besonders relevant für Anwendungen, die auch andere Typen, wie beispielsweise einen Access Token, akzeptieren, welcher jedoch in einer ähnlichen Datenstruktur vorliegt, um die verschiedenen Typen leicht voneinander unterscheiden zu können.
+Typischerweise enthält die Struktur eines JWT-Headers eine Information über den Algorithmus, welcher zur Erstellung der Signatur verwendet wurde, sowie eine Definition, dass es sich um einen Json Web Token handelt. Dabei ist zu beachten, dass die Angabe des Typs optional ist, jedoch häufig auf "JWT" festgelegt wird. Dies ist besonders relevant für Anwendungen, die auch andere Typen, wie beispielsweise einen Access Token akzeptieren, welcher jedoch in einer ähnlichen Datenstruktur vorliegt, um die verschiedenen Typen leicht voneinander unterscheiden zu können.
 
 \begin{lstlisting}
 {
@@ -92,14 +92,14 @@ Registrierte, Public und Private Claims
 
 In den registrierten Claims sind zum Beispiel Sachen wie der Aussteller (iss) und die Ablaufzeit (exp) festgelegt.
 
-Die Public Claims können nach Belieben definiert werden. Um jedoch Kollisionen zu vermeiden sollte der Name nicht gleich sein wie bei den registrierten Claims.
+Die Public Claims können nach Belieben definiert werden. Um jedoch Kollisionen zu vermeiden, sollte der Name nicht gleich sein wie bei den registrierten Claims.
 
-Die Privaten Claims sind individuelle Ansprüche, die erstellt wurden, um Informationen zwischen Parteien auszutauschen, die sich darauf einigen, sie zu verwenden, und die weder registrierte noch öffentliche Ansprüche sind.
+Die Privaten Claims sind individuelle Ansprüche, die erstellt wurden, um Informationen zwischen Parteien auszutauschen, die sich darauf einigen sie zu verwenden und die weder registrierte noch öffentliche Ansprüche sind.
 
 
 \subsubsection{Signatur}
 
-Der dritte Teil des JWT ist die Signatur diese ist in RFC 7515 definiert. Es kann sein das kein Algorithmus definiert wurde in diesem Fall entfällt die Signatur. Es gibt allerdings ganz seltene Fälle in denen dieses Verhalten erwünscht ist. 
+Der dritte Teil des JWT ist die Signatur, diese ist in RFC 7515 definiert. Es kann sein das kein Algorithmus definiert wurde, in diesem Fall entfällt die Signatur. Es gibt allerdings ganz seltene Fälle in denen dieses Verhalten erwünscht ist. 
 
 
 
@@ -107,7 +107,7 @@ Das zweite Verfahren wurde bereits erläutert. Dabei wird ein Algorithmus wie HS
 
 
 
-Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem privaten Schlüssel verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein.
+Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem private Key verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein.
 
 
 \begin{figure}[h!]
@@ -120,7 +120,7 @@ Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Versc
 \subsection{Was ist ein Session Cookie?}
 
 
-Ein Sitzungscookie ist eine Variante von Cookies, die nach dem Schließen des Browsers direkt gelöscht wird und keine Informationen hinterlassen werden. Normalerweise enthält ein solches Sitzungscookie keine Informationen zur Identifizierung des Benutzers, sondern nur eine Sitzungs-ID.
+Ein Sitzungscookie ist eine Variante von Cookies, die nach dem Schließen des Browsers direkt gelöscht wird und keine Informationen hinterlassen werden. Normalerweise enthält ein solcher Sitzungscookie keine Informationen zur Identifizierung des Benutzers, sondern nur eine Sitzungs-ID.
 Wenn in zwei Tabs also der gleiche Online Shop besucht wird, erkennt der Session Cookie, dass es sich gerade um die gleiche Sitzung handelt und stellt in beiden Tabs den selben Warenkorb zu Verfügung.
 
 \subsubsection{Wie wird ein Session Cookie implementiert?}
@@ -150,8 +150,7 @@ app.use(cookieSession({
 
 \subsubsection{Session Cookie vs JSON Web Token}
 
-Der wohl größte Unterschied zwischen den beiden Autorisierungsmethoden ist, dass beim Session Cookie vom Server eine Session-ID generiert wird. Beim JSON Web Token hingegen, wird ein Access Token generiert.
-Json Web Tokens ermöglichen eine sehr schnelle Autorisierung. Jedoch werden mehr Entwicklerinvestionen benötigt als beim Session Cookie. Auf der anderen Seite bieten Sitzungen stärkere Garantien dafür, dass jede einzelne Anfrage autorisiert ist, und sind einfacher sicher umzusetzen, aber ihr Engpass bei der serverseitigen Datenbankvalidierung geht mit einem Latenzoverhead einher, der das Benutzererlebnis für sehr reaktionsschnelle Anwendungen beeinträchtigen könnte.
+Der Hauptunterschied zwischen den beiden Autorisierungsmethoden besteht darin, dass bei der Session-Cookie-Methode eine Session-ID vom Server generiert wird, während bei JSON Web Tokens (JWT) ein Zugriffstoken generiert wird. Die Verwendung von JSON Web Tokens ermöglicht eine schnellere Autorisierung, erfordert jedoch mehr Entwicklungsaufwand als die Verwendung von Session-Cookies. Auf der anderen Seite bieten Sitzungen eine höhere Gewissheit darüber, dass jede einzelne Anfrage autorisiert ist, und sind einfacher sicher umzusetzen. Allerdings geht ihre Nutzung bei der serverseitigen Datenbankvalidierung mit einem Latenzoverhead einher, der das Benutzererlebnis für sehr reaktionsschnelle Anwendungen beeinträchtigen könnte.
 
 \begin{lstlisting}
 app.get("/", (req, res) => {

@@ -15,10 +15,77 @@ Cypress unterstützt drei verschiedene Arten von Tests:
 \item \textbf{Unit-Tests}
 \end{itemize}
 
-In dieser Diplomarbeit wurde Cypress benutzt um Frontend aber sowohl auch API-Tests zu schreiben
+In dieser Diplomarbeit wurde Cypress benutzt um Frontend aber sowohl auch API-Tests zu schreiben.
+In Cypress gibt es folgende verschiedene Commands:
+
+\begin{center}
+    \begin{tabular}{ | m{2cm} | m{13cm} | } 
+        \hline
+        Name & Beschreibung \\ [0.5ex] 
+        \hline\hline
+        \.as() & Wird meist in Kombination mit .get() verwendet \\
+        \hline
+        \.children() & Gibt das untergeordnete DOM Element zurück \\
+        \hline
+        \.closest() & Gibt das näheste DOM Element zurück \\
+        \hline
+        \.contains() & Sucht ein DOM Element nach dem Text Content \\
+        \hline
+        \.eq() & Sucht ein DOM Element mit dem genau gleichen Content  \\
+        \hline
+        \.filter() & Findet Elemente mit einem Selektor \\
+        \hline
+        \.find() & Findet untergeordnete Elemente mit einem Selektor \\
+        \hline
+        \.first() & Gibt das erste Element zurück \\
+        \hline
+        \.focused() & Gibt das aktuell ausgewählte DOM Element zurück \\
+        \hline
+        \.get() & Gibt DOM Elemente welche mit einem Selektor gesucht werden \\
+        \hline
+        \.next() & Gibt das nächste DOM Element zurück \\
+        \hline
+        \.not() & Filtert ausgewählte Elemente mit einem Selektor \\
+        \hline
+        \.parent() & Gibt das Parent Element aus dem DOM zurück \\
+        \hline
+        \.url() & Gibt die URL der aktiven Seite zurück \\
+        \hline
+        \.window() & Gibt das Window Objekt der aktuellen Seite zurück  \\
+        \hline
+    \end{tabular}
+\end{center}
+
+Es besteht aber weiters auch die Möglichkeite Custom Commands selber zu schreiben.
+Dies erfolgt in einem "commands.js" File.
+
+In dieser Diplomarbeit wurde ein Custom Command geschrieben um das klicken eines DOM Elements statt zwei auf nur einen Befehl zu reduzieren. Dieser Command sieht folgendermaßen aus:
+
+
+\begin{lstlisting}
+Cypress.Commands.add('clickId', (id = '', options) => {
+  cy
+    .getId(id)
+    .click(options)
+})
+\end{lstlisting}
+
+Des weiteren wurden Commands geschrieben um die Fixtures zu laden.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=1\linewidth]{pics/cypress-overview.png}
+    \caption{Cypress Window}
+    \label{fig:enter-label}
+\end{figure}
+
+
+https://docs.cypress.io/api/cypress-api/custom-commands
+
+
 \cite{Cypress}
 \subsection{API Test}
-Mit einem API (Application Programming Interface) Test kann festgestellt werden ob die Anforderungen in Sachen Funktionalität, Leistung, Zuverlässigkeit und Sicherheit erfüllen. Das Ziel eines solchen Test ist es Fehler oder unerwartete Verhaltenswiesen zu finden. So stellt man sicher, dass der Endbenutzer kein fehlerhaftes oder unsichers Produkt zur Verfügung gestellt bekommt. 
+Mit einem API (Application Programming Interface) Test kann festgestellt werden, ob die Anforderungen in Sachen Funktionalität, Leistung, Zuverlässigkeit und Sicherheit erfüllen. Das Ziel eines solchen Tests ist es, Fehler oder unerwartete Verhaltensweisen zu finden. So stellt man sicher, dass der Endbenutzer kein fehlerhaftes oder unsicheres Produkt zur Verfügung gestellt bekommt. 
 
 Dennoch gestalten sich API-Tests oft komplexer als gedacht. APIs bedienen sich in der Regel Protokollen und Standards, mit denen Sie normalerweise nicht direkt interagieren. Diese Normen sind unerlässlich, um die Kommunikation zwischen verschiedenen Plattformen, Anwendungen und Systemen zu ermöglichen. Daher ist es erforderlich, nicht nur die Funktionalität einer API zu prüfen, sondern auch ihre Leistung, Sicherheit und das reibungslose Zusammenspiel aller Komponenten, um eine zuverlässige Schnittstelle zu gewährleisten.
 
@@ -32,7 +99,7 @@ Dennoch gestalten sich API-Tests oft komplexer als gedacht. APIs bedienen sich i
 \end{figure}
 
 
-Die Art der Tests hängt davon ab was genau zu testen ist. Es gibt eine Vielzahl von verschiedene Arten von Tests:
+Die Art der Tests hängt davon ab, was genau zu testen ist. Es gibt eine Vielzahl verschiedener Arten von Tests:
 
 \begin{itemize}
     \item \textbf{Funktionstests}
@@ -83,7 +150,7 @@ it('get all projects', () => {
     })
 \end{lstlisting}
 
-Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" in der Arrow Function start dann der Test. Dieser beginnt immer mit "cy". Alles was danach kommt hat immer einen Punkt vor sich, in diesem Fall will man einen Request testen, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Weiters wird eine URL benötigt auf welche der Request abzielen soll. Nun kann noch ein Body Objekt und eine failOnStatusCode Flag hinzugefügt werden. Wird diese auf true gesetzt failed der Test sobald ein Request einen StatusCode im 400er Bereich zurückbekommt. Diese Option gibt es daher, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
+Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" in der Arrow Function start dann der Test. Dieser beginnt immer mit "cy". Alles was danach kommt hat immer einen Punkt vor sich, in diesem Fall will man einen Request testen, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Weiters wird eine URL benötigt auf welche der Request abzielen soll. Nun kann noch ein Body Objekt und eine failOnStatusCode Flag hinzugefügt werden. Wird diese auf true gesetzt failed der Test sobald ein Request einen StatusCode im 400er Bereich zurückbekommt. Diese Option ist notwendig, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
 \cite{API_Tests}
 \subsection{APP Test}
 Mit einem wie oben beschriebenen API Test wird das Backend getestet. Mit einem APP Test hingegen wird das Frontend auf Fehler überprüft. Hierbei wird die Anwendung auf Funktionstüchtigkeit, Leistung, Nutzerfreundlichkeit und Sicherheit getestet
@@ -93,7 +160,7 @@ Zu den verschiedenen Kategorien der APP-Tests gehören:
 \begin{itemize}
     \item \textbf{Funktionstests}
         \newline
-        Der Funktionstest gewährleistet die ordnungsgemäße Funktionsweise der App gemäß den vorgegebenen Zielen. Typischerweise sind diese Ziele bereits festgelegt. Dabei müssen Standard-Softwareoperationen wie Installation, Deinstallation, sämtliche In-App-Funktionen sowie das Minimieren und Wiederaufrufen der App fehlerfrei durchgeführt werden.
+        Der Funktionstest gewährleistet die ordnungsgemäße Funktionsweise der App, gemäß den vorgegebenen Zielen. Typischerweise sind diese Ziele bereits festgelegt. Dabei müssen Standard-Softwareoperationen wie Installation, Deinstallation, sämtliche In-App-Funktionen sowie das Minimieren und Wiederaufrufen der App fehlerfrei durchgeführt werden.
     \item \textbf{Usability-Tests}
         \newline
         Für diesen Usability-Test werden Probanden herangezogen, um die Benutzerfreundlichkeit Ihrer Anwendung und ihr Layout zu bewerten. Idealerweise sollten die Probanden Ihrer geplanten Zielgruppe angehören, um aussagekräftigere Ergebnisse zu erzielen. Die potenziellen Nutzer erkunden Ihre App und prüfen, wie reibungslos die Navigation funktioniert, wie einfach der Zugriff auf wichtige Funktionen ist und ob Icons, Links und Texte gut erreichbar und ausreichend groß sind.
@@ -105,7 +172,7 @@ Zu den verschiedenen Kategorien der APP-Tests gehören:
 
 
 \subsection{Integration von Cypress}
-Die Installation von Cypress erfolgt meist über einen Paketmanager, hierbei kann entweder npm oder yarn verwendet werden. Ansonsten kann Cypress besteht auch noch die Möglichkeit Cypress direkt über die offiziele Website herunterzuladen (https://docs.cypress.io/guides/getting-started/installing-cypress).
+Die Installation von Cypress erfolgt meist über einen Paketmanager, hierbei kann entweder npm oder yarn verwendet werden. Es besteht ansonsten auch noch die Möglichkeit Cypress über die offiziele Website herunterzuladen (https://docs.cypress.io/guides/getting-started/installing-cypress).
 Im Projektverzeichnis muss der Befehl:
 
 \begin{lstlisting}
@@ -154,7 +221,7 @@ describe('Project template spec', () => {
 
 Der Test beginnt mit einem "describe()" in diesem Block befindet sich eine kurze Zusammenfassung und der "beforeEach()" Block. Dieser wird vor jedem Test neu ausgeführt und lädt in diesem Fall die Testdaten aus den Fixtures.
 
-Der eigentliche Test beginnt dann beim "it()" Block. Als erstes Authentifiziert sich der User und besucht die Seite "projects". Danach sucht der nach der data-testid "email-search" wählt diese aus und schreibt in diese den Projekt Titel nach welchem gesucht werden soll. In weiterer Folge wird danach der Submit Button gedrückt und wieder mit einer data-testid nach den Eigenschaften des gefundenen Projekts geschaut.
+Der eigentliche Test beginnt dann beim "it()" Block. Als erstes authentifiziert sich der User und besucht die Seite "projects". Danach sucht der nach der data-testid "email-search" wählt diese aus und schreibt in diese den Projekt Titel nach welchem gesucht werden soll. In weiterer Folge wird danach der Submit Button gedrückt und wieder mit einer data-testid nach den Eigenschaften des gefundenen Projekts geschaut.
 
 \subsubsection{Ausführung des Testfalls}
 
@@ -166,12 +233,12 @@ Um den Testfall danach auszuführen muss der Testrunner zunächst mit dem Befehl
 \end{lstlisting}
 
 gestartet werden.
-Im Anschluss kann muss der richtige Test ausgewählt werden und es öffnet sich ein neues Fenster in dem der Test ausgeführt wird. Auf der rechten Seite des neuen Fensters befindet sich ein Vorschau Fenster durch welches man immer den aktuellen Status des Tests beobachten kann und auf der linken Seite wird genau dokumentiert welcher Schritt gerade ausgeführt wird.
+Im Anschluss muss der richtige Test ausgewählt werden und es öffnet sich ein neues Fenster, in dem der Test ausgeführt wird. Auf der rechten Seite des neuen Fensters befindet sich eine Vorschau durch welche man immer den aktuellen Status des Tests beobachten kann und auf der linken Seite wird genau dokumentiert welcher Schritt gerade ausgeführt wird.
 
 \subsection{Vor und Nachteile von Cypress}
 
-Die Intention der Entwickler von Cypress war es, das Testen im Browser zu vereinfache. Das Einbinden von Cypress in eine Applikation ist sehr einfach, es braucht keine extra Konfiguration. Auch das Verständnis der Sytnax ist sehr einfach. Ein großer Pluspunkt in Cypress ist, dass das warten auf DOM-Elemente mithilfe eines Mechanismus vereinfacht wurde. Funktionen wie "sleep" oder "wait" entfallen also. 
-Zwei Nachteile die Cypress besitzt sind, dass es JavaScript Kenntnisse voraussgesetzt sind. Selenium hingegen unterstützt mehrere Sprachen. Außerdem wird nur Chrome als auführender Browser unterstützt.
+Die Intention der Entwickler von Cypress war es, das Testen im Browser zu vereinfache. Das Einbinden von Cypress in eine Applikation ist sehr einfach, es braucht keine extra Konfiguration. Auch das Verständnis der Sytnax ist nicht schwierig. Ein großer Pluspunkt in Cypress ist, dass das warten auf DOM-Elemente mithilfe eines Mechanismus vereinfacht wurde. Funktionen wie "sleep" oder "wait" entfallen also.\newline
+Cypress hat zwei Nachteile: Erstens setzt die Verwendung von Cypress JavaScript-Kenntnisse voraus, während Selenium mehrere Programmiersprachen unterstützt. Zweitens unterstützt Cypress nur den Chrome-Browser als Ausführungsumgebung, während Selenium eine breitere Palette von Browsern unterstützt.
 
 
 

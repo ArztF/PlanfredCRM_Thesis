@@ -1,6 +1,6 @@
-Postmark ist ein Online-Service, welcher eine Email API zur Verfügung stellt. Diese API wurde in dieser Diplomarbeit verwendet um Mails an das Support Team zu versenden sobald eine Änderung in der Datenbank erfolgt ist. Das Hauptaugenmerk dieses Service liegt aber darin, dass die Emails auch wirklich in der Inbox ankommen und nicht im Spam landen. Diese Plattform implementiert bewährte Praktiken, um sicherzustellen, dass die Emails auch wirklich zuverlässig beim Empfänger ankommen. Dies funktioniert mit Funktionen wie Echtzeit-Protokollierung und Mechanismen zur Vermeidung von Spam.
+Postmark ist ein Online-Service, welcher eine Email API zur Verfügung stellt. Diese API wurde in dieser Diplomarbeit verwendet, um Mails an das Support Team zu versenden sobald eine Änderung in der Datenbank erfolgt ist. Das Hauptaugenmerk bei diesem Service liegt aber darin, dass die Emails auch wirklich in der Inbox ankommen und nicht im Spam landen. Diese Plattform implementiert bewährte Praktiken, um sicherzustellen, dass die Emails auch wirklich zuverlässig beim Empfänger ankommen. Das wiederum funktioniert mit Funktionen wie Echtzeit-Protokollierung und Mechanismen zur Vermeidung von Spam.
 
-Der Nachteil von Postmarkt liegt allerdings in den Kosten die dadurch verursacht wird. 10.000 Emails kosten monatlich 15 USD, bis zu einer Anzahl von 100 Emails pro Monat ist dieser Service kostenlos.
+Der Nachteil von Postmarkt liegt allerdings in den hohen Kosten die dadurch verursacht werden. 10.000 Emails kosten monatlich 15 USD, bis zu einer Anzahl von 100 Emails pro Monat ist dieser Service kostenlos.
 
 \begin{figure}[h!]
     \centering
@@ -12,7 +12,7 @@ Der Nachteil von Postmarkt liegt allerdings in den Kosten die dadurch verursacht
 
 \subsection{Mailversandfunktion}
 
-In der folgenden Diplomarbeit wurde Postmarkt wie folgt verwendet
+In der folgenden Diplomarbeit wurde Postmark wie folgt verwendet
 
 
 \begin{lstlisting}
@@ -33,7 +33,7 @@ Zuerst wird ein Client angelegt:
 \begin{lstlisting}
 new postmark.ServerClient(config.postmark.apikey)
 \end{lstlisting}
-In der Config ist der API-Key definiert welcher benötigt wird um Postmark verwenden zu können.
+In der Config ist der API-Key definiert, welcher benötigt wird um Postmark verwenden zu können.
 
 Die Funktion "client.sendEmail()" braucht einige Parameter:
 
@@ -43,7 +43,7 @@ Die Funktion "client.sendEmail()" braucht einige Parameter:
         Hier wird die Absender E-Mail Adresse definiert. Diese kann beliebig gewählt werden.
     \item \textbf{To}
         \newline
-        In diesem Parameter wird die Empfänger E-Mail definiert.
+        In diesem Parameter wird die Empfänger E-Mail Adresse definiert.
     \item \textbf{Subject}
         \newline
         Im Subject wird der Betreff des E-Mails definiert.
@@ -83,7 +83,7 @@ Weiteres können noch andere Properties wie zum Beispiel Header, TextBody, oder 
 \end{lstlisting}
 
 
-Mit der "mail" Funktion wird also eine Email versendet diese funktioniert einfach nur durch 
+Mit der "mail" Funktion wird also eine Email versendet, diese funktioniert einfach nur durch 
 \begin{lstlisting}
 client.sendEmail({})
 \end{lstlisting}
