@@ -91,49 +91,49 @@ Wenn eine neue Version der Anwendung verfügbar ist, kann das Container-Deployme
 
 \subsection{Umgebungsvariablen}
 
-Umgebungsvariablen sind dazu da um die Anwendungsgeheimnisse und Konfigurationen zu speichern, die wenn nötig von der Anwendung abgerufen werden können. Umgebungsvariablen verleihen einer Anwendung mehr Dynamik. Somit kann von sehr schnell und einfach von internen auf externe Ressourcen umgeschaltet werden. Der Wert einer Umgebungsvariable kann aus verschiedenen Quellen stammen wie zum Beispiel Textdateien, Drittanbieter oder aufrufende Skripte. Das wichtigste an den Umgebungsvariablen ist aber, dass der Wert nicht statisch gecoded ist sondern wirklich dynamisch ist und je nach Umgebung verändert werden kann.
+Umgebungsvariablen sind dazu da, um die Anwendungsgeheimnisse und Konfigurationen zu speichern, die wenn nötig von der Anwendung abgerufen werden können. Umgebungsvariablen verleihen einer Anwendung mehr Dynamik. Somit kann sehr schnell und einfach von internen auf externe Ressourcen geswitched werden. Der Wert einer Umgebungsvariable kann aus verschiedenen Quellen stammen, wie zum Beispiel Textdateien, Drittanbieter oder aufrufende Skripte. Das Wichtigste an den Umgebungsvariablen ist aber, dass der Wert nicht statisch gecoded ist sondern wirklich dynamisch und je nach Umgebung verändert werden kann.
 
 Es gibt verschiedene Arten von Umgebungsvariablen:
 
 \begin{itemize}
     \item \textbf{Systemumgebungsvariablen}
         \newline
-        Diese Art von Umgebungsvariablen befinden sich im obersten Verzeichnis und laufen unter dem Benutzerprofil. In den meisten Fällen werden sie vom Systemadministrator festgelegt. Das wohl häufigste Vorkommen einer Systemumgebungsvariable ist die "PATH" Variable. Diese legt fest in welchen Verzeichnissen gesucht wird, wenn ein Befehl in die Kommandozeile eingegeben wird.
+        Diese Art von Umgebungsvariablen befinden sich im obersten Verzeichnis und laufen unter dem Benutzerprofil. In den meisten Fällen werden sie vom Systemadministrator festgelegt. Das wohl häufigste Vorkommen einer Systemumgebungsvariable ist die "PATH" Variable. Diese legt fest, in welchen Verzeichnissen gesucht wird, wenn ein Befehl in die Kommandozeile eingegeben wird.
         \cite{path_setzen}
         
     \item \textbf{Benutzer-Umgebungsvariablen}
         \newline
-        In diesen Variablen wird zum Beispiel der Pfad zu einer lokal installierten Bibliothek gespeichert, welche nur von manchen Benutzern verwendet wird. Für Änderungen an dieser Variable wird der Systemadministrator nicht benötigt. Diese Variablen sind sehr hilfreich um lokale Änderungen nur für einen Benutzer gültig zu machen.
+        In diesen Variablen wird zum Beispiel der Pfad zu einer lokal installierten Bibliothek gespeichert, welche nur von manchen Benutzern verwendet wird. Für Änderungen an dieser Variable wird der Systemadministrator nicht benötigt. Diese Variablen sind sehr hilfreich, um lokale Änderungen nur für einen Benutzer gültig zu machen.
     \item \textbf{Laufzeit-/Prozessumgebungsvariablen}
         \newline
         Auf diese Art von Umgebungsvariablen hat der Benutzer mehr oder weniger keinen Einfluss. Die Lebensdauer dieser Umgebungsvariablen ist durch den übergeordneten Prozess begrenzt, der sie erstellt hat.
         Sollte es aber den speziellen Fall geben, das der Benutzer Einfluss auf die Laufzeitumgebungsvariablen braucht, dann kann er diese im Terminal-Skript erstellen.
 \end{itemize}
 
-Im Falle diese Diplomarbeit wurden Umgebungsvariablen hauptsächlich verwendet um die Sicherheit aufrecht zu erhalten und Datenbankbezogene Informationen oder API - Keys darin zu speichern.
+Im Falle diese Diplomarbeit wurden Umgebungsvariablen hauptsächlich verwendet um die Sicherheit aufrecht zu erhalten und datenbankbezogene Informationen oder API - Keys darin zu speichern.
 
 \subsubsection{.env-Dateien}
-In dieser Diplomarbeit wurden .env Files verwendet um die Umgebungsvariablen zu speichern. Die Anwendung ist sehr simpel. Es muss im Stammverzeichnis des Projektes eine .env Datei angelegt werden in dieser können nach folgendem Schema die Umgebungsvariablen definiert werden:
+In dieser Diplomarbeit wurden .env Files verwendet um die Umgebungsvariablen zu speichern. Die Anwendung ist sehr simpel. Es muss im Stammverzeichnis des Projektes eine .env Datei angelegt werden, in dieser können nach folgendem Schema die Umgebungsvariablen definiert werden:
 \begin{verbatim}
     VAR_UNO=SOME_KEY_HERE
     VAR_DOS=SOME_OTHER_KEY_HERE
 \end{verbatim}
 
 Wenn diese Variablen von der Anwendung benötigt werden, sucht diese danach und lädt sie während der Laufzeit ins Programm. 
-Es können allerdings auch mehrere Dateien erstellen werden für mehrere Umgebungen z.B
+Es können allerdings auch mehrere Dateien, für mehrere Umgebungen erstellt werden z.B
 \begin{verbatim}
     .env.dev -> Fuer die Developement Umgebung
     .env.prod -> Fuer die Production Umgebung
 \end{verbatim}
 
-Wichtig ist außerdem noch die .env Dateien nicht in eine Versionskontrolle wie Github aufzunehmen. Wenn ein spezielles Schema definiert wurde welches auch für andere Entwickler wichtig ist erstellt man in den meisten Fällen eine .env.template Datei und definiert hier das Schema folgendermaßen:
+Wichtig ist außerdem noch, die .env Dateien nicht in eine Versionskontrolle wie Github aufzunehmen. Wenn ein spezielles Schema definiert wurde, welches auch für andere Entwickler wichtig ist, erstellt man in den meisten Fällen eine .env.template Datei und definiert hier das Schema folgendermaßen:
 
 \begin{verbatim}
     VAR_UNO= # Your value here
     VAR_DOS= # Your value here
 \end{verbatim}
 
-Somit ist das Schema bekannt aber vertrauliche Werte werden nicht in die Versionskontrolle mit aufgenommen.
+Somit ist das Schema bekannt, aber vertrauliche Werte werden nicht in die Versionskontrolle mit aufgenommen.
 
 
 \cite{Umgebungsvariablen}
@@ -143,11 +143,11 @@ Somit ist das Schema bekannt aber vertrauliche Werte werden nicht in die Version
 
 \subsection{Docker}
 
-Docker wurde erstmals im März 2013 von dotCloud veröffentlicht und nutzt den Linux-Kernel und seine Ressourcenkontrollmechanismen wie Cgroups und Namespaces, um Prozesse zu isolieren, wodurch sie in voneinander unabhängigen Umgebungen ausgeführt werden können. Dieser fundamentale Aspekt der Container-Technologie ermöglicht die parallele Ausführung mehrerer Prozesse und Anwendungen in isolierten Containern. Dies steigert die Effizienz Ihrer Infrastruktur, ohne dabei die Sicherheitsvorteile zu vernachlässigen, die sich aus der Nutzung separater Umgebungen ergeben.
+Docker wurde erstmals im März 2013 von dotCloud veröffentlicht und nutzt den Linux-Kernel und seine Ressourcenkontrollmechanismen wie Cgroups und Namespaces, um Prozesse zu isolieren, wodurch sie in voneinander unabhängigen Umgebungen ausgeführt werden können. Dieser fundamentale Aspekt der Container-Technologie, ermöglicht die parallele Ausführung mehrerer Prozesse und Anwendungen in isolierten Containern. Dies steigert die Effizienz Ihrer Infrastruktur, ohne dabei die Sicherheitsvorteile zu vernachlässigen, die sich aus der Nutzung separater Umgebungen ergeben.
 
-Container-Tools wie zum Beispiel Docker arbeiten auf mit einem imagebasierten Deployment-Modell. Dies erleichtert der Anwendung die Nutzung von gemeinsamen Ressourcen und Services mit sämtlichen Abhängigkeiten.
+Container-Tools, wie zum Beispiel Docker, arbeiten mit einem imagebasierten Deployment-Modell. Dies erleichtert die Anwendung und Nutzung von gemeinsamen Ressourcen und Services mit sämtlichen Abhängigkeiten.
 
-Mit Docker ist es möglich einen Teil einer Anwendung zu aktualisieren oder reparieren ohne die gesamte Anwendung deaktivieren zu müssen. Außerdem besitzt Docker eine Rollbacking, also das zurücksetzen auf die vorherige Version.
+Mit Docker ist es möglich einen Teil einer Anwendung zu aktualisieren oder zu reparieren ohne die gesamte Anwendung deaktivieren zu müssen. Außerdem besitzt Docker ein Rollbacking, also das zurücksetzen auf die vorherige Version.
 
 \begin{figure}[h!]
     \centering
