@@ -1,0 +1,29 @@
+Bei Vite handelt es sich um ein Frontend-Build-Tool, es sorgt also dafür, dass JavaScript-Module im Browser geladen werden ohne dass diese im Vorhinein gebündelt oder transpiliert werden. Es baut auf \textbf{ES Modules} auf und sorgt für einen kurzen Build-Prozess. Zusätzlich ermöglicht es in der Entwicklung das sogenannte Hot Module Replacement. Dadurch werden Änderungen im Code sofort im Browser sichtbar gemacht ohne Reload. Diese Features machen den Entwicklungsprozess um ein Vielfaches angenehmer und effizienter.
+
+\textbf{Vorteile gegenüber Konkurenz:}
+\newline
+Neben Vue gibt es noch zahlreiche weitere ähnliche Tools. Das Bekannteste dafür ist \textbf{Webpack}, welches sehr weit verbreitet und beliebt ist. Jedoch gibt es bei dieser Alternative einige Probleme, wie eine lange Einrichtungszeit, zu hohe Komplexität und abfallende Leistung bei größeren Projekten.
+
+Vite ist jedoch einfach zum konfigurieren und zum arbeiten. Demnach braucht es hierbei nur eine  Datei, die \textbf{vite.config.js}. In dieser können diverse Einstellungen festgelegt werden. Ebenfalls ist Vite sehr performant. Grund dafür ist, dass es nur einzelne Module lädt, die benötigt werden und nicht immer alle zusammen. Zusätzlich dazu bietet Vite eine vergleichsweise gute Integration in Web-Frameworks wie Vite oder React.
+
+\textbf{Einrichten:}
+\newline
+Für die Installation des Build-Tools wird npm benötigt. Wenn dies installiert ist kann man Vite folgendermassen einrichten:
+
+\begin{lstlisting}
+    npm init vite@latest
+\end{lstlisting}
+
+Mit diesem Befehl wird ein neues Projekt erstellt. Nach Ausführung dieses Befehles wird man nach einem Projektnamen, dem verwendeten Framework und dem gewünschten Template gefragt. Als Template kann man zum Beispiel auswählen, dass TypeScript verwendet werden soll.
+
+\begin{lstlisting}
+    npm run dev
+\end{lstlisting}
+
+Mit \textbf{npm run dev} kann man das Projekt starten. Aufrufbar ist die Webseite dann standardmäßig über \textbf{http://localhost:3000}.
+
+\textbf{Wann lohnt sich Vite?}
+\newline
+Grundsätzlich kann man Vite in alle Projekte verwenden. Es gibt keine wirklichen Nachteile mit sich und bietet den Entwickler:innen einen angenehmeren Entwicklungsprozess. Allgemein kann jedoch gesagt werden, dass Vite besonders in Verbindung mit modernen Webtechnologien sinnvoll ist. Ebenfalls kann man Vite für kleine, mittlere und große Projekte verwenden.
+
+\cite{frontend_vite}

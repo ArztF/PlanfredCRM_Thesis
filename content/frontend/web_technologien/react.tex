@@ -1,0 +1,35 @@
+Bei React handelt es sich nicht so wie bei VueJS um ein Framework, sondern um eine Sammlung an Bibliothek. Das sorgt dafür, das React im Vergleich sehr schlank aufgebaut ist. Bei React arbeitet man in normalen JavaScript Files, in welche man dann den HTML Code und die Logik einbindet. Erst später im Build-Prozess verwandelt die Bibliothek diesen Code in tatsächliche HTML Elemente. 
+
+React ist schnell, das liegt an die Herangehensweise im Bezug auf dem DOM. Normalerweise wird der DOM bei Änderungen immer komplett neu gerendert. Das dauert jedoch lange und ist vor allem nicht notwendig. Aus diesem Grund setzt die Bibliothek auf einen sogenannten virtuellen DOM. Das bedeutet, das im Browser-Zwischenspeicher der aktuelle DOM, also die Benutzeroberfläche gespeichert ist. Wenn eine Änderung auftritt vergleicht React den tatsächlichen DOM mit dem virtuellen DOM, entscheidet welcher Bereich tatsächlich geändert werden und gibt das an den DOM weiter. Das spart nicht nur Zeit sondern macht React auch Platform-unabhängig. Der virtuelle DOM kann auch in nativen IOS oder Android Code umgewandelt werden. Das ist mit dem Framework \textbf{React Native} möglich.
+
+React arbeitet ebenfalls mit Komponenten.
+
+\begin{lstlisting}
+    export default function App() {
+      return (
+        <div className="App">
+          <h1>Hello World</h1>
+        </div>
+      );
+    }
+\end{lstlisting}
+
+In diesem Beispiel sieht man einen simplen Aufbau einer React Komponente. Diese Komponente wird dann in die App gerendert, um zu verstehen wie das funktioniert, muss zuerst die \textbf{index.html} Datei betrachtet werden. Diese Datei baut dafür den Grundstein für die Darstellung im Browser.
+
+\begin{lstlisting}
+    <div id="root"></div>
+\end{lstlisting}
+
+Das ist der einzige tatsächliche HTML-Code der in einem ReactJS Projekt zu finden ist. Gerendert wird dieses Element in der Datei \textbf{index.tsx}.
+
+\begin{lstlisting}
+    const rootElement = document.getElementById("root");
+\end{lstlisting}
+
+Damit wird das HTML-Element in eine JavaScript Variable gespeichert. Mit dieser Variable kann man nun Komponente rendern, das sieht wie folgt aus:
+
+\begin{lstlisting}
+    render(<App />, rootElement);
+\end{lstlisting}
+
+Hierbei wird die App-Komponente in das root-Element gerendert.
