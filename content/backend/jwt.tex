@@ -39,7 +39,7 @@ npm install jsonwebtoken
 \end{lstlisting}
 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Implementierung JWT]
 const jwt = require('jsonwebtoken')
 
 const generateToken = (email) => {
@@ -125,7 +125,7 @@ Wenn in zwei Tabs also der gleiche Online Shop besucht wird, erkennt der Session
 
 \subsubsection{Wie wird ein Session Cookie implementiert?}
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Implementierung Session Cookie]
 var cookieSession = require('cookie-session')
 var express = require('express')
 

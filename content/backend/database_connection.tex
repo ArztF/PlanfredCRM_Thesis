@@ -1,6 +1,5 @@
 Die Datenbankverbindung wird grundsätzlich beim Starten des Servers aufgebaut und erst wenn diese erfolgreich war, wird der Server tatsächlich gestartet. Die Datenbankverbindung in express.js wird grundsätzlich wie folgt aufgebaut:
-\newline
-\begin{lstlisting}
+\begin{lstlisting}[caption=Erstellen einer Datenbankverbindung in express.js]
     const client = new MongoClient(<Connection_String>)
     const result = await client.connect()
     let db = result.db(<Datenbankname>)

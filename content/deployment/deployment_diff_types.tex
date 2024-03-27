@@ -3,14 +3,6 @@
 Wenn man vom Deployment spricht, meint man die Bereitstellung von Software. Dies erfolgt meistens alles über halb- oder automatisierte Prozesse, mittels derer die Installation und Konfiguration der Softwarelösungen erfolgt. Im Deployment sind Aspekte wie die Installation, Konfiguration, Aktualisierung und Wartung von Systemen enthalten.
 Die meisten IT-Organisationen und Softwareentwickler führen regelmäßig Software-Updates und Patches mithilfe von teils vollautomatischen Prozessen durch. Es gibt verschiedene Arten von Deployment, die jeweils verschiedene Risiken mit sich bringen. Dennoch wird überall dasselbe Ziel verfolgt: Die Verteilung von Software auf Computern für Endbenutzer.
 
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.8\linewidth]{pics/deployment.jpg}
-    \caption{Was ist Deployment?}
-    \label{fig:enter-label}
-\end{figure}
-
-
 \subsection{Verschiedene Arten von Deployment}
 
 Grundsätzlich gibt es verschiedene Arten von Deployment. Diese werden prinzipiell folgendermaßen kategorisiert:
@@ -19,7 +11,7 @@ Grundsätzlich gibt es verschiedene Arten von Deployment. Diese werden prinzipie
     \item Virtuelles Deployment
     \item Container Deployment
     \end{itemize}
-
+\newpage
 \subsection{Traditionelles Deployment}
 
 Früher wurde eine Anwendung auf einem physischen Server deployed. Damals sah das ganze folgendermaßen aus.
@@ -37,7 +29,7 @@ Solange nur eine einzige Anwendung auf diesem Server läuft, stellt dies kein Pr
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.8\linewidth]{pics/traditionelles-deployment.png}
+    \includegraphics[width=0.7\linewidth]{pics/traditionelles-deployment.png}
     \caption{Traditionelles Deployment}
     \label{fig:enter-label}
 \end{figure}
@@ -45,7 +37,7 @@ Solange nur eine einzige Anwendung auf diesem Server läuft, stellt dies kein Pr
 
 \cite{Traditional_vs_Container_vs_Virtuell_Deployment}
 
-
+\newpage
 \subsection{Virtuelles Deployment}
 Um diese Probleme zu lösen, begann man die Software virtuell zu deployen. In diesem Fall wurde eine virtuelle Maschine erstellt, die über ihre eigene Partition im Speicher und ein eigenes Betriebssystem verfügte. Somit gab es keine Probleme mehr mit einer Ressourcenüberlastung und die individuellen Aplikationen konnten auch isoliert werden. Dennoch traten auch einige Probleme bei dieser Lösung auf, darunter:
 
@@ -63,7 +55,6 @@ Um diese Probleme zu lösen, begann man die Software virtuell zu deployen. In di
 \end{figure}
 
 \cite{Virtuelles_Deployment}
-
 \subsection{Container Deployment}
 Um die Probleme des virtuellen Deployments zu überwinden, hat man sich entschieden, die Software nun in Containern zu deployen. Container sind eigenständige Einheiten, die den gesamten Anwendungscode sowie alle erforderlichen Abhängigkeiten in sich tragen. Neben Docker, einem der bekanntesten Tools zur Containerisierung von Anwendungen, stehen auch Alternativen wie Kubernetes und Podman zur Verfügung. Container bieten den Vorteil, dass sie sehr leichtgewichtig sind und daher innerhalb weniger Sekunden oder sogar Millisekunden gestartet werden können. Zudem sind Container im Gegensatz zu virtuellen Maschinen äußerst portabel und skalierbar.
 
@@ -84,7 +75,7 @@ Wenn eine neue Version der Anwendung verfügbar ist, kann das Container-Deployme
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.8\linewidth]{pics/container_deployment.jpeg}
+    \includegraphics[width=0.6\linewidth]{pics/container_deployment.jpeg}
     \caption{Container Deployment}
     \label{fig:enter-label}
 \end{figure}

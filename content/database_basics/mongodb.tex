@@ -62,6 +62,7 @@ Die Datenbank ist in folgende Teile unterteilt:
             \label{fig:enter-label}
         \end{figure}
         \cite{mongodb_json_vs_bson}
+        \newpage
     \item \textbf{Collections}
         \newline
         Die "Documents" werden in sogenannten "Collections" gespeichert, welche vergleichbar mit Tabellen in relationalen Datenbanken sind. Collections besitzen eine sogenannte "dynamic schema" Eigenschaft, was bedeutet, dass "Documents" in einer "Collection" unterschiedliche "Fields" besitzen können. Wie man im unten gezeigten Beispiel sieht, können beide dieser Documents in derselben Collection gespeichert werden.
@@ -84,6 +85,7 @@ MongoDB ist auf die horizontale Skalierung ausgelegt. Dazu müssen neue Maschine
 \cite{mongodb_collections}
 
 Wie in der untenstehenden Grafik zu sehen, wird hier von "Shards" gesprochen. Das sogenannte Sharding stammt aus der Welt der traditionellen Datenbanken und beschreibt das Zerteilen einer großen Datenbank in mehrere kleine. Die neu entstandenen kleinen Datenbanken nennt man Shards. Vorteil dieser Methode liegen in schnelleren Schreib- und Lesezugriffen, da alle Shards in einem Cluster diese Befehle ausführen, wodurch ein hoher Grad der Parallelität erreicht wird.
+\newline
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.6\textwidth]{pics/vertical_scaling_mongodb.png}
@@ -104,6 +106,7 @@ MongoDB unterstützt zwei unterschiedliche Sharding-Methoden:
             \cite{hashed_sharding_image}
             \label{fig:enter-label}
         \end{figure}
+        \newpage
     \item \textbf{Ranged Sharding}
         \newline
         Bei dieser Methode werden die Daten aufgrund der Shard Schlüsselwerte in Bereiche unterteilt. Anschließend wird auf Basis dieser Werte jedem Chunk ein entsprechender Bereich zugewiesen.
@@ -130,7 +133,7 @@ Dadurch, dass MongoDB keine relationale Datenbank ist, sehen die Abfragen auch a
 Nach dem Aufbau der Verbindung zur Datenbank und der Auswahl einer Collection (Zeile 3, obiger Codesnippet), kann man mit den Abfragen beginnen.
 \newline
 Möchte man aus einer Collection, Documents abfragen, gibt es zwei verschiedene Varianten, dies zu machen. Sind "einfache" Abfragen, wie zum Beispiel vergleiche von einzelnen oder mehreren Fields notwendig, benötigt es die "find"-Methode. In der "find"-Methode kann man die Query, in Form eines Objekts übergeben, lässt man es allerdings leer, werden alle Documents aus der Collection zurückgegeben.
-\begin{lstlisting}
+\begin{lstlisting}[caption=Simple Abfrage in MongoDB]
     const res1 = await db.collection.find({}).toArray()
     const res1 = await db.collection.find(
         {
@@ -179,7 +182,10 @@ Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren 
         \$lte & Matches values that are less than or equal to a specified value \\
         \hline
         \$ne & Matches all values that are not equal to a specified value \\
-        \hline
+    \end{tabular}
+\end{center}
+\begin{center}
+    \begin{tabular}{ | m{1.5cm} | m{13cm} | }
         \$nin & Matches none of the values specified in an array \\
         \hline
         \$and & Joins query clauses with a logical AND returns all documents that match the conditions of both clauses \\
@@ -189,10 +195,6 @@ Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren 
         \$nor & Joins query clauses with a logical NOR returns all documents that fail to match both clauses \\
         \hline
         \$or & Joins query clauses with a logical OR returns all documents that match the conditions of either clause \\
-    \end{tabular}
-\end{center}
-\begin{center}
-    \begin{tabular}{ | m{1.5cm} | m{13cm} | } 
         \$exists & Matches documents that have the specified field \\
         \hline
         \$type & Selects documents if a field is of the specified type \\
@@ -204,8 +206,7 @@ Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren 
 \cite{mongodb_query_operations}
 \newline
 Die Syntax, um oben dargestellte Befehle zu verwenden, sieht wie folgt aus:
-\newline
-\begin{lstlisting}
+\begin{lstlisting}[caption=Verwendung Operatoren in MongoDB]
     const res = await db.collection.find(
         {
             "firstname": { $exists: true }
@@ -234,8 +235,7 @@ Möchte man allerdings nicht nur "einfache" Vergleichsabfragen durchführen, son
             \item Gibt ein gruppiertes Ergebnis zurück, in dem man ein Minimum, Maximum, Durchschnitt oder Gesamtergebnis berechnen kann.
         \end{itemize}
         Im folgenden Beispiel wird eine Aggregation gezeigt, welche aus zwei Phasen besteht. Die erste Phase filtert die Bestellungen nach ihrer Größe und gibt alle Bestellungen an die nächste Phase weiter, welche die Größe Medium besitzen. In der zweiten Phase werden die übergeben Documents gruppiert und die Anzahl summiert.
-        \newpage
-        \begin{lstlisting}
+        \begin{lstlisting}[caption=Aggregation Pipeline]
             db.orders.aggregate( [
                 // Phase 1
                {
@@ -265,9 +265,8 @@ Möchte man allerdings nicht nur "einfache" Vergleichsabfragen durchführen, son
 \end{itemize}
 Im Verlauf dieser Diplomarbeit erwies sich insbesondere die Aggregation-Pipeline als essenziell. Darüber hinaus wurde die Single-Purpose-Aggregation-Methode "estimatedDocumentCount()" für die Statistik Seite genutzt. Die Auswahl dieser Aggregation erfolgte aufgrund der geringeren Relevanz einer exakten Genauigkeit bei der Anzahl sowie der signifikant verbesserten Performance dieser Aggregation.
 \cite{mongodb_aggregation_basics}
-\newline
 Zwei weitere wichtige Anforderungen in diesem Projekt waren zum einen, dass JOINen von zwei verschiedenen Collections und das eliminieren von Daten aus einem Array, abhängig von einer Kondition. Für den JOIN wurde das Schlüsselwort \$lookup verwendet. Dieses führt einen left outer join durch, dabei wird ein neues Array-Field, mit den gefundenen Documents, in das Document hinzugefügt. Bei dem \$lookup Befehl werden folgende Felder benötigt:
-\begin{lstlisting}
+\begin{lstlisting}[caption=JOIN in MongoDB]
 {
    $lookup: {
        from: <collection to join>,
@@ -281,7 +280,7 @@ Dabei wird bei "from" die Collection angegeben, mit der der JOIN durchgeführt w
 \cite{mongodb_aggregation_lookup}
 \newline
 Das Eliminieren von Daten aus einem Array wird in dieser Diplomarbeit für eine Abfrage benötigt in der ermittelt wird, wie viele Projekte ein Benutzer besitzt und wie hoch der verbrauchte Speicherplatz ist. Da die Teilnehmer eines Projektes, einschließlich des Projektbesitzers, in einem Array-Field "participants" gespeichert ist, ist es notwendig, alle anderen Teilnehmer aus diesem Array zu löschen und nur den Benutzer mit der Rolle "owner" in diesem Array zu belassen. Dies ist wie folgt gelöst:
-\begin{lstlisting}
+\begin{lstlisting}[caption=Beispiel einer MongoDB Abfrage]
 const projects = await collection.aggregate([
     {
       $match: {

@@ -15,7 +15,7 @@ Der Nachteil von Postmarkt liegt allerdings in den hohen Kosten die dadurch veru
 In der folgenden Diplomarbeit wurde Postmark wie folgt verwendet
 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Implementierung Mailversandfunktion]
 // Send an email:
 const client = new postmark.ServerClient(config.postmark.apikey)
 
@@ -55,7 +55,7 @@ Die Funktion "client.sendEmail()" braucht einige Parameter:
 
 Weiteres können noch andere Properties wie zum Beispiel Header, TextBody, oder Cc gesetzt werden:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Properties Postmark]
 {
   "From": "sender@example.com",
   "To": "receiver@example.com",

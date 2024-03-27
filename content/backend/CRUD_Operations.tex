@@ -1,8 +1,8 @@
 Der Begriff CRUD steht für Create, Read, Update und Delete. Dies sind vier grundlegende Operationen in der Datenverarbeitung. Oft bilden diese Operationen die grundlegende Schnittstelle zwischen Andwendungen und Datenbanken.
-
+\newline
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=0.6\textwidth]{pics/CRUD.jpeg}
+    \includegraphics[width=0.8\textwidth]{pics/CRUD.jpeg}
     \caption{CRUD Operations}
     \label{fig:enter-label}
 \end{figure}
@@ -17,7 +17,7 @@ Der Begriff CRUD steht für Create, Read, Update und Delete. Dies sind vier grun
 
  Die Read-Operation ergmöglicht es, vorhandene Daten aus der Datenbank auszulesen. Dies erfolgt in der Form von Abfragen, um Datensätze nach bestimmten Kritierien zu filtern, oder gegebenenfalls auch alle Datensätze abzurufen.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Read-Operation]
 async function getProjectById (id) {
   if (!id) {
     throw new Error('ID must be provided')
@@ -43,7 +43,7 @@ Die Update-Operation wird verwendet, um bereits bestehende Datensätze in der Da
 
 Manche Big-Data-Systeme verzichten gänzlich auf die Integration der UPDATE-Operation und ermöglichen stattdessen ausschließlich eine CREATE-Operation in Verbindung mit einem Zeitstempel. Dabei wird bei jeder Aktualisierung eine neue Version der Zeile hinzugefügt.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Update-Operation]
 try {
     const response = await fetch(`${config.planfredApiUrl}crm/projects/` + req.params.id, {
       method: 'PATCH',
@@ -58,7 +58,7 @@ try {
     console.error(e)
   }
 \end{lstlisting}
-
+\newpage
 Dieses Code Beispiel verwendet die Node.js Fetch API. 
 
 \begin{lstlisting}
@@ -78,7 +78,7 @@ Die DELETE-Operation erlaubt es dem Nutzer, Datensätze aus der Datenbank zu lö
 
 Im Falle dieser Diplomarbeit wurden ausschließlich READ und UPDATE-Operations verwendet. Die Syntax um ein Projekt zu löschen sieht wie folgt aus.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Delete-Operation]
     const project = await Projects.findById(req.params.id)
 
   try {
@@ -99,7 +99,6 @@ Nachdem das Projekt erneut gespeichert wurde, wird bei erfolgreicher Ausführung
 
 
 Weiters wurden die Änderung des Speicherplatzes, sowie die Änderung des Abonnements nach dem selben Prinzip implementiert.
-
 \cite{CRUD_Operations}
 
 \subsection{Node.js Fetch API}

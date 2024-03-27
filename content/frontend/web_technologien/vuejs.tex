@@ -1,6 +1,6 @@
 VueJS ist ein JavaScript Framework, welches verwendet wird um Benutzeroberflächen zu bauen. Dafür baut es auf nativen HTML, CSS und JavaScript und ermöglicht dabei ein deklaratives und Komponenten basiertes Programmiermodel. 
 \cite{frontend_web_vuejs_introduction}
-
+\newpage
 \textbf{Model View ViewModel:}
 \newline
 VueJS verwendet das MVVM-Prinzip, welches es gibt um zwischen der grundlegenden Benutzeroberfläche eines Projektes, der direkten Oberflächenlogik für die Veranschaulichung von Informationen und der tieferen Logik unterscheidet. Diese klare strukturierte Trennung sorgt auch dafür, dass VueJS mit einem sogenannten Build-Tool so gebaut werden kann, dass nicht verwendete Teile des Codes nicht ausgeliefert werden und somit die Geschwindigkeit maximiert wird. 
@@ -22,7 +22,7 @@ Ein sehr fundamentaler Punkt des Frameworks sind die Komponenten. In VueJS werde
 \cite{frontend_web_vuejs_components}
 \newline
 
-\begin{lstlisting}
+\begin{lstlisting}[language=html]
     <template>
     <!-- HTML Code -->
     </template>
@@ -87,7 +87,6 @@ In VueJS gibt es zwei verschiedene Arten zu programmieren. Dabei gibt es die Opt
       }
     }
 \end{lstlisting}
-
 Beim ersten Code-Beispiel handelt es sich um die Compositon-API und im zweiten um die Options-API. Wie man sehen kann muss bei Verwendung der Options-API alles in vordefinierte Blöcke bestimmt werden, bei der Composition-API ist dies nicht der Fall.
 
 \cite{frontend_web_vuejs_api}
@@ -96,7 +95,7 @@ Beim ersten Code-Beispiel handelt es sich um die Compositon-API und im zweiten u
 \newline
 VueJS verwendet ein sogenanntes Reactivity-System, welches zu einem der wichtigsten Feature des Frameworkes zählt. Dieses System sorgt dafür, dass sich JavaScript Variablen wenn sie geändert werden live in der Benutzeroberfläche updaten und das ohne Page-Reload. Die Basis bieten hierbei JavaScript Proxys, wobei ein Handler mit Getter- und Settermethoden verwendet wird. 
 
-\begin{lstlisting}
+\begin{lstlisting}[language=html]
     <script>
     export default {
       data() {
@@ -113,7 +112,7 @@ VueJS verwendet ein sogenanntes Reactivity-System, welches zu einem der wichtigs
     </script>
     
     <template>
-      <button @click="increment">Zähler: {{ count }}</button>
+      <button @click="increment">Zaehler: {{ count }}</button>
     </template>
 \end{lstlisting}
 
@@ -180,7 +179,7 @@ Die Mounting Hooks werden am meisten verwendet und ermöglichen den Zugriff auf 
 
 In VueJS gibt es hierbei zuerst die \textbf{beforeMount} Hook, welche aufgerufen wird bevor das erste Rendern stattgefunden hat.
 
-\begin{lstlisting}
+\begin{lstlisting}[language=html]
     <script>
     export default {
       beforeMount() {
@@ -241,7 +240,7 @@ In VueJS gibt es die \textbf{beforeUpdate} Methode, welche nach der Änderung ei
 \end{lstlisting}
 
 In diesem Beispiel wird die Variable \textbf{counter} 1000ms nach Erstellung der Komponente erhöht. Dadurch wird \textbf{beforeUpdate} aufgerufen, in welcher die neue Variable in der Konsole ausgegeben wird. Wenn diese Ausgabe geschieht hat die Variable zwar einen neuen Wert, wurde jedoch im HTML noch nicht aktualisiert.
-
+\newpage
 Um nun auch den Zeitpunkt nach dem Rendern des neuen DOM abzufangen gibt es die \textbf{updated} Hook.
 
 \begin{lstlisting}
@@ -293,7 +292,7 @@ In VueJS gibt es hierfür zwei Hooks. Die erste ist die \textbf{beforeDestroy} M
 \end{lstlisting}
 
 Zu diesem Zeitpunkt ist die Komponente noch normal funktionell und es sind alle Daten noch vorhanden. In diesem Beispiel wird eine Variable manuell gelöscht, bevor die Komponente zerstört wird.
-
+\newpage
 Des weiteren gibt es noch die \textbf{destroyed} Hook.
 
 \begin{lstlisting}

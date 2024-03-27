@@ -1,6 +1,6 @@
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.5\linewidth]{pics/cypress-logo.png}
+    \includegraphics[width=0.3\linewidth]{pics/cypress-logo.png}
     \caption{Cypress}
     \label{fig:enter-label}
 \end{figure}
@@ -23,35 +23,35 @@ In Cypress gibt es folgende verschiedene Commands:
         \hline
         Name & Beschreibung \\ [0.5ex] 
         \hline\hline
-        \.as() & Wird meist in Kombination mit .get() verwendet \\
+        .as() & Wird meist in Kombination mit .get() verwendet \\
         \hline
-        \.children() & Gibt das untergeordnete DOM Element zurück \\
+        .children() & Gibt das untergeordnete DOM Element zurück \\
         \hline
-        \.closest() & Gibt das näheste DOM Element zurück \\
+        .closest() & Gibt das näheste DOM Element zurück \\
         \hline
-        \.contains() & Sucht ein DOM Element nach dem Text Content \\
+        .contains() & Sucht ein DOM Element nach dem Text Content \\
         \hline
-        \.eq() & Sucht ein DOM Element mit dem genau gleichen Content  \\
+        .eq() & Sucht ein DOM Element mit dem genau gleichen Content  \\
         \hline
-        \.filter() & Findet Elemente mit einem Selektor \\
+        .filter() & Findet Elemente mit einem Selektor \\
         \hline
-        \.find() & Findet untergeordnete Elemente mit einem Selektor \\
+        .find() & Findet untergeordnete Elemente mit einem Selektor \\
         \hline
-        \.first() & Gibt das erste Element zurück \\
+        .first() & Gibt das erste Element zurück \\
         \hline
-        \.focused() & Gibt das aktuell ausgewählte DOM Element zurück \\
+        .focused() & Gibt das aktuell ausgewählte DOM Element zurück \\
         \hline
-        \.get() & Gibt DOM Elemente welche mit einem Selektor gesucht werden \\
+        .get() & Gibt DOM Elemente welche mit einem Selektor gesucht werden \\
         \hline
-        \.next() & Gibt das nächste DOM Element zurück \\
+        .next() & Gibt das nächste DOM Element zurück \\
         \hline
-        \.not() & Filtert ausgewählte Elemente mit einem Selektor \\
+        .not() & Filtert ausgewählte Elemente mit einem Selektor \\
         \hline
-        \.parent() & Gibt das Parent Element aus dem DOM zurück \\
+        .parent() & Gibt das Parent Element aus dem DOM zurück \\
         \hline
-        \.url() & Gibt die URL der aktiven Seite zurück \\
+        .url() & Gibt die URL der aktiven Seite zurück \\
         \hline
-        \.window() & Gibt das Window Objekt der aktuellen Seite zurück  \\
+        .window() & Gibt das Window Objekt der aktuellen Seite zurück  \\
         \hline
     \end{tabular}
 \end{center}
@@ -79,12 +79,12 @@ Des weiteren wurden Commands geschrieben um die Fixtures zu laden.
     \label{fig:enter-label}
 \end{figure}
 
-\cite{Cypress}
+\cite{Cypress_test}
 \subsection{API Test}
 Mit einem API (Application Programming Interface) Test kann festgestellt werden, ob die Anforderungen in Sachen Funktionalität, Leistung, Zuverlässigkeit und Sicherheit erfüllen. Das Ziel eines solchen Tests ist es, Fehler oder unerwartete Verhaltensweisen zu finden. So stellt man sicher, dass der Endbenutzer kein fehlerhaftes oder unsicheres Produkt zur Verfügung gestellt bekommt. 
 
 Dennoch gestalten sich API-Tests oft komplexer als gedacht. APIs bedienen sich in der Regel Protokollen und Standards, mit denen Sie normalerweise nicht direkt interagieren. Diese Normen sind unerlässlich, um die Kommunikation zwischen verschiedenen Plattformen, Anwendungen und Systemen zu ermöglichen. Daher ist es erforderlich, nicht nur die Funktionalität einer API zu prüfen, sondern auch ihre Leistung, Sicherheit und das reibungslose Zusammenspiel aller Komponenten, um eine zuverlässige Schnittstelle zu gewährleisten.
-
+\newpage
 \subsubsection{Welche verschiedenen Arten von API Tests gibt es?}
 
 \begin{figure}[h!]
@@ -96,7 +96,6 @@ Dennoch gestalten sich API-Tests oft komplexer als gedacht. APIs bedienen sich i
 
 
 Die Art der Tests hängt davon ab, was genau zu testen ist. Es gibt eine Vielzahl verschiedener Arten von Tests:
-
 \begin{itemize}
     \item \textbf{Funktionstests}
         \newline
@@ -117,9 +116,9 @@ Die Art der Tests hängt davon ab, was genau zu testen ist. Es gibt eine Vielzah
 
 
 
-
+\newpage
 \subsubsection{Beispiel eines API Tests}
-\begin{lstlisting}
+\begin{lstlisting}[caption=API Test]
 it('get all projects', () => {
         cy
             .request({
@@ -186,11 +185,11 @@ Nun sollte sich der Ordner "cypress" im Projektverzeichnis befinden. Dieser enth
 
 ausgeführt werden.
 \cite{Integration_von_Cypress}
-
+\newpage
 \subsubsection{Erstellung eines simplen Testfalls}
 Im folgenden Testbeispiel wird überprüft ob die Projektsuchen funktioniert. Im ersten Schritt wird in die Suchleiste der Titel eingegeben. Danach wird anhand von den angezeigten Eigenschaften des Projekts überprüft, ob auch das richtige Projekt vom Such-Algorithmus gefunden wurde. 
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Erstellen eines simplen Testfalls]
 describe('Project template spec', () => {
     beforeEach(() => {
         cy

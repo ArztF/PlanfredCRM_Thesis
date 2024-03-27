@@ -13,7 +13,7 @@ cron.schedule('0 22 * * *', <auszufuehrender Befehl>)
 \end{lstlisting}
 Dabei wird in dieser Diplomarbeit ebenfalls noch ein if-Statement eingebaut, welches mittels .env Variablen überprüft, ob der Server gerade im sogenannten "production" Modus läuft. Falls das Backend lokal gestartet wird, werden alle Cron-Jobs erneut ausgeführt, unabhängig von der eingeplanten Zeit. Im folgenden Codebeispiel sieht man die oben beschriebenen Funktionen.
 \newline
-\begin{lstlisting}
+\begin{lstlisting}[caption=Einplanen der Cron-Jobs]
 const cronJobs = async () => {
   // on localhost, run cronjobs immediately after startup
   if (process.env.NODE_ENV !== 'production' && !process.env.MONGODB_CONNECTION_STRING) {

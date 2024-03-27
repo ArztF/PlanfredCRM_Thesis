@@ -10,7 +10,7 @@ Sobald dieser Schritt erledigt ist, kann in der MongoDB Abfrage der
 
 Operator verwendet werden.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Implementierung Full-Text-Search]
     {
       $search: {
         index: 'searchUsers',
@@ -54,21 +54,17 @@ Apache Lucene stellt mehrere verschiedene Analyzer zur Verfügung, welche nach v
         Diese Analyzer ist ähnlich wie der English Analyzer, mit dem Unterschied das er nach populären Wörtern in der französischen Sprache sucht wie zum Beispiel "le", "au", "mon".
 \end{itemize}
 
-
-
-
-
 In dieser Diplomarbeit wurde der MongoDB Search Index verwendet um alle Felder einer Anwender:in auf Schlüsselwörter zu durchsuchen.
+\cite{Search_Indexes}
+\cite{Atlas_Indexes}
 
 \begin{figure}[h!]
     \centering
-    \includegraphics[width=1\linewidth]{pics/mongodb-search-indizes.png}
+    \includegraphics[width=0.7\linewidth]{pics/mongodb-search-indizes.png}
     \caption{MongoDB Search Index}
     \label{fig:enter-label}
 \end{figure}
 
 
-\cite{Search_Indexes}
-\cite{Atlas_Indexes}
 
 

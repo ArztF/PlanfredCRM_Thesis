@@ -26,6 +26,7 @@ Middleware Funktionen haben Zugriff auf das Request-Object (\textbf{req}), das R
         \newline
         In Bezug auf die Übergabeparameter existieren zwei verschiedene Optionen. Die Erste besteht darin, dass, wenn die Zeichenfolge 'route' als Parameter übergeben wird, sämtliche Middleware-Funktionen ignoriert werden, und stattdessen nach einer passenden Route gesucht wird. Die Zweite Möglichkeit besteht darin, dass ein anderer Wert als 'route' übergeben wird. Dabei behandelt Express diesen Aufruf als Fehler und überspringt jegliche Middleware- und Route-Funktionen, die keine Fehler zurückgeben. Dieser Ansatz gewährleistet die angemessene Verarbeitung von Anfragen und ermöglicht die gezielte Steuerung des Anwendungsflusses, wobei die Behandlung von Fehlern oder das Überspringen bestimmter Schritte je nach Bedarf erfolgt.
 \end{itemize}
+\newpage
 In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware einzubinden.
 
 \begin{itemize}
@@ -35,7 +36,7 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
         \newline
         Im folgenden Codebeispiel wird eine Middleware-Funktion implementiert, die bei jedem Request an die App das aktuelle Datum ausgibt. Nachdem das Datum auf der Konsole ausgegeben wird, wird next() aufgerufen, wodurch der Request unverändert bleibt. Falls der Pfad der Syntax "user/:id" entspricht, wird die Ausführung an die erste Middleware weitergeleitet. Wenn die ID den Wert Null aufweist, wird next mit dem Übergabeparameter "route" aufgerufen, der auf die nächste Route verweist. In diesem Fall würde die Middleware "special" als Antwort zurückliefern. Wenn die ID jedoch von null verschieden ist, wird next ohne Übergabeparameter aufgerufen, und der Request wird an die nächste Middleware-Funktion weitergeleitet. In diesem Fall würde die Antwort "regular" lauten.
         \newline
-        \begin{lstlisting}
+        \begin{lstlisting}[caption=Application-Level Middleware]
             const express = require('express')
             const app = express()
 
@@ -58,7 +59,6 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
     \item \textbf{Router-Level Middleware}
         \newline
         Diese Middleware arbeitet genau gleich wie die Application-Level Middleware, mit dem Unterschied, dass diese eine Instanz des express.Router() ist. Der Nutzen dieser Art von Middleware ist, eine Modularität zu erzeugen, welche es möglich macht, eine Anwendung in kleinere Teile aufzuteilen. Dadurch hat man die Möglichkeit, ein eigenes Untersystem, wie im unten gezeigten Codebeispiel für alle User-Requests zu erstellen. Im folgenden Beispiel werden alle /user Anfragen an den userRouter weitergeleitet und in einem externen File beantwortet.
-        \newpage
         \begin{lstlisting}
             const userRouter = require('./userRouter')
             
@@ -73,7 +73,7 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
     \item \textbf{Error-Handling Middleware}
         \newline
         Die Error-Handling Middleware funktioniert auf die gleiche Weise wie die oben genannten Middlewares, mit dem kleinen Unterschied, dass 4 Argumente übergeben werden können.
-        \begin{lstlisting}
+        \begin{lstlisting}[caption=Error-Handling Middleware]
             app.use((err, req, res, next) => {
                 console.log(err.stack)
                 res.status(500).send('Etwas ist schief gelaufen')
@@ -96,7 +96,7 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
     \item \textbf{Third-Party Middleware}
         \newline
         Diese Middleware hat die Aufgabe, einer Express Applikation mehr Funktionalität zu verleihen. Dabei lädt man mittels NPM die gewünschte Middleware aus dem Internet herunter und kann diese anschließend in sein Backend einbauen.
-        \begin{lstlisting}
+        \begin{lstlisting}[caption=Third-Party Middleware]
             const express = require('express')
             const app = express()
             const cookieParser = require('cookie-parser')
@@ -107,7 +107,7 @@ In einer Express Applikation ist es möglich 5 verschiedene Arten von Middleware
         Es gibt folgende Third-Party Middlewares:\newline
         \begin{figure}[h!]
             \centering
-            \includegraphics[width=0.45\textwidth]{pics/Third-Party-Middleware.png}
+            \includegraphics[width=0.8\textwidth]{pics/Third-Party-Middleware.png}
             \caption{Third Party Middlewares}
             \cite{Express_js_third_party_middlewares}
             \label{fig:enter-label}
@@ -123,7 +123,7 @@ Die Express API besteht aus dem Request und Response Objekt. Diese besitzen vers
 \textbf{Überschreiben von Methoden}
 \newline
 Um die Express API überschreiben zu können, wird an eine bestehende Funktion eine neue, eigens erstellte Methode angehängt.
-\begin{lstlisting}
+\begin{lstlisting}[caption=Überschreiben von Methoden]
     app.response.sendStatus = function(statusCode, type, message) {
         return this.contentType(type)
             .status(statusCode)
