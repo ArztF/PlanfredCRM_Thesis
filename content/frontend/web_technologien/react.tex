@@ -33,3 +33,85 @@ Damit wird das HTML-Element in eine JavaScript Variable gespeichert. Mit dieser 
 \end{lstlisting}
 
 Hierbei wird die App-Komponente in das root-Element gerendert.
+
+\textbf{Installation:}
+\newline
+Die Installation von React ist der erste Schritt, um mit der Entwicklung von React-Anwendungen zu beginnen. Eine der einfachsten Methoden, um ein neues React-Projekt zu erstellen, ist die Verwendung des Befehls \textbf{create-react-app}, der von Facebook bereitgestellt wird.
+
+\begin{lstlisting}
+    npx create-react-app meine-diplomarbeit
+\end{lstlisting}
+
+Dieser Befehl erstellt ein neues React-Projekt mit dem Namen \textbf{meine-diplomarbeit} und installiert alle erforderlichen Abhängigkeiten automatisch. Nach Abschluss des Installationsprozesses können Sie in das Projektverzeichnis wechseln und mit der Entwicklung beginnen.
+
+\cite{frontend_web_react_installation}
+
+\textbf{Komponenten:}
+\newline
+Komponenten sind die Bausteine von React-Anwendungen. Sie ermöglichen es Entwicklern, die Benutzeroberfläche in unabhängige, wiederverwendbare Teile zu unterteilen. Es gibt zwei Arten von Komponenten in React: Funktionskomponenten und Klassenkomponenten.
+
+Eine Funktionskomponente ist eine JavaScript-Funktion, die ein React-Element zurückgibt:
+
+\begin{lstlisting}
+    function MeinKomponent() {
+      return <div>Hallo Welt!</div>;
+    }
+\end{lstlisting}
+
+Eine Klassenkomponente ist eine JavaScript-Klasse, die von \textbf{React.Component} erbt und eine \textbf{render()}-Methode enthält:
+
+\begin{lstlisting}
+    class MeinKomponent extends React.Component {
+      render() {
+        return <div>Hallo Welt!</div>;
+      }
+    }
+\end{lstlisting}
+
+\cite{frontend_web_react_components}
+
+\textbf{Property Binding}
+\newline
+Props (Eigenschaften) sind ein Mechanismus in React, um Daten von einer übergeordneten Komponente an eine untergeordnete Komponente zu übergeben. Props sind unveränderlich und werden in Funktionskomponenten als Parameter und in Klassenkomponenten über this.props zugänglich gemacht.
+
+\begin{lstlisting}
+    class ElternKomponente extends React.Component {
+      render() {
+        return <KindKomponent name="Max" />;
+      }
+    }
+    class KindKomponente extends React.Component {
+      render() {
+        return <div>Hallo {this.props.name}!</div>;
+      }
+    }
+\end{lstlisting}
+
+In diesem Beispiel wird der Wert \textbf{Max} als Prop namens \textbf{name} von der Elternkomponente zur Kindkomponente übergeben und dort verwendet.
+
+\cite{frontend_web_react_components}
+
+\textbf{Event Binding}
+\newline
+Event Binding ermöglicht es, Ereignisbehandlungsfunktionen an bestimmte Benutzerinteraktionen wie Klicks, Änderungen, Tastendrücke usw. zu binden. In React werden Ereignisse ähnlich wie in reinem JavaScript behandelt, jedoch mit einigen Unterschieden.
+
+\begin{lstlisting}
+    class MeinKomponent extends React.Component {
+      handleClick() {
+        console.log('Button wurde geklickt!');
+      }
+    
+      render() {
+        return (
+          <button onClick={this.handleClick}>Klick mich</button>
+        );
+      }
+    }
+\end{lstlisting}
+
+In diesem Beispiel wird die Methode \textbf{handleClick} an das \textbf{onClick}-Ereignis des Buttons gebunden. Wenn der Button geklickt wird, wird die Methode aufgerufen und eine Nachricht in der Konsole ausgegeben.
+
+Diese Aspekte bilden die Grundlage für die Arbeit mit React. Mit einem fundierten Verständnis dieser Konzepte können Entwickler robuste und skalierbare React-Anwendungen entwickeln. React bietet jedoch viele weitere Funktionen und Möglichkeiten, die es Entwicklern ermöglichen, anspruchsvolle Benutzeroberflächen zu erstellen und effizient zu entwickeln.
+
+
+\cite{frontend_web_react_events}
