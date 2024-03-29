@@ -1,9 +1,8 @@
 VueJS ist ein JavaScript Framework, welches verwendet wird um Benutzeroberflächen zu bauen. Dafür baut es auf nativen HTML, CSS und JavaScript und ermöglicht dabei ein deklaratives und Komponenten basiertes Programmiermodel. 
 \cite{frontend_web_vuejs_introduction}
-\newpage
-\textbf{Model View ViewModel:}
-\newline
-VueJS verwendet das MVVM-Prinzip, welches es gibt um zwischen der grundlegenden Benutzeroberfläche eines Projektes, der direkten Oberflächenlogik für die Veranschaulichung von Informationen und der tieferen Logik unterscheidet. Diese klare strukturierte Trennung sorgt auch dafür, dass VueJS mit einem sogenannten Build-Tool so gebaut werden kann, dass nicht verwendete Teile des Codes nicht ausgeliefert werden und somit die Geschwindigkeit maximiert wird. 
+
+\subsubsection{Model View ViewModel}
+VueJS verwendet das MVVM-Prinzip, welches es gibt um zwischen der grundlegenden Benutzeroberfläche eines Projektes, der direkten Oberflächenlogik für die Veranschaulichung von Informationen und der tieferen Logik zu unterscheiden. Diese klare strukturierte Trennung sorgt auch dafür, dass VueJS mit einem sogenannten Build-Tool so gebaut werden kann, dass nicht verwendete Teile des Codes nicht ausgeliefert werden und somit die Geschwindigkeit maximiert wird. 
 
 \begin{figure}[h]
     \centering
@@ -15,10 +14,10 @@ VueJS verwendet das MVVM-Prinzip, welches es gibt um zwischen der grundlegenden 
 
 \cite{frontend_web_mvvm}
 
-\textbf{Komponenten:}
-\newline
+\subsubsection{Komponenten}
 Ein sehr fundamentaler Punkt des Frameworks sind die Komponenten. In VueJS werden verschiedene Abschnitte in einzelne Komponenten ausgelagert. Dies sorgt für eine einheitliche Struktur und bietet den Programmierern eine bessere Übersicht, da jede Datei eindeutig erkennbar ist und durch die Abtrennung in der Regel nicht zu groß ist. Jede Komponente endet dabei mit \textbf{.vue} und hat den selben Grundaufbau:
 
+\newpage
 \cite{frontend_web_vuejs_components}
 \newline
 
@@ -36,14 +35,13 @@ Ein sehr fundamentaler Punkt des Frameworks sind die Komponenten. In VueJS werde
     </style>
 \end{lstlisting}
 
-Wie in dem Code-Beispiel zu sehen ist, werden in jeder Komponente HTML, Javascript und CSS klar abgetrennt. Bei dem \textbf{style} Tag gibt es hierbei noch die optionale Option \textbf{scoped}, die dafür sorgt, dass die CSS-Regeln nur in dieser Komponente angewendet werden. Wenn dies nicht so ist, wird dies im ganzen Projekt global verwendet, dass kann jedoch zu Komplikationen führen, da im Nachhinein nicht mehr nachvollziehbar ist, wo welche CSS-Regeln definiert wurde.
+Wie in dem Code-Beispiel zu sehen ist, werden in jeder Komponente HTML, Javascript und CSS klar abgetrennt. Bei dem \textbf{style} Tag gibt es hierbei noch die optionale Option \textbf{scoped}, die dafür sorgt, das die CSS-Regeln nur in dieser Komponente angewendet werden. Wenn dies nicht so ist, wird dies im ganzen Projekt global verwendet, dass kann jedoch zu Komplikationen führen, da im Nachhinein nicht mehr nachvollziehbar ist, wo welche CSS-Regeln definiert wurde.
 
 \cite{frontend_web_vuejs_components2}
 
-\textbf{Options-API vs Compositon-API:}
-\newline
+\subsubsection{Options-API vs Compositon-API}
 In VueJS gibt es zwei verschiedene Arten zu programmieren. Dabei gibt es die Options-API und die Composition API, welche sich hauptsächlich in der Syntax unterscheiden. Die Composition-API ist eine neue Funktion, die es seit VueJS 3 gibt und gibt dem Programmierer:in eine neue Möglichkeit Logik in Komponenten zu definieren. Dadurch ist es möglich einen funktionalen Programmierstyle zu verwenden und Logik über mehrere Komponenten zu verwenden. Die Options-API hingegen ist der traditionelle Weg um die Logik von Komponenten zu definieren. Hierbei ist der Programmierstyle sehr objektorientiert. Grundlegend bietet die Composition-API viel mehr Freiheiten, da nicht mehr festgelegt wird, wo welche Logik genau implementiert werden muss.
-
+\newpage
 \begin{lstlisting}
     import { ref, computed } from 'vue'
 
@@ -91,10 +89,9 @@ Beim ersten Code-Beispiel handelt es sich um die Compositon-API und im zweiten u
 
 \cite{frontend_web_vuejs_api}
 
-\textbf{Reactivity System}
-\newline
+\subsubsection{Reactivity System}
 VueJS verwendet ein sogenanntes Reactivity-System, welches zu einem der wichtigsten Feature des Frameworkes zählt. Dieses System sorgt dafür, dass sich JavaScript Variablen wenn sie geändert werden live in der Benutzeroberfläche updaten und das ohne Page-Reload. Die Basis bieten hierbei JavaScript Proxys, wobei ein Handler mit Getter- und Settermethoden verwendet wird. 
-
+\newpage
 \begin{lstlisting}[language=html]
     <script>
     export default {
@@ -123,10 +120,8 @@ Aufgrund der Reaktivität wird die count Variable nun beim Klicken des Buttons j
 
 \cite{frontend_web_vuejs_reactivity2}
 
-\textbf{Lifecycle-Hooks:}
-\newline
+\subsubsection{Lifecycle-Hooks}
 VueJS bietet mit Lifecycle-Hooks ebenfalls sehr essentielle Funktionalitäten. Damit kann bestimmt werden, wann eine Komponente erstellt, im DOM hinzugefügt, zerstört oder auch aktualisiert wird. 
-
 \newpage
 \begin{figure}[h!]
     \centering
@@ -136,10 +131,9 @@ VueJS bietet mit Lifecycle-Hooks ebenfalls sehr essentielle Funktionalitäten. D
     \label{fig:mesh1}
 \end{figure}
 
-In dieser Grafik ist ein sogenannter Instance-Lifecylce zu sehen, worin alle Lifecycle-Hooks zu finden sind.
+In dieser Grafik ist ein sogenannter Instance-Lifecycle zu sehen, worin alle Lifecycle-Hooks zu finden sind.
 
-\textbf{Creation Hooks:}
-\newline
+\subsubsection{Creation Hooks}
 Hierbei handelt es sich um die erste Hook, die eine Komponente ausführt. Damit können Aktionen bestimmt werden, welche dann ausgeführt werden bevor die Komponente im DOM eingebaut wird. Dadurch hat man in dieser Hook dementsprechend auch keinen Zugriff auf das DOM.
 Dies kann in VueJS mit \textbf{beforeCreate} abgefangen werden.
 
@@ -173,8 +167,7 @@ Zusätzlich gibt es die \textbf{created} Methode:
 
 In dieser Methode sind Daten schon reaktiv und man kann darauf zugreifen. In diesem Beispiel wird die Variable \textbf{property} von ‘Hello’ auf ‘Hello world!’ geändert. Der DOM ist dabei jedoch noch nicht erreichbar.
 
-\textbf{Mounting Hooks:}
-\newline
+\subsubsection{Mounting Hooks}
 Die Mounting Hooks werden am meisten verwendet und ermöglichen den Zugriff auf die Komponente vor oder nach dem ersten Rendern.
 
 In VueJS gibt es hierbei zuerst die \textbf{beforeMount} Hook, welche aufgerufen wird bevor das erste Rendern stattgefunden hat.
@@ -209,11 +202,10 @@ Zusätzlich gibt es die \textbf{mounted} Hook, welche nach dem ersten Rendern au
 
 In diesem Code Beispiel wird in der mounted-Methode auf das DOM zugegriffen und der Inhalt des definierten \textbf{<div>} in der Konsole ausgegeben.
 
-\textbf{Updating Hooks:}
-\newline
-Diese Hooks werden aufgerufen wenn sich eine reaktive Eigenschaft ändert und damit ein erneutes Rendering benötigt.
+\subsubsection{Updating Hooks}
+Diese Hooks werden aufgerufen wenn sich eine reaktive Eigenschaft ändert und damit ein erneutes Rendering benötigt wird.
 
-In VueJS gibt es die \textbf{beforeUpdate} Methode, welche nach der Änderung einer solchen reaktiven Eigenschaft ausgeführt wird. Zu diesem Zeitpunkt wurde das DOM noch nicht neu gerendert. Dadurch wird diese Hook verwendet um geänderte reaktive Daten zu sehen bevor diese in das DOM geladen werden.
+In VueJS gibt es die \textbf{beforeUpdate} Methode, welche nach der Änderung einer solchen reaktiven Eigenschaft ausgeführt wird. Zu diesem Zeitpunkt wurde das DOM noch nicht neu gerendert. Dadurch wird diese Hook verwendet, um geänderte reaktive Daten zu sehen bevor diese in das DOM geladen werden.
 
 \begin{lstlisting}
     <template>
@@ -267,11 +259,10 @@ Um nun auch den Zeitpunkt nach dem Rendern des neuen DOM abzufangen gibt es die 
     </script>
 \end{lstlisting}
 
-Dieses Beispiel ist von der Funktionalität gleich wie das Vorige. Der einzige Unterschied besteht darin, dass hierbei die \textbf{updated} Methode aufgerufen wird. In dieser wird der Wert von \textbf{counter} direkt aus dem DOM genommen und mit dem Wert der tatsächlichen Variable verglichen. Das Ergebnis wird in der Konsole ausgegeben und ergibt \textbf{true}. Grund dafür ist, dass in dieser Hook, dass DOM bereits neu gerendert wurde und somit die schon den neuen Wert angenommen hat.
+Dieses Beispiel ist von der Funktionalität gleich wie das Vorige. Der einzige Unterschied besteht darin, dass hierbei die \textbf{updated} Methode aufgerufen wird. In dieser wird der Wert von \textbf{counter} direkt aus dem DOM genommen und mit dem Wert der tatsächlichen Variable verglichen. Das Ergebnis wird in der Konsole ausgegeben und ergibt \textbf{true}. Grund dafür ist, dass in dieser Hook, das DOM bereits neu gerendert wurde und somit schon den neuen Wert angenommen hat.
 
-\textbf{Destruction Hooks:}
-\newline
-Die sogenannten Destruction Hooks ermöglichen die Ausführung von Aktionen, wenn eine Komponente zerstört wird. Diese können wichtig sein um beispielsweise noch wichtige Daten am Ende zu speichern oder auch um bestimmte Daten zu bereinigen.
+\subsubsection{Destruction Hooks}
+Die sogenannten Destruction Hooks ermöglichen die Ausführung von Aktionen, wenn eine Komponente zerstört wird. Diese können wichtig sein um beispielsweise noch Daten am Ende zu speichern oder auch um bestimmte Daten zu bereinigen.
 In VueJS gibt es hierfür zwei Hooks. Die erste ist die \textbf{beforeDestroy} Methode.
 
 \begin{lstlisting}

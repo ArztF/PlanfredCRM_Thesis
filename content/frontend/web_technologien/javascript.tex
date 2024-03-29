@@ -19,17 +19,15 @@ Javascript wird im Normalfall direkt im Browser ausgeführt, wobei jeder Browser
 \end{itemize}
 
 Hierbei wird die Javascript-Engine oftmals mit der Browser-Engine verwechselt. Jedoch ist der Browser-Engine dafür da, um HTML Elemente und auch CSS Regeln anzuwenden. 
-\newpage
-\textbf{Konsole:}
-\newline
-Wie bereits erwähnt kann Javascript Code in Verbindung mit HTML auf einer Webseite ausgeführt werden. Dabei findet man die Javascript Ausgabe, also Logs oder Fehlermeldungen, in der Konsole. Konsolen Ausgaben sehen wie folgt aus:
+
+\subsubsection{Konsole}
+Wie bereits erwähnt, kann Javascript Code in Verbindung mit HTML auf einer Webseite ausgeführt werden. Dabei findet man die Javascript Ausgabe, also Logs oder Fehlermeldungen, in der Konsole. Konsolen Ausgaben sehen wie folgt aus:
 
 \begin{lstlisting}
     console.log("ausgabe")
 \end{lstlisting}
 
-\textbf{Einbetten:}
-\newline
+\subsubsection{Einbetten}
 Javascript Code wird mit einem `<script>` Tag im HTML eingebunden:
 
 \begin{lstlisting}[language=html]
@@ -53,10 +51,9 @@ Der Javascript Code kann wie in diesem Beispiel direkt im Script Tag geschrieben
     <script src="pfad"></script>
 \end{lstlisting}
 
-Dies macht speziell bei größeren Projekte sehr viel Sinn, da der Javascript Code meist ziemlich lange und komplex wird, sobald eine Webseite viel Logik benötigt.
+Dies macht speziell bei größeren Projekten viel Sinn, da der Javascript Code meist ziemlich lange und komplex wird, sobald eine Webseite viel Logik benötigt.
 
-\textbf{Kommentare:}
-\newline
+\subsubsection{Kommentare}
 Kommentare können in Javascript auf zwei verschiedenen Arten umgesetzt werden. Die erste ist hierbei ein sogenanntes Zeilenkommentar, dieses muss nicht geschlossen werden, da es nur eine Zeile im Code auskommentiert.
 
 \begin{lstlisting}
@@ -66,8 +63,7 @@ Kommentare können in Javascript auf zwei verschiedenen Arten umgesetzt werden. 
 Die zweite Art ist der Blockkommentar, welcher im Gegensatz geschlossen werden muss und sich somit über eine beliebige Anzahl von Zeilen ausbreiten kann.
 
 
-\textbf{Datentypen:}
-\newline
+\subsubsection{Datentypen}
 Im Gegensatz zu vielen anderen Programmiersprachen benötigt Javascript keine direkte Typisierung und ist dafür bekannt in diesem Thema sehr locker zu sein.
 \newline
 Eine Variable muss am Anfang keinen Wert zugewiesen bekommen und hat dadurch bei der Erstellung den Wert \textbf{undefined}
@@ -75,7 +71,7 @@ Eine Variable muss am Anfang keinen Wert zugewiesen bekommen und hat dadurch bei
 \begin{lstlisting}
     var foo;
 \end{lstlisting}
-\newpage
+
 Ebenfalls kann man eine Variable direkt einen Wert geben, also initialisieren. Im folgenden Beispiel bekommt die Variable dadurch den Typen \textbf{number}.
 
 \begin{lstlisting}

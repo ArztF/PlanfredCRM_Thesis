@@ -1,6 +1,6 @@
 Bei React handelt es sich nicht so wie bei VueJS um ein Framework, sondern um eine Sammlung an Bibliothek. Das sorgt dafür, das React im Vergleich sehr schlank aufgebaut ist. Bei React arbeitet man in normalen JavaScript Files, in welche man dann den HTML Code und die Logik einbindet. Erst später im Build-Prozess verwandelt die Bibliothek diesen Code in tatsächliche HTML Elemente. 
 
-React ist schnell, das liegt an die Herangehensweise im Bezug auf dem DOM. Normalerweise wird der DOM bei Änderungen immer komplett neu gerendert. Das dauert jedoch lange und ist vor allem nicht notwendig. Aus diesem Grund setzt die Bibliothek auf einen sogenannten virtuellen DOM. Das bedeutet, das im Browser-Zwischenspeicher der aktuelle DOM, also die Benutzeroberfläche gespeichert ist. Wenn eine Änderung auftritt vergleicht React den tatsächlichen DOM mit dem virtuellen DOM, entscheidet welcher Bereich tatsächlich geändert werden und gibt das an den DOM weiter. Das spart nicht nur Zeit sondern macht React auch Platform-unabhängig. Der virtuelle DOM kann auch in nativen IOS oder Android Code umgewandelt werden. Das ist mit dem Framework \textbf{React Native} möglich.
+React ist schnell, das liegt an die Herangehensweise im Bezug auf den DOM. Normalerweise wird der DOM bei Änderungen immer komplett neu gerendert. Das dauert jedoch lange und ist vor allem nicht notwendig. Aus diesem Grund setzt die Bibliothek auf einen sogenannten virtuellen DOM. Das bedeutet, das im Browser-Zwischenspeicher der aktuelle DOM, also die Benutzeroberfläche gespeichert ist. Wenn eine Änderung auftritt vergleicht React den tatsächlichen DOM mit dem virtuellen DOM, entscheidet welche Bereiche tatsächlich geändert werden und gibt das an den DOM weiter. Das spart nicht nur Zeit sondern macht React auch Platform-unabhängig. Der virtuelle DOM kann auch in nativen IOS oder Android Code umgewandelt werden. Das ist mit dem Framework \textbf{React Native} möglich.
 
 React arbeitet ebenfalls mit Komponenten.
 
@@ -14,7 +14,7 @@ React arbeitet ebenfalls mit Komponenten.
     }
 \end{lstlisting}
 
-In diesem Beispiel sieht man einen simplen Aufbau einer React Komponente. Diese Komponente wird dann in die App gerendert, um zu verstehen wie das funktioniert, muss zuerst die \textbf{index.html} Datei betrachtet werden. Diese Datei baut dafür den Grundstein für die Darstellung im Browser.
+In diesem Beispiel sieht man einen simplen Aufbau einer React Komponente. Diese Komponente wird dann in die App gerendert. Um zu verstehen wie das funktioniert, muss zuerst die \textbf{index.html} Datei betrachtet werden. Diese Datei baut den Grundstein für die Darstellung im Browser.
 
 \begin{lstlisting}
     <div id="root"></div>
@@ -34,8 +34,7 @@ Damit wird das HTML-Element in eine JavaScript Variable gespeichert. Mit dieser 
 
 Hierbei wird die App-Komponente in das root-Element gerendert.
 
-\textbf{Installation:}
-\newline
+\subsubsection{Installation}
 Die Installation von React ist der erste Schritt, um mit der Entwicklung von React-Anwendungen zu beginnen. Eine der einfachsten Methoden, um ein neues React-Projekt zu erstellen, ist die Verwendung des Befehls \textbf{create-react-app}, der von Facebook bereitgestellt wird.
 
 \begin{lstlisting}
@@ -46,8 +45,7 @@ Dieser Befehl erstellt ein neues React-Projekt mit dem Namen \textbf{meine-diplo
 
 \cite{frontend_web_react_installation}
 
-\textbf{Komponenten:}
-\newline
+\subsubsection{Komponenten}
 Komponenten sind die Bausteine von React-Anwendungen. Sie ermöglichen es Entwicklern, die Benutzeroberfläche in unabhängige, wiederverwendbare Teile zu unterteilen. Es gibt zwei Arten von Komponenten in React: Funktionskomponenten und Klassenkomponenten.
 
 Eine Funktionskomponente ist eine JavaScript-Funktion, die ein React-Element zurückgibt:
@@ -70,8 +68,7 @@ Eine Klassenkomponente ist eine JavaScript-Klasse, die von \textbf{React.Compone
 
 \cite{frontend_web_react_components}
 
-\textbf{Property Binding}
-\newline
+\subsubsection{Property Binding}
 Props (Eigenschaften) sind ein Mechanismus in React, um Daten von einer übergeordneten Komponente an eine untergeordnete Komponente zu übergeben. Props sind unveränderlich und werden in Funktionskomponenten als Parameter und in Klassenkomponenten über this.props zugänglich gemacht.
 
 \begin{lstlisting}
@@ -91,8 +88,7 @@ In diesem Beispiel wird der Wert \textbf{Max} als Prop namens \textbf{name} von 
 
 \cite{frontend_web_react_components}
 
-\textbf{Event Binding}
-\newline
+\subsubsection{Event Binding}
 Event Binding ermöglicht es, Ereignisbehandlungsfunktionen an bestimmte Benutzerinteraktionen wie Klicks, Änderungen, Tastendrücke usw. zu binden. In React werden Ereignisse ähnlich wie in reinem JavaScript behandelt, jedoch mit einigen Unterschieden.
 
 \begin{lstlisting}
