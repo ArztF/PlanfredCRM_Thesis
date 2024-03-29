@@ -6,7 +6,7 @@
 \end{figure}
 
 
-Cypress is ein sehr neuer Testrunner, welcher JavaScript Tests automatisch ausführen kann.
+Cypress ist ein moderner Test-Runner, der JavaScript-Tests automatisch ausführt.
 Cypress unterstützt drei verschiedene Arten von Tests:
 
 \begin{itemize}
@@ -59,7 +59,7 @@ In Cypress gibt es folgende verschiedene Commands:
 Es besteht aber weiters auch die Möglichkeite Custom Commands selber zu schreiben.
 Dies erfolgt in einem "commands.js" File.
 
-In dieser Diplomarbeit wurde ein Custom Command geschrieben um das klicken eines DOM Elements statt zwei auf nur einen Befehl zu reduzieren. Dieser Command sieht folgendermaßen aus:
+In dieser Diplomarbeit wurde ein Custom Command geschrieben um das Klicken eines DOM Elements statt zwei auf nur einen Befehl zu reduzieren. Dieser Command sieht folgendermaßen aus:
 
 
 \begin{lstlisting}
@@ -145,7 +145,7 @@ it('get all projects', () => {
     })
 \end{lstlisting}
 
-Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" in der Arrow Function start dann der Test. Dieser beginnt immer mit "cy". Alles was danach kommt hat immer einen Punkt vor sich, in diesem Fall will man einen Request testen, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Weiters wird eine URL benötigt auf welche der Request abzielen soll. Nun kann noch ein Body Objekt und eine failOnStatusCode Flag hinzugefügt werden. Wird diese auf true gesetzt failed der Test sobald ein Request einen StatusCode im 400er Bereich zurückbekommt. Diese Option ist notwendig, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
+Jeder Cypress Test beginnt immer mit "it('<name>', () => {})" In der Arrow Function beginnt der Test, der immer mit "cy" beginnt. Alles, was danach kommt, hat immer einen Punkt davor. In diesem Fall wird ein Request getestet, daher nennt sich diese Funktion ".request({})" Als Übergabeparameter braucht es dann hier die Methode welche verwendet werden soll also entweder POST, PUT, GET oder DELETE. Zusätzlich wird eine URL benötigt, auf die der Request abzielen soll. Es können auch ein Body-Objekt und eine failOnStatusCode-Flag hinzugefügt werden. Wenn diese auf true gesetzt wird, schlägt der Test fehl, sobald ein Request einen StatusCode im 400er-Bereich zurückgibt. Diese Option ist notwendig, weil es auch vorkommen kann, das man testen will wie das Programm im Error-Fall reagiert.
 \cite{API_Tests}
 \subsection{APP Test}
 Mit einem wie oben beschriebenen API Test wird das Backend getestet. Mit einem APP Test hingegen wird das Frontend auf Fehler überprüft. Hierbei wird die Anwendung auf Funktionstüchtigkeit, Leistung, Nutzerfreundlichkeit und Sicherheit getestet
@@ -158,7 +158,7 @@ Zu den verschiedenen Kategorien der APP-Tests gehören:
         Der Funktionstest gewährleistet die ordnungsgemäße Funktionsweise der App, gemäß den vorgegebenen Zielen. Typischerweise sind diese Ziele bereits festgelegt. Dabei müssen Standard-Softwareoperationen wie Installation, Deinstallation, sämtliche In-App-Funktionen sowie das Minimieren und Wiederaufrufen der App fehlerfrei durchgeführt werden.
     \item \textbf{Usability-Tests}
         \newline
-        Für diesen Usability-Test werden Probanden herangezogen, um die Benutzerfreundlichkeit Ihrer Anwendung und ihr Layout zu bewerten. Idealerweise sollten die Probanden Ihrer geplanten Zielgruppe angehören, um aussagekräftigere Ergebnisse zu erzielen. Die potenziellen Nutzer erkunden Ihre App und prüfen, wie reibungslos die Navigation funktioniert, wie einfach der Zugriff auf wichtige Funktionen ist und ob Icons, Links und Texte gut erreichbar und ausreichend groß sind.
+        Für Usability-Tests werden Probanden herangezogen, um die Benutzerfreundlichkeit und das Layout der Anwendung zu bewerten. Idealerweise sollten die Probanden der geplanten Zielgruppe angehören, um aussagekräftige Ergebnisse zu erzielen. Die potenziellen Nutzer erkunden die App und prüfen, wie reibungslos die Navigation funktioniert, wie einfach der Zugriff auf wichtige Funktionen ist und ob Icons, Links und Texte gut erreichbar und ausreichend groß sind.
     \item \textbf{Penetrationstests}
         \newline
         Bei der Entwicklung mobiler Apps sollte ein Schwerpunkt auf Sicherheit gelegt werden, insbesondere auf den Schutz der Nutzerdaten. Penetrationstests bieten eine effektive Methode, um Sicherheitsschwachstellen aufzudecken. Ein erfahrenes Testteam sollte versuchen, in das System einzudringen und potenzielle Sicherheitsprobleme zu identifizieren. Auf diese Weise können potenzielle Datenlecks frühzeitig erkannt und Maßnahmen ergriffen werden, um einen Diebstahl von Daten zu verhindern.
@@ -187,7 +187,7 @@ ausgeführt werden.
 \cite{Integration_von_Cypress}
 \newpage
 \subsubsection{Erstellung eines simplen Testfalls}
-Im folgenden Testbeispiel wird überprüft ob die Projektsuchen funktioniert. Im ersten Schritt wird in die Suchleiste der Titel eingegeben. Danach wird anhand von den angezeigten Eigenschaften des Projekts überprüft, ob auch das richtige Projekt vom Such-Algorithmus gefunden wurde. 
+Im folgenden Testbeispiel wird die Funktionalität der Projektsuche überprüft. Im ersten Schritt wird in die Suchleiste der Titel eingegeben. Danach wird anhand von den angezeigten Eigenschaften des Projekts überprüft, ob auch das richtige Projekt vom Such-Algorithmus gefunden wurde. 
 
 \begin{lstlisting}[caption=Erstellen eines simplen Testfalls]
 describe('Project template spec', () => {
@@ -216,7 +216,7 @@ describe('Project template spec', () => {
 
 Der Test beginnt mit einem "describe()" in diesem Block befindet sich eine kurze Zusammenfassung und der "beforeEach()" Block. Dieser wird vor jedem Test neu ausgeführt und lädt in diesem Fall die Testdaten aus den Fixtures.
 
-Der eigentliche Test beginnt dann beim "it()" Block. Als erstes authentifiziert sich der User und besucht die Seite "projects". Danach sucht der nach der data-testid "email-search" wählt diese aus und schreibt in diese den Projekt Titel nach welchem gesucht werden soll. In weiterer Folge wird danach der Submit Button gedrückt und wieder mit einer data-testid nach den Eigenschaften des gefundenen Projekts geschaut.
+Der eigentliche Test beginnt dann beim "it()" Block. Als erstes authentifizieren sich die User:innen, diese Authentifizierung wurde ebenfalls durch einen Custom Command vereinfacht. Als nächstes wird auf die "projects" Page verwiesen. Danach sucht der Testrunner nach der data-testid "email-search" wählt diese aus und schreibt in diese den Projekt Titel nach welchem gesucht werden soll. In weiterer Folge wird danach der Submit Button gedrückt und wieder mit einer data-testid nach den Eigenschaften des gefundenen Projekts geschaut.
 
 \subsubsection{Ausführung des Testfalls}
 

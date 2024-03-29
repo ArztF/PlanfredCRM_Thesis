@@ -1,4 +1,4 @@
-Grundsätzlich werden die Middleware-Headers als Sicherheitsmaßnahmen verwendet. Das heißt es ist schwieriger für Hacker Informationen über die Software herauszufinden. Es gibt einige verschiedene Middleware-Header:
+Grundsätzlich werden die Middleware-Headers als Sicherheitsmaßnahmen verwendet. Das heißt es ist schwieriger für Hacker:innen Informationen über die Software herauszufinden. Es gibt einige verschiedene Middleware-Header:
 
 \begin{itemize}
     \item \textbf{Allow-Cors Header}
@@ -71,7 +71,7 @@ Grundsätzlich werden die Middleware-Headers als Sicherheitsmaßnahmen verwendet
         \cite{Helmet}
     \item \textbf{No-Cache-Header}
         \newline
-        Im Caching Header werden die Caching-Rechtslagen für Client-Anfragen und Server Antworten festgelegt. Die Caching-Richtlinien bestimmen, wie die Ressource zwischengespeichert wird, wo sie zwischengespeichert wird und für welche Dauer sie zwischengespeichert werden kann, bevor sie abläuft. Der Cache Header besitzt ein "Expires" Property, dieses gibt an, nach welchem Datum die Anfrage als abgelaufen gilt. Wenn dieser Wert sehr genau sein muss, kann der Parameter "max-age" in Sekunden gesetzt werden.
+        Im Caching Header werden die Caching-Rechtslagen für Client-Anfragen und Server Antworten festgelegt. Die Caching-Richtlinien bestimmen, wie die Ressource zwischengespeichert wird, wo sie zwischengespeichert wird und für welche Dauer sie zwischengespeichert werden kann, bevor sie abläuft. Der Cache Header besitzt ein "Expires" Property, dieses gibt an, nach welchem Datum die Anfrage als abgelaufen gilt. Um höchste Genauigkeit zu gewährleisten, kann der Parameter "max-age" in Sekunden angegeben werden.
 
         In dieser Diplomarbeit wurde der No-Cache-Header folgendermaßen umgesetzt:
 

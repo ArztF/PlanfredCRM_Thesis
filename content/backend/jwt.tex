@@ -61,7 +61,7 @@ const verifyToken = (token) => {
 }
 \end{lstlisting}
 
-Zuerst wird der JSON Web Token mit Hilfe der Funktion "generateToken" generiert. Hierfür wird die E-Mail Adresse als Parameter übergeben und als Payload mitgegeben. In diesem Fall wurde außerdem noch das Property Expire Date auf 100 Stunden gesetzt. Somit müssen sich User:innen erst nach über vier Tagen wieder erneut anmelden.
+Zuerst wird der JSON Web Token mit Hilfe der Funktion "generateToken" generiert. Dabei wird die E-Mail-Adresse als Parameter übergeben. In diesem Fall wurde außerdem noch das Property Expire Date auf 100 Stunden gesetzt. Somit müssen sich User:innen erst nach über vier Tagen wieder erneut anmelden.
 
 In der Funktion "verifyToken" können JSON Web Tokens validiert werden. Mit
 
@@ -69,7 +69,7 @@ In der Funktion "verifyToken" können JSON Web Tokens validiert werden. Mit
     payload = jwt.verify(token, 'secretkeyappearshere')
 \end{lstlisting}
 
-wird der Token validiert und geschaut ob dieser noch gültig ist. Wird hier ein Fehler returned wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich, wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.
+wird der Token validiert und überprüft ob dieser noch gültig ist. Wird hier ein Fehler ausgelöst, wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich, wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.
 
 
 \subsubsection{Header}
@@ -90,7 +90,7 @@ Typischerweise enthält die Struktur eines JWT-Headers eine Information über de
 Der zweite Part des JSON Web Token ist die Payload. Diese beinhaltet drei verschiedene Arten von Claims. 
 Registrierte, Public und Private Claims
 
-In den registrierten Claims sind zum Beispiel Sachen wie der Aussteller (iss) und die Ablaufzeit (exp) festgelegt.
+In den registrierten Claims sind beispielsweise enthalten der Aussteller (iss) sowie die Ablaufzeit (exp).
 
 Die Public Claims können nach Belieben definiert werden. Um jedoch Kollisionen zu vermeiden, sollte der Name nicht gleich sein wie bei den registrierten Claims.
 
@@ -120,8 +120,8 @@ Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Versc
 \subsection{Was ist ein Session Cookie?}
 
 
-Ein Sitzungscookie ist eine Variante von Cookies, die nach dem Schließen des Browsers direkt gelöscht wird und keine Informationen hinterlassen werden. Normalerweise enthält ein solcher Sitzungscookie keine Informationen zur Identifizierung des Benutzers, sondern nur eine Sitzungs-ID.
-Wenn in zwei Tabs also der gleiche Online Shop besucht wird, erkennt der Session Cookie, dass es sich gerade um die gleiche Sitzung handelt und stellt in beiden Tabs den selben Warenkorb zu Verfügung.
+Ein Session Cookie (Sitzungscookie) ist eine Variante von Cookies, die nach dem Schließen des Browsers direkt gelöscht wird und keine Informationen hinterlassen werden. Normalerweise enthält ein solcher Sitzungscookie keine Informationen zur Identifizierung des Benutzers, sondern nur eine Sitzungs-ID.
+Wenn zwei Tabs denselben Online-Shop besuchen, erkennt der Session-Cookie, dass es sich um dieselbe Sitzung handelt, und gewährleistet somit die gemeinsame Verfügbarkeit des Warenkorbs in beiden Tabs.
 
 \subsubsection{Wie wird ein Session Cookie implementiert?}
 

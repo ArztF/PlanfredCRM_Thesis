@@ -10,7 +10,7 @@ Der Begriff CRUD steht für Create, Read, Update und Delete. Dies sind vier grun
 
  \subsection{Create}
 
- Bei der Create Operation geht es darum, neue Daten in die Datenbank zu persistieren. Es können beispielsweise neue Benutzer oder Pläne angelegt werden.
+ Bei der Create Operation geht es darum, neue Daten in die Datenbank zu persistieren. Es können beispielsweise neue Benutzer:innen oder Pläne angelegt werden.
 
 
  \subsection{Read}
@@ -32,8 +32,8 @@ async function getProjectById (id) {
 }
 \end{lstlisting}
 
-Diese Code Beispiel ist eine asynchrone Funktion names "getProjectById" welche ein Projekt anhand der ID aus der Datenbank auslest.\newline
-Zu Beginn wird überprüft, ob eine ID übergeben wurde. Falls nicht, wird mittels des "Early Return Pattern" sofort ein Fehler ausgelöst. Wenn die ID korrekt übergeben wurde, wird die entsprechende Collection, in diesem Fall "projects", in einer Variablen gespeichert. Anschließend wird versucht, das entsprechende Projekt mit Hilfe eines Try-Catch-Statements abzurufen. Auch hier gilt wieder, sollte irgendwo in diesem Code Block ein Fehler vorkommen wird sofort ein Fehler geschmissen.
+Dieses Code Beispiel ist eine asynchrone Funktion names "getProjectById" welche ein Projekt anhand der ID aus der Datenbank ausliest.\newline
+Zu Beginn wird überprüft, ob eine ID übergeben wurde. Falls nicht, wird mittels des "Early Return Pattern" sofort ein Fehler ausgelöst. Wenn die ID korrekt übergeben wurde, wird die entsprechende Collection, in diesem Fall "projects", in einer Variable gespeichert. Anschließend wird versucht, das entsprechende Projekt mit Hilfe eines Try-Catch-Statements abzurufen. Auch hier gilt wieder, sollte irgendwo in diesem Code Block ein Fehler vorkommen wird sofort ein Fehler ausgelöst.
 
 
 
@@ -65,18 +65,18 @@ Dieses Code Beispiel verwendet die Node.js Fetch API.
     const response = await fetch(`${config.planfredApiUrl}crm/projects/` + req.params.id, {method: 'PATCH' })
 \end{lstlisting}
 
-In diesem Teil wird ein API-Aufruf mit fetch() durchgeführt, um die angegebene Ressource zu aktualisieren. Die URL für den API-Aufruf wird durch Verketten von config.planfredApiUrl, dem Teil der URL für die API, und req.params.id, dem Parameter aus der Anfrage, erstellt. Der API-Aufruf wird mit der Methode 'PATCH' ausgeführt, um eine partielle Aktualisierung der Ressource durchzuführen. Die Anfrage erfolgt asynchron, da await verwendet wird, um auf die Antwort zu warten.\newline
+In diesem Teil wird ein API-Aufruf mit fetch() durchgeführt, um die angegebene Ressource zu aktualisieren. Die URL für den API-Aufruf wird durch Verketten von config.planfredApiUrl, dem Teil der URL für die API, und req.params.id, dem Parameter aus der Anfrage, erstellt. Der API-Aufruf wird mit der Methode 'PATCH' ausgeführt, um eine partielle Aktualisierung der Ressource durchzuführen. Die Anfrage erfolgt asynchron, da "await" verwendet wird, um auf die Antwort zu warten.\newline
 
 Im nächsten Teil werden die Headers gesetzt. In diesem Fall wird der "Content-Type" Header auf "application/json" gesetzt. Somit kann als Rückgabe Wert ein JSON Objekt zurückgegeben werden. Im Body wird der Inhalt der Anfrage festgehalten, hier wird JSON.stringify verwendet, um die Daten in ein JSON Format zu konvertieren, welches von der API erwartet wird.
 
 \subsection{Delete}
 
 
-Die DELETE-Operation erlaubt es dem Nutzer, Datensätze aus der Datenbank zu löschen. Bei einem endgültigen Löschen wird der Datensatz vollständig entfernt, während er beim vorläufigen Löschen markiert wird, aber an seinem aktuellen Ort bleibt.
+Die DELETE-Operation erlaubt es den Nutzer:innen, Datensätze aus der Datenbank zu löschen. Bei einem endgültigen Löschen wird der Datensatz vollständig entfernt, während er beim vorläufigen Löschen markiert wird, aber an seinem aktuellen Ort bleibt.
 
 
 
-Im Falle dieser Diplomarbeit wurden ausschließlich READ und UPDATE-Operations verwendet. Die Syntax um ein Projekt zu löschen sieht wie folgt aus.
+In dieser Diplomarbeit wurden hauptsäclich READ und UPDATE-Operations verwendet. Die Syntax um ein Projekt zu löschen sieht wie folgt aus.
 
 \begin{lstlisting}[caption=Delete-Operation]
     const project = await Projects.findById(req.params.id)
