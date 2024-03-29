@@ -1,6 +1,6 @@
-Ein MongoDB Search Index, dient um die Daten in einer logischen Reihenfolge zu katalogiseren, damit diese schneller gefunden werden können.
+Ein MongoDB Search Index dient um die Daten in einer logischen Reihenfolge zu katalogiseren, damit diese schneller gefunden werden können.
 
-Die Implementierung eines Search Indexes ist nicht mehr als ein Klick in MongoDB Atlas. Die Anwender:innen gehen zu einem Cluster deren Wahl und klicken dort auf den Button "Suchindex erstellen".
+Die Implementierung eines Search Indexes ist nicht mehr als ein Klick in MongoDB Atlas. Die Benutzer wählen ein Cluster aus und klicken auf die Schaltfläche "Suchindex erstellen".
 
 Sobald dieser Schritt erledigt ist, kann in der MongoDB Abfrage der 
 
@@ -25,7 +25,7 @@ Operator verwendet werden.
 \end{lstlisting}
 
 Das Property "index" gibt an auf welchen Index referenziert wird, da auch mehrere Indizes vorhanden sein können. 
-Der Text nach welchem gesucht wird ist definiert unter "text.query". In dieser Diplomarbeit wird der Text nach welchem gesucht wird mittles Query Parametern übergeben. 
+Der Text nach welchem gesucht wird ist definiert unter "text.query". In dieser Diplomarbeit wird der Suchtext mithilfe von Query-Parametern übergeben.
 
 Mit dem Path Attribut wird definiert, über welche Felder der Index sucht. In diesem Fall werden alle Felder durchsucht, da es sich um eine Fulltext Search handelt.
 
@@ -51,7 +51,7 @@ Apache Lucene stellt mehrere verschiedene Analyzer zur Verfügung, welche nach v
         Dieser Analyzer sucht nacht exakten Treffern. Groß-/Kleinschreibung und Zeichensetzung bleiben hier völlig erhalten.
     \item \textbf{French}
         \newline
-        Diese Analyzer ist ähnlich wie der English Analyzer, mit dem Unterschied das er nach populären Wörtern in der französischen Sprache sucht wie zum Beispiel "le", "au", "mon".
+        Dieser Analyzer ist ähnlich wie der English Analyzer, mit dem Unterschied das er nach populären Wörtern in der französischen Sprache sucht wie zum Beispiel "le", "au", "mon".
 \end{itemize}
 
 In dieser Diplomarbeit wurde der MongoDB Search Index verwendet um alle Felder einer Anwender:in auf Schlüsselwörter zu durchsuchen.

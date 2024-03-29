@@ -1,7 +1,7 @@
 \subsection{Was ist Deployment}
 
-Wenn man vom Deployment spricht, meint man die Bereitstellung von Software. Dies erfolgt meistens alles über halb- oder automatisierte Prozesse, mittels derer die Installation und Konfiguration der Softwarelösungen erfolgt. Im Deployment sind Aspekte wie die Installation, Konfiguration, Aktualisierung und Wartung von Systemen enthalten.
-Die meisten IT-Organisationen und Softwareentwickler führen regelmäßig Software-Updates und Patches mithilfe von teils vollautomatischen Prozessen durch. Es gibt verschiedene Arten von Deployment, die jeweils verschiedene Risiken mit sich bringen. Dennoch wird überall dasselbe Ziel verfolgt: Die Verteilung von Software auf Computern für Endbenutzer.
+Wenn man vom Deployment spricht, meint man die Bereitstellung von Software. Dies geschieht in der Regel durch halb- oder vollautomatisierte Prozesse, die die Installation und Konfiguration der Softwarelösungen durchführen. Im Deployment sind Aspekte wie die Installation, Konfiguration, Aktualisierung und Wartung von Systemen enthalten.
+Die meisten IT-Organisationen und Softwareentwickler:innen führen regelmäßig Software-Updates und Patches mithilfe von teils vollautomatischen Prozessen durch. Es gibt verschiedene Arten von Deployment, die jeweils verschiedene Risiken mit sich bringen. Dennoch wird überall dasselbe Ziel verfolgt: Die Verteilung von Software auf Computern für Endbenutzer:innen.
 
 \subsection{Verschiedene Arten von Deployment}
 
@@ -94,11 +94,11 @@ Es gibt verschiedene Arten von Umgebungsvariablen:
         
     \item \textbf{Benutzer-Umgebungsvariablen}
         \newline
-        In diesen Variablen wird zum Beispiel der Pfad zu einer lokal installierten Bibliothek gespeichert, welche nur von manchen Benutzern verwendet wird. Für Änderungen an dieser Variable wird der Systemadministrator nicht benötigt. Diese Variablen sind sehr hilfreich, um lokale Änderungen nur für einen Benutzer gültig zu machen.
+        In diesen Variablen wird zum Beispiel der Pfad zu einer lokal installierten Bibliothek gespeichert, welche nur von manchen Benutzern:innen verwendet werden. Für Änderungen an dieser Variable werden die Systemadministrator:innen nicht benötigt. Diese Variablen sind sehr hilfreich, um lokale Änderungen nur für einen Benutzer gültig zu machen.
     \item \textbf{Laufzeit-/Prozessumgebungsvariablen}
         \newline
-        Auf diese Art von Umgebungsvariablen hat der Benutzer mehr oder weniger keinen Einfluss. Die Lebensdauer dieser Umgebungsvariablen ist durch den übergeordneten Prozess begrenzt, der sie erstellt hat.
-        Sollte es aber den speziellen Fall geben, das der Benutzer Einfluss auf die Laufzeitumgebungsvariablen braucht, dann kann er diese im Terminal-Skript erstellen.
+        Auf diese Art von Umgebungsvariablen haben die Benutzer:innen mehr oder weniger keinen Einfluss. Die Lebensdauer dieser Umgebungsvariablen ist durch den übergeordneten Prozess begrenzt, der sie erstellt hat.
+        Sollte es aber den speziellen Fall geben, dass die Benutzer:innen Einfluss auf die Laufzeitumgebungsvariablen braucht, dann kann er diese im Terminal-Skript erstellen.
 \end{itemize}
 
 Im Falle diese Diplomarbeit wurden Umgebungsvariablen hauptsächlich verwendet um die Sicherheit aufrecht zu erhalten und datenbankbezogene Informationen oder API - Keys darin zu speichern.
@@ -150,12 +150,12 @@ Mit Docker ist es möglich einen Teil einer Anwendung zu aktualisieren oder zu r
 \subsubsection{Container}
 Ein Container ist eine standardisierte Einheit von Software, die den Code sowie alle benötigten Abhängigkeiten zusammenfasst. Dadurch kann die Anwendung schnell und zuverlässig von einer Rechenumgebung in eine andere verschoben werden. Ein Docker-Containerimage ist ein schlankes, eigenständiges und ausführbares Softwarepaket. Es beinhaltet alles Notwendige, um eine Anwendung auszuführen: den Code selbst, die Laufzeitumgebung, Systemwerkzeuge, Systembibliotheken und Einstellungen.\newline
 
-Während der Ausführung werden Containerimages zu Containern. Im Fall von Docker-Containern geschieht dies, wenn sie auf dem Docker Engine laufen. Diese Technologie ist sowohl für Linux- als auch für Windows-Anwendungen verfügbar. Containerisierte Software wird unabhängig von der zugrunde liegenden Infrastruktur immer konsistent arbeiten. Container isolieren die Software von ihrer Umgebung und gewährleisten eine gleichbleibende Funktionalität, selbst wenn sich die Umgebungen, beispielsweise zwischen Entwicklungs- und Produktionsumgebungen, unterscheiden.
+Während der Ausführung werden Containerimages zu Containern. Im Fall von Docker-Containern geschieht dies, wenn sie auf der Docker Engine laufen. Diese Technologie ist sowohl für Linux- als auch für Windows-Anwendungen verfügbar. Containerisierte Software wird unabhängig von der zugrunde liegenden Infrastruktur immer konsistent arbeiten. Container isolieren die Software von ihrer Umgebung und gewährleisten eine gleichbleibende Funktionalität, selbst wenn sich die Umgebungen, beispielsweise zwischen Entwicklungs- und Produktionsumgebungen, unterscheiden.
 
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.7\linewidth]{pics/docker-container.png}
-    \caption{Docker Logo}
+    \caption{Container Deployment}
     \label{fig:enter-label}
 \end{figure}
 

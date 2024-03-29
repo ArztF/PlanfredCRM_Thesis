@@ -1,4 +1,4 @@
-Um die Entwicklung für die Codebasis so einfach wie möglich zu machen wurde Git verwendet. Es handelt sich um ein Versionskontrollsystem, das hauptsächlich von Entwicklern zur Verwaltung der verschiedenen Versionen ihres Codes verwendet wird. Das Ziel hinter Git steckt darin, die Entwicklung für ein Team von mehrern Entwicklern so einfach wie möglich zu gestalten. Im April 2005 begann der Entwickler des Betriebssystems Linux, Linus Torvalds mit dem Developement von Git und präsentierte bereits wenige Tage nach der Ankündigung die erste Version der Code Verwaltungs Software.
+Um die Entwicklung für die Codebasis so einfach wie möglich zu machen wurde Git verwendet. Es handelt sich um ein Versionskontrollsystem, das hauptsächlich von Entwickler:innen zur Verwaltung der verschiedenen Versionen ihres Codes verwendet wird. Das Ziel hinter Git steckt darin, die Entwicklung für ein Team von mehrern Entwickler:innen so einfach wie möglich zu gestalten. Im April 2005 begann der Entwickler des Betriebssystems Linux, Linus Torvalds mit dem Developement von Git und präsentierte bereits wenige Tage nach der Ankündigung die erste Version der Code Verwaltungs Software.
 
 \begin{figure}[h!]
     \centering
@@ -31,9 +31,7 @@ Branches werden in größeren Entwickler Teams meistens für einzelne Features v
 \end{verbatim}
 
 gewechselt werden.
-In einem Branch kann der Entwickler quasi frei arbeiten, ohne die Arbeit eines Teammitglieds zu beeinflussen, solange er seinen Branch nicht in einen anderen merged.
-
-<image>
+In einem Branch können die Entwickler:innen frei arbeiten, ohne die Arbeit eines Teammitglieds zu beeinflussen, solange er seinen Branch nicht in einen anderen merged.
 
 \cite{Github_Branches}
 
@@ -46,7 +44,7 @@ Ein Merge wird mit folgendem Befehl ausgeführt:
     git merge <branchname>
 \end{verbatim}
 
-Hierbei kann es zu Konflikten kommen. Dies geschieht normalerweise, wenn zwei oder mehr Zweige gleichzeitig Änderungen an derselben Stelle in einer Datei, oder an einer Datei vornehmen. Git kann hier nicht automatisch entscheiden, welche Version es behalten soll und so muss der User manuell die Auswahl treffen welche Version verwertet und welche verworfen werden soll. Mit dieser Funktion können Änderungen von Zweigen sehr einfach in den Main Branch gebracht werden.
+Hierbei kann es zu Konflikten kommen. Dies geschieht normalerweise, wenn zwei oder mehr Zweige gleichzeitig Änderungen an derselben Stelle in einer Datei vornehmen. Git kann hier nicht automatisch entscheiden, welche Version es behalten soll und so müssen die User:innen manuell die Auswahl treffen welche Version verwertet und welche verworfen werden soll. Mit dieser Funktion können Änderungen von Zweigen sehr einfach in den Main Branch gebracht werden.
 
 \begin{figure}[h!]
     \centering
@@ -58,7 +56,7 @@ Hierbei kann es zu Konflikten kommen. Dies geschieht normalerweise, wenn zwei od
 
 \subsubsection{Submodules}
 
-In der Softwareentwicklung kommt es des Öfteren vor, dass während der Entwicklung auch andere Projekte oder Libraries benötigt werden. Häuftig entsteht dabei das Problem, dass beide Projekte seperat behandelt werden müssen. Git behebt diese Angelgenheit mit der Hilfe von Submodulen. Diese ermöglichen es, ein anderes Repository als Unterverzeichnis in ein anderes Projekt zu implementieren.
+In der Softwareentwicklung kommt es des Öfteren vor, dass während der Entwicklung auch andere Projekte oder Libraries benötigt werden. Häuftig entsteht dabei das Problem, dass beide Projekte seperat behandelt werden müssen. Git behebt dieses Problem mit der Hilfe von Submodulen. Diese ermöglichen es, ein anderes Repository als Unterverzeichnis in ein anderes Projekt zu implementieren.
 
 Ein Submodul wird folgendermaßen implementiert:
 
@@ -108,7 +106,7 @@ git submodule init
 git submodule update
 \end{lstlisting}
 
-In dieser Diplomarbeit wurden Submodules verwendet, da auch parallel immer das Planfred Projekt gestartet sein muss, da die Write-Operationen über die Planfred Datenbank ausgeführt werden. Somit war es anfangs sehr kompliziert, da immer beide Projekte gleichzeitig laufen mussten und dadurch die Ports auch teilweise doppelt belegt wurden, was zu einem Fehler geführt hat.
+In dieser Diplomarbeit wurden Submodules verwendet, da auch parallel immer das Planfred Projekt gestartet sein muss, da die Write-Operationen über die Planfred Datenbank ausgeführt werden. Somit war es anfangs sehr kompliziert, Da beide Projekte gleichzeitig liefen, kam es gelegentlich zu doppelten Portbelegungen, was zu Fehlern führte.
 
 Um das Planfred Projekt zu initialisieren wurden im 'package.json' folgendes Script geschrieben:
 
@@ -134,11 +132,11 @@ https://git-scm.com/book/en/v2/Git-Tools-Submodules
 
 \subsection{Git cloud solutions}
 
-Um als Team mit Git zu arbeiten, ist es wichtig, dass alle Änderungen zwischen den Usern und den verschiedenen Geräten synchronisiert werden. Hierfür werden Git cloud solutions verwendet. Eine der Bekanntesten ist Github, diese Plattform wird von den meisten Entwicklern verwendet.
+Um als Team mit Git zu arbeiten, ist es wichtig, dass alle Änderungen zwischen den User:innen und den verschiedenen Geräten synchronisiert werden. Hierfür werden Git cloud solutions verwendet. Eine der Bekanntesten ist Github, diese Plattform wird von den meisten Entwickler:innen verwendet.
 
 \subsubsection{Github}
 
-Github ist einer der Gründe wieso Git so bekannt ist. Es wurde 2008 gelaunched und war damals eine der ersten git hosting Plattformen, welche die Zusammenarbeit zwischen mehreren Entwicklerun vereinfachte. Github bietet sehr viele kostenlose Features an solange das Repository öffenltich ist. Um ein privates Repository zu besitzen und diese Features trotzdem verwenden zu können ist ein Abonnoment nötig.
+Github ist einer der Gründe wieso Git so bekannt ist. Es wurde 2008 gelaunched und war damals eine der ersten git hosting Plattformen, welche die Zusammenarbeit zwischen mehreren Entwickler:innen vereinfachte. Github bietet sehr viele kostenlose Features an solange das Repository öffenltich ist. Um ein privates Repository zu besitzen und diese Features trotzdem verwenden zu können ist ein Abonnoment nötig.
 
 \cite{Github_1}
 \cite{Github_2}
