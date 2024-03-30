@@ -1,4 +1,4 @@
-Bei Angular handelt es sich um eines der beliebtesten JavaScript-Web-Frameworks am Markt. Angular gibt es bereits seit 2009, seitdem treibt das Entwicklerteam das Ziel an ein Framework zu erschaffen, welches sowohl die Endbenutzer, als auch die Entwickler gerne verwenden. Durch diese Grundsätze entstand im Laufe der Zeit eine riesige Community. Ein großer Meilenstein ist das Jahr 2016, in dem das Web-Framework komplett in Typescript umgeschrieben wurde.
+Bei Angular handelt es sich um eines der beliebtesten JavaScript-Web-Frameworks am Markt. Angular gibt es bereits seit 2009, seitdem treibt das Entwicklerteam das Ziel an ein Framework zu erschaffen, welches sowohl die Endbenutzer:innen, als auch die Entwickler:innen gerne verwenden. Durch diese Grundsätze entstand im Laufe der Zeit eine riesige Community. Ein großer Meilenstein ist das Jahr 2016, in dem das Web-Framework komplett in Typescript umgeschrieben wurde.
 
 \begin{figure}[h!]
     \centering
@@ -81,7 +81,7 @@ Die Einbindung solcher Komponenten in HTML könnte in Angular folgendermassen au
     </todo-list>
 \end{lstlisting}
 
-Die Logik von Komponenten ist mit Typescript realisiert, dass ermöglicht im Vergleich zu standardmäßigen JavaScript einige Vorteile. Der größte Unterschied ist die Typisiert, welche in JavaScript nicht wirklich vorhanden ist. Damit ist eine Anwendung weniger fehleranfällig und der Code ist sauberer und klarer strukturiert. Zusätzlich bietet Typescript jedoch auch noch die Verwendung von \textbf{Decorators}. Darunter versteht man strukturierte Metadaten, welche einer Klasse zugewiesen werden. 
+Die Logik von Komponenten ist mit Typescript realisiert, dass ermöglicht im Vergleich zu standardmäßigen JavaScript einige Vorteile. Der größte Unterschied ist die Typisierung, welche in JavaScript nicht wirklich vorhanden ist. Damit ist eine Anwendung weniger fehleranfällig und der Code ist sauberer und klarer strukturiert. Zusätzlich bietet Typescript jedoch auch noch die Verwendung von \textbf{Decorators}. Darunter versteht man strukturierte Metadaten, welche einer Klasse zugewiesen werden. 
 
 Es gibt vier Bestandteile, welche eine Angular Komponente ausweist:
 
@@ -92,13 +92,13 @@ Es gibt vier Bestandteile, welche eine Angular Komponente ausweist:
     \item Klasse (beinhaltet Interface und Logik)
 \end{itemize}
 
-Erstellt wird eine Angular Komponente mit folgenden Befehl:
+Erstellt wird eine Angular Komponente mit folgendem Befehl:
 
 \begin{lstlisting}
     ng generate component info-box
 \end{lstlisting}
 
-In diesem Beispiel wird eine Komponente für eine Infobox erstellt, dafür werden vier neue Files erstellt und die Komponente automatisch im Projekt definiert.
+In diesem Beispiel wird eine Komponente für eine Infobox erstellt, dafür werden vier neue Files generiert und die Komponente automatisch im Projekt definiert.
 
 \begin{lstlisting}
     CREATE src/app/info-box/info-box.component.scss (0 bytes)
@@ -108,9 +108,9 @@ In diesem Beispiel wird eine Komponente für eine Infobox erstellt, dafür werde
     UPDATE src/app/app.module.ts (0 bytes)
 \end{lstlisting}
 
-Das ist der Konsolen Output, der beim Erstellen einer Komponente ausgegeben wird. Es ist erkennbar, dass ein Ordner erstellt wird mit 4 Dateien. Ebenfalls wird das Komponente in \textbf{app.module.ts} registriert. Das ist wichtig damit dieses im ganzen Projekt erkannt und eingebunden werden kann.
+Das ist der Konsolen Output, der beim Erstellen einer Komponente ausgegeben wird. Es ist erkennbar, dass ein Ordner erstellt wird mit vier Dateien. Ebenfalls wird die Komponente in \textbf{app.module.ts} registriert. Das ist wichtig damit dieses im ganzen Projekt erkannt und eingebunden werden kann.
 \newpage
-Für die Programmierer:innen sind jedoch eigentlich nur 2 Dateien relevant.
+Für die Programmierer:innen sind jedoch eigentlich nur zwei Dateien relevant.
 Die erste ist \textbf{info-box.component.ts}, diese sieht wie folgt aus:
 
 \begin{lstlisting}
