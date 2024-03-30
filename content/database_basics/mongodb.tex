@@ -132,7 +132,7 @@ Dadurch, dass MongoDB keine relationale Datenbank ist, sehen die Abfragen auch a
 \end{lstlisting}
 Nach dem Aufbau der Verbindung zur Datenbank und der Auswahl einer Collection (Zeile 3, obiger Codesnippet), kann man mit den Abfragen beginnen.
 \newline
-Möchte man aus einer Collection, Documents abfragen, gibt es zwei verschiedene Varianten, dies zu machen. Sind "einfache" Abfragen, wie zum Beispiel vergleiche von einzelnen oder mehreren Fields notwendig, benötigt es die "find"-Methode. In der "find"-Methode kann man die Query, in Form eines Objekts übergeben, lässt man es allerdings leer, werden alle Documents aus der Collection zurückgegeben.
+Möchte man aus einer Collection, Documents abfragen, gibt es zwei verschiedene Varianten, dies zu machen. Sind "einfache" Abfragen, wie zum Beispiel Vergleiche von einzelnen oder mehreren Fields notwendig, benötigt es die "find"-Methode. In der "find"-Methode kann man die Query, in Form eines Objekts übergeben, lässt man es allerdings leer, werden alle Documents aus der Collection zurückgegeben.
 \begin{lstlisting}[caption=Simple Abfrage in MongoDB]
     const res1 = await db.collection.find({}).toArray()
     const res1 = await db.collection.find(
@@ -265,7 +265,7 @@ Möchte man allerdings nicht nur "einfache" Vergleichsabfragen durchführen, son
 \end{itemize}
 Im Verlauf dieser Diplomarbeit erwies sich insbesondere die Aggregation-Pipeline als essenziell. Darüber hinaus wurde die Single-Purpose-Aggregation-Methode "estimatedDocumentCount()" für die Statistik Seite genutzt. Die Auswahl dieser Aggregation erfolgte aufgrund der geringeren Relevanz einer exakten Genauigkeit bei der Anzahl sowie der signifikant verbesserten Performance dieser Aggregation.
 \cite{mongodb_aggregation_basics}
-Zwei weitere wichtige Anforderungen in diesem Projekt waren zum einen, dass JOINen von zwei verschiedenen Collections und das eliminieren von Daten aus einem Array, abhängig von einer Kondition. Für den JOIN wurde das Schlüsselwort \$lookup verwendet. Dieses führt einen left outer join durch, dabei wird ein neues Array-Field, mit den gefundenen Documents, in das Document hinzugefügt. Bei dem \$lookup Befehl werden folgende Felder benötigt:
+Zwei weitere wichtige Anforderungen in diesem Projekt waren zum einen, dass JOINen von zwei verschiedenen Collections und das Eliminieren von Daten aus einem Array, abhängig von einer Kondition. Für den JOIN wurde das Schlüsselwort \$lookup verwendet. Dieses führt einen left outer join durch, dabei wird ein neues Array-Field, mit den gefundenen Documents, in das Document hinzugefügt. Bei dem \$lookup Befehl werden folgende Felder benötigt:
 \begin{lstlisting}[caption=JOIN in MongoDB]
 {
    $lookup: {
@@ -337,6 +337,6 @@ In diesem Beispiel werden die unterschiedlichen Phasen genutzt.
         Das übergebene Array aus Phase 3 wird nun mit der \textbf{\$group} Operation nach dem Projektbesitzer gruppiert und der verwendete Speicherplatz aller seiner Projekte zusammengezählt.
     \item \textbf{5. Phase}
         \newline
-        In der letzten Phase wird ein JOIN auf die User Collection durchgeführt, um alle Benutzerdaten in das Field "user\_details" gespeichert.
+        In der letzten Phase wird ein JOIN auf die User Collection durchgeführt, um alle Benutzerdaten in das Field "user\_details" zu speichern.
 \end{itemize}
 \cite{mongodb_aggregation_filter}

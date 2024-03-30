@@ -27,9 +27,9 @@ Die Aufgabe eines Controllers besteht darin, Requests der Applikation entgegenzu
     \label{fig:mesh1}
 \end{figure}
 
-Eingehende Requests werden durch den Routing Mechanismus an den zuständigen Controller weitergeleitet, welcher nun auf den Request reagieren kann und eine dementsprechende Response an den Client sendet. Um einen Controller zu erstellen, werden Klassen und Decorators benötigt. Decorators stellen erforderliche Metadaten, für die jeweiligen Klassen zur Verfügung, dies ermöglicht es Nest, eine Routing-Map zu erstellen, um die Requests an die jeweilig zuständigen Controller weiterzuleiten.
+Eingehende Requests werden durch den Routing Mechanismus an den zuständigen Controller weitergeleitet, welcher nun auf den Request reagieren kann und eine dementsprechende Response an den Client sendet. Um einen Controller zu erstellen, werden Klassen und Decorators benötigt. Decorators stellen erforderliche Metadaten für die jeweiligen Klassen zur Verfügung, dies ermöglicht es Nest, eine Routing-Map zu erstellen, um die Requests an die jeweilig zuständigen Controller weiterzuleiten.
 \newline
-Der @Controller Decorator ist nötig, um einen neuen Basiscontroller zu erstellen. In diesem Decorator kann man einen Pfad Prefix definieren, um ähnliche Pfade leichter zu gruppieren und dadurch Codeverdoppelungen zu vermeiden. In dem, mit dem Controller Decorator defnierten, Klasse können folgende HTTP-Methoden erstellt werden:
+Der @Controller Decorator ist nötig, um einen neuen Basiscontroller zu erstellen. In diesem Decorator kann man einen Pfad Prefix definieren, um ähnliche Pfade leichter zu gruppieren und dadurch Codeverdoppelungen zu vermeiden. In der, mit dem Controller Decorator definierten, Klasse können folgende HTTP-Methoden erstellt werden:
 
 \begin{itemize}
     \item Get
@@ -54,7 +54,7 @@ export class UsersController {
 }
 \end{lstlisting}
 
-Der oben gezeigte Beispielcode stellt einen vereinfachten Controller dar, welcher einen GET-Endpoint besitzt. Dieser gibt im vorliegenden Fall, den oben definierten String zurück.
+Der oben gezeigte Beispielcode stellt einen vereinfachten Controller dar, welcher einen GET-Endpoint besitzt. Dieser gibt im vorliegenden Fall den oben definierten String zurück.
 \cite{Nest_js_Controllers}
 
 
