@@ -209,8 +209,10 @@ DEBUG=express:* node index.js
 set DEBUG=express:* & node index.js
 \end{verbatim}
 Man hat nun die Möglichkeit, weitere Optionen für das Debuggen zu definieren.
-\begin{center}
-    \begin{tabular}{||c c||}
+\begin{table}[h]
+\caption{Debug-Modi in express.js}
+\label{demo-table}
+\begin{tabular}{||c c||}
         \hline
         Befehl & Beschreibung \\ [0.5ex] 
         \hline\hline
@@ -225,7 +227,7 @@ Man hat nun die Möglichkeit, weitere Optionen für das Debuggen zu definieren.
         DEBUG\_SHOW\_HIDDEN & Shows hidden properties on inspected object \\ [1ex] 
         \hline
     \end{tabular}
-\end{center}
+\end{table}
 \cite{Express_js_third_party_middlewares}
 
 Die Identifizierung von Fehlern und die Debugging-Funktionalität in Visual Studio Code (VS-Code) bieten die Möglichkeit, nicht nur die internen Ausgaben zu erhalten, sondern auch eigens verfasste Funktionen zu überprüfen. Diese Funktionalität wird durch das Setzen von Breakpoints ermöglicht, die einfach neben der Zeilennummer platziert werden. Der Debugger wird daraufhin in der Menüleiste gestartet. Das Starten des Debuggers bewirkt, dass VS-Code die Anwendung ausführt und den Debugger aktiviert. Bei Aufruf der zu überprüfenden Funktion pausiert das Programm an der Stelle, an der zuvor der Breakpoint gesetzt wurde. Hierbei stehen sämtliche existierenden Variablen zur Inspektion zur Verfügung und der Code kann schrittweise durchlaufen werden.

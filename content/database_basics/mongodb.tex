@@ -142,7 +142,9 @@ Möchte man aus einer Collection, Documents abfragen, gibt es zwei verschiedene 
     ).toArray()
 \end{lstlisting}
 Wie im obigen Beispiel zu sehen ist, benötigt es nach der find-Methode eine weitere Methode, um das Ergebnis anzeigen zu können. Es gibt mehrere Methoden, folgende werden in dieser Diplomarbeit verwendet.
-\begin{center}
+\begin{table}[h]
+\caption{MongoDB Methoden}
+\label{demo-table}
     \begin{tabular}{ | m{3cm} | m{2.3cm}| m{8cm} | } 
         \hline
         Name & Übergabetyp & Beschreibung \\ [0.5ex] 
@@ -156,7 +158,7 @@ Wie im obigen Beispiel zu sehen ist, benötigt es nach der find-Methode eine wei
         skip & number & Überspringt n Documents \\
         \hline
     \end{tabular}
-\end{center}
+\end{table}
 \cite{mongodb_query_methods}
 \newline
 Es können noch andere Methoden definiert werden, weitere Methoden sind im folgenden Link zu finden:
@@ -164,7 +166,9 @@ Es können noch andere Methoden definiert werden, weitere Methoden sind im folge
 \url{https://mongodb.github.io/node-mongodb-native/3.6/api/Collection.html#find}
 \newline
 Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren zugreifen. Folgende Operatoren gibt es in MongoDB:
-\begin{center}
+\begin{table}[h]
+\caption{MongoDB Operationen}
+\label{demo-table}
     \begin{tabular}{ | m{1.5cm} | m{13cm} | } 
         \hline
         Name & Beschreibung \\ [0.5ex] 
@@ -182,14 +186,14 @@ Um die Abfragen spezifischer zu gestalten, kann man auf verschiedene Operatoren 
         \$lte & Matches values that are less than or equal to a specified value \\
         \hline
         \$ne & Matches all values that are not equal to a specified value \\
-    \end{tabular}
-\end{center}
-\begin{center}
-    \begin{tabular}{ | m{1.5cm} | m{13cm} | }
+        \hline
         \$nin & Matches none of the values specified in an array \\
         \hline
         \$and & Joins query clauses with a logical AND returns all documents that match the conditions of both clauses \\
-        \hline
+    \end{tabular}
+\end{table}
+\begin{center}
+    \begin{tabular}{ | m{1.5cm} | m{13cm} | }
         \$not & Inverts the effect of a query expression and returns documents that do not match the query expression \\
         \hline
         \$nor & Joins query clauses with a logical NOR returns all documents that fail to match both clauses \\
