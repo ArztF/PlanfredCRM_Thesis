@@ -5,13 +5,13 @@
     \label{fig:mesh1}
 \end{figure}
 
-In dieser Grafik ist die Systemarchitektur des neuen Planfred Kundenmanagement Tools zu sehen. Der Benutzer kommuniziert dabei mit dem Frontend, welches auf einem VueJS Projekt basiert. Diese Anwendung schickt dann Anfragen an den Server, beziehungsweise bekommt Daten vom Server. Dieser basiert auf ExpressJS und bezieht Daten aus zwei verschiedenen Datenbanken:
+In dieser Grafik ist die Systemarchitektur des neuen Planfred Kundenmanagement Tools zu sehen. Der Benutzer:in kommuniziert dabei mit dem Frontend, welches auf einem VueJS Projekt basiert. Diese Anwendung schickt dann Anfragen an den Server, beziehungsweise bekommt Daten vom Server. Dieser basiert auf ExpressJS und bezieht Daten aus zwei verschiedenen Datenbanken:
 
 \begin{itemize}
     \item \textbf{Production Datenbank}
         \newline
-        Dabei handelt es sich um die Datenbank, welche auch bei dem eigentlichen Produkt Planfred zur Verwendung kommt. Das heißt, dass darauf alle Live-Daten gespeichert sind. Diese sind relevante Daten, wobei für uns die Informationen über die Kunden und die dementsprechenden Projekte am wichtigsten waren.
-        Hierbei ist es auch wichtig zu erwähnen, dass es sich dabei um eine MongoDB Datenbank handelt und damit NoSQL verwendet wird. 
+        Dabei handelt es sich um die Datenbank, welche auch bei dem eigentlichen Produkt Planfred zur Verwendung kommt. Das heißt, dass darauf alle Live-Daten gespeichert sind. Diese sind relevante Daten, wobei für uns die Informationen über die Kunden:innen und die dementsprechenden Projekte am wichtigsten waren.
+        Hierbei ist es auch wichtig zu erwähnen, dass es sich dabei um eine MongoDB Datenbank handelt und damit NoSQL verwendet wird.
         NoSQL-Datenbanken sind nicht-relationale Datenbanken, die flexibel skalierbar sind und verschiedene Datenformate unterstützen, um Daten effizient abzurufen und Joins zwischen Tabellen zu vermeiden.
         \cite{no_sql}
     \item \textbf{Cron Job Datenbank}
