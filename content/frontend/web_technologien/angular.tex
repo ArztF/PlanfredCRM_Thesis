@@ -9,6 +9,7 @@ Bei Angular handelt es sich um eines der beliebtesten JavaScript-Web-Frameworks 
 \end{figure}
 
 Früher sorgte diese Veränderung für viel Aufregen, heute ist dies jedoch anders, da die Verwendung von Typescript immer mehr zum Standard geworden ist.
+\cite{frontend_web_angular_introduction}
 
 \subsubsection{Aufbau}
 Angular hat ein sehr großes System, welches folgendermassen aufgebaut ist:
@@ -30,7 +31,8 @@ Grundlegend gibt es das sogenannte Core-Framework, wo die allgemeinen Konzepte f
     \item Animations (Animationen für Transitionen)
     \item PWA  (Offline Funktionalität)
     \item HTTP (HTTP, Rest und GraphQL Kommunikation)
-\end{itemize}
+\end{itemize} 
+\cite{frontend_web_angular_introduction}
 
 \subsubsection{Installation}
 Für die Installation von Angular wird \textbf{npm} benötigt.
@@ -56,6 +58,7 @@ Mit \textbf{ng new} kann man ein neues Projekt mit einem benutzerdefinierten Nam
 \end{lstlisting}
 
 Standardmäßig ist dieses Projekt unter http://localhost:4200 im Browser erreichbar. 
+\cite{frontend_web_angular_introduction}
 
 \subsubsection{Komponenten}
 Angular verwendet, ähnlich wie andere beliebte Frameworks, Komponenten. Diese bilden die einzelnen Bausteine für eine Anwendung.
@@ -138,6 +141,7 @@ Die zweite wichtige Datei ist die \textbf{info-box.component.html}, in welcher d
 \subsubsection{Services}
 Die Logik für eine Anwendung muss nicht unbedingt in den jeweiligen Komponenten definiert sein, sondern kann in einen Angular Service ausgelagert werden. Diese kann dann von mehreren Komponenten benutzt werden und bietet eine bessere Übersicht für die Programmierer:innen.
 Ebenfalls können in einem Service Daten gespeichert werden, welche dann von mehreren Komponenten verwendet oder geändert werden können.
+\cite{frontend_web_angular_introduction}
 
 \subsubsection{Expressions}
 Damit eine Komponente nicht nur aus statischen Inhalten besteht, stellt Angular Expressions zur Verfügung.
@@ -166,6 +170,7 @@ In einer Komponente wird eine Variable namens \textbf{text} definiert. Diese kan
 \end{lstlisting}
 
 Wenn sich der Wert dieser Variable nun verändert, wird diese gleichzeitig auch auf der Benutzerfläche aktualisiert. 
+\cite{frontend_web_angular_introduction}
 
 \subsubsection{Property Binding}
 Damit verbindet Angular TypeScript Properties direkt mit der Logik von HTML. Hier ein Beispiel:
@@ -188,6 +193,7 @@ Es wurde zusätzlich eine Variable namens \textbf{hidden} erstellt, welche einen
 \end{lstlisting}
 
 Solange diese Variable nun auf \textbf{true} gesetzt ist wird das HTML Element versteckt.
+\cite{frontend_web_angular_introduction}
 
 \subsubsection{Event Binding}
 Des weiteren gibt es noch das sogenannte Event Binding. Damit können verschiedene Events auf der Benutzerfläche abgefangen und mit der Logik von Angular verbunden werden.
@@ -198,6 +204,7 @@ Des weiteren gibt es noch das sogenannte Event Binding. Damit können verschiede
 \end{lstlisting}
 
 In diesem Beispiel wird die hidden Variable beim Klicken eines Buttons geändert und somit der Text jeweils ein- oder ausgeblendet.
+\cite{frontend_web_angular_introduction}
 
 \subsubsection{Schleifen}
 Ebenfalls kann man in HTML Schleifen definieren. Dafür wird, wie in folgenden Beispiel, ngFor verwendet.

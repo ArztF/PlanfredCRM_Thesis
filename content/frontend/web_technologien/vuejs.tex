@@ -134,6 +134,7 @@ VueJS bietet mit Lifecycle-Hooks ebenfalls sehr essentielle Funktionalitäten. D
 \end{figure}
 
 In dieser Grafik ist ein sogenannter Instance-Lifecycle zu sehen, worin alle Lifecycle-Hooks zu finden sind.
+\cite{frontend_web_vuejs_lifecycle}
 
 \subsubsection{Creation Hooks}
 Hierbei handelt es sich um die erste Hook, die eine Komponente ausführt. Damit können Aktionen bestimmt werden, welche dann ausgeführt werden bevor die Komponente im DOM eingebaut wird. Dadurch hat man in dieser Hook dementsprechend auch keinen Zugriff auf das DOM.
@@ -168,6 +169,7 @@ Zusätzlich gibt es die \textbf{created} Methode:
 \end{lstlisting}
 
 In dieser Methode sind Daten schon reaktiv und man kann darauf zugreifen. In diesem Beispiel wird die Variable \textbf{property} von ‘Hello’ auf ‘Hello world!’ geändert. Der DOM ist dabei jedoch noch nicht erreichbar.
+\cite{frontend_web_vuejs_lifecycle}
 \newpage
 
 \subsubsection{Mounting Hooks}
@@ -204,6 +206,7 @@ Zusätzlich gibt es die \textbf{mounted} Hook, welche nach dem ersten Rendern au
 \end{lstlisting}
 
 In diesem Code Beispiel wird in der mounted-Methode auf das DOM zugegriffen und der Inhalt des definierten \textbf{<div>} in der Konsole ausgegeben.
+\cite{frontend_web_vuejs_lifecycle}
 
 \subsubsection{Updating Hooks}
 Diese Hooks werden aufgerufen wenn sich eine reaktive Eigenschaft ändert und damit ein erneutes Rendering benötigt wird.
@@ -263,6 +266,7 @@ Um nun auch den Zeitpunkt nach dem Rendern des neuen DOM abzufangen gibt es die 
 \end{lstlisting}
 
 Dieses Beispiel ist von der Funktionalität gleich wie das Vorige. Der einzige Unterschied besteht darin, dass hierbei die \textbf{updated} Methode aufgerufen wird. In dieser wird der Wert von \textbf{counter} direkt aus dem DOM genommen und mit dem Wert der tatsächlichen Variable verglichen. Das Ergebnis wird in der Konsole ausgegeben und ergibt \textbf{true}. Grund dafür ist, dass in dieser Hook, das DOM bereits neu gerendert wurde und somit schon den neuen Wert angenommen hat.
+\cite{frontend_web_vuejs_lifecycle}
 
 \subsubsection{Destruction Hooks}
 Die sogenannten Destruction Hooks ermöglichen die Ausführung von Aktionen, wenn eine Komponente zerstört wird. Diese können wichtig sein um beispielsweise noch Daten am Ende zu speichern oder auch um bestimmte Daten zu bereinigen.
@@ -301,8 +305,6 @@ Des weiteren gibt es noch die \textbf{destroyed} Hook.
     </script>
 \end{lstlisting}
 
-Zu diesem Zeitpunkt wurde die Komponente schon vollständig abgebaut,  die Methode kann zum Beispiel verwendet werden um einen externen Services zu informieren, dass die Komponente zerstört wurde.
-
-\cite{frontend_web_vuejs_lifecycle}
+Zu diesem Zeitpunkt wurde die Komponente schon vollständig abgebaut,  die Methode kann zum Beispiel verwendet werden um einen externen Services zu informieren, dass die Komponente zerstört wurde.\cite{frontend_web_vuejs_lifecycle}
 
 \newpage
