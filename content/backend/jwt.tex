@@ -1,4 +1,4 @@
-JWT steht für "JSON Web Token" und repräsentiert einen offenen Standard (RFC 7519). Er ist zur Authentifizierung und Autorisierung gedacht, dieser Token kann sowohl vom Server als auch vom Client ausgelesen werden. Er kann verwendet werden, um Daten sicher zwischen verschiedenen Anwendungen zu übermitteln. Durch die Signatur des JWT kann immer sichergestellt werden, dass nichts vom Inhalt manipuliert wurde.
+JWT steht für "JSON Web Token" und repräsentiert einen offenen Standard (RFC 7519). Er ist zur Authentifizierung und Autorisierung gedacht, dieser Token kann sowohl vom Server als auch vom Client ausgelesen werden. Er kann verwendet werden, um Daten sicher zwischen verschiedenen Anwendungen zu übermitteln. Durch die Signatur des JWT kann immer sichergestellt werden, dass nichts vom Inhalt manipuliert wurde. \cite{JWT_1}
 
 \begin{figure}[h]
     \centering
@@ -69,7 +69,7 @@ In der Funktion "verifyToken" können JSON Web Tokens validiert werden. Mit
     payload = jwt.verify(token, 'secretkeyappearshere')
 \end{lstlisting}
 
-wird der Token validiert und überprüft ob dieser noch gültig ist. Wird hier ein Fehler ausgelöst, wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich, wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.
+wird der Token validiert und überprüft ob dieser noch gültig ist. Wird hier ein Fehler ausgelöst, wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich, wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.\cite{JWT_2}
 
 
 \subsubsection{Header}
@@ -107,7 +107,7 @@ Das zweite Verfahren wurde bereits erläutert. Dabei wird ein Algorithmus wie HS
 
 
 
-Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem private Key verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein.
+Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem private Key verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein. \cite{JWT_3}
 
 
 \begin{figure}[h!]

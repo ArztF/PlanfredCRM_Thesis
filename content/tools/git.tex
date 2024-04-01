@@ -32,7 +32,6 @@ Branches werden in größeren Entwickler Teams meistens für einzelne Features v
 
 gewechselt werden.
 In einem Branch können die Entwickler:innen frei arbeiten, ohne die Arbeit eines Teammitglieds zu beeinflussen, solange er seinen Branch nicht in einen anderen merged.
-
 \cite{Github_Branches}
 
 \subsubsection{Merge}
@@ -114,7 +113,8 @@ Um das Planfred Projekt zu initialisieren wurden im 'package.json' folgendes Scr
 "_install:submodule:planfred": "([ -f \"./planfred/package.json\" ] && (cd planfred; npm i;) || echo 'planfred/package.json not found - so no install.')"
 \end{lstlisting}
 
-Im ersten Schritt wird überprüft ob im Verzeichnis "planfred" eine Datei mit dem Name "package.json" vorhanden ist. Im nächsten Schritt wird mit "cd planfred" in das Verzeichnis gewechselt und mit "npm i" werden alle nötigen Abhängigkeiten des Projekts (wie in der "package.json"-Datei angegeben) installiert. Falls die "package.json"-Datei nicht gefunden wird, wird der Teil nach || ausgeführt. In diesem Fall wird eine Meldung ausgegeben, die besagt, dass die "package.json"-Datei nicht gefunden wurde und daher keine Installation durchgeführt werden konnte.
+Im ersten Schritt wird überprüft ob im Verzeichnis "planfred" eine Datei mit dem Name "package.json" vorhanden ist. Im nächsten Schritt wird mit "cd planfred" in das Verzeichnis gewechselt und mit "npm i" werden alle nötigen Abhängigkeiten des Projekts (wie in der "package.json"-Datei angegeben) installiert. Falls die "package.json"-Datei nicht gefunden wird, wird der Teil nach || ausgeführt. In diesem Fall wird eine Meldung ausgegeben, die besagt, dass die "package.json"-Datei nicht gefunden wurde und daher keine Installation durchgeführt werden konnte. 
+\cite{git_sub_modules}
 
 \begin{figure}[h!]
     \centering
@@ -125,18 +125,13 @@ Im ersten Schritt wird überprüft ob im Verzeichnis "planfred" eine Datei mit d
 
 
 
-
-
-https://git-scm.com/book/en/v2/Git-Tools-Submodules
-
-
 \subsection{Git cloud solutions}
 
 Um als Team mit Git zu arbeiten, ist es wichtig, dass alle Änderungen zwischen den User:innen und den verschiedenen Geräten synchronisiert werden. Hierfür werden Git cloud solutions verwendet. Eine der Bekanntesten ist Github, diese Plattform wird von den meisten Entwickler:innen verwendet.
 
 \subsubsection{Github}
 
-Github ist einer der Gründe wieso Git so bekannt ist. Es wurde 2008 gelaunched und war damals eine der ersten git hosting Plattformen, welche die Zusammenarbeit zwischen mehreren Entwickler:innen vereinfachte. Github bietet sehr viele kostenlose Features an solange das Repository öffenltich ist. Um ein privates Repository zu besitzen und diese Features trotzdem verwenden zu können ist ein Abonnoment nötig.
+Github ist einer der Gründe wieso Git so bekannt ist. Es wurde 2008 gelaunched und war damals eine der ersten git hosting Plattformen, welche die Zusammenarbeit zwischen mehreren Entwickler:innen vereinfachte. Github bietet sehr viele kostenlose Features an solange das Repository öffenltich ist. Um ein privates Repository vollständig zu nutzen und sämtliche Funktionen uneingeschränkt zu genießen, ist ein Abonnement erforderlich. Ansonsten kann mit einem privaten Repository nur ein Teil der Funktionen genutzt werden.
 
 \cite{Github_1}
 \cite{Github_2}
