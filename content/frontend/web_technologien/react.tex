@@ -4,7 +4,7 @@ React ist schnell, das liegt an die Herangehensweise im Bezug auf den DOM. Norma
 
 React arbeitet ebenfalls mit Komponenten.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=React Komponente Grundgerüst]
     export default function App() {
       return (
         <div className="App">
@@ -25,7 +25,7 @@ Das ist der einzige tatsächliche HTML-Code der in einem ReactJS Projekt zu find
 \begin{lstlisting}
     const rootElement = document.getElementById("root");
 \end{lstlisting}
-
+\newpage
 Damit wird das HTML-Element in eine JavaScript Variable gespeichert. Mit dieser Variable kann man nun Komponenten rendern, das sieht wie folgt aus:
 
 \begin{lstlisting}
@@ -50,7 +50,7 @@ Komponenten sind die Bausteine von React-Anwendungen. Sie ermöglichen es Entwic
 
 Eine Funktionskomponente ist eine JavaScript-Funktion, die ein React-Element zurückgibt:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Funktionskomponente]
     function MeinKomponent() {
       return <div>Hallo Welt!</div>;
     }
@@ -58,7 +58,7 @@ Eine Funktionskomponente ist eine JavaScript-Funktion, die ein React-Element zur
 \newpage
 Eine Klassenkomponente ist eine JavaScript-Klasse, die von \textbf{React.Component} erbt und eine \textbf{render()}-Methode enthält:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Klassenkomponente]
     class MeinKomponent extends React.Component {
       render() {
         return <div>Hallo Welt!</div>;
@@ -71,7 +71,7 @@ Eine Klassenkomponente ist eine JavaScript-Klasse, die von \textbf{React.Compone
 \subsubsection{Property Binding}
 Props (Eigenschaften) sind ein Mechanismus in React, um Daten von einer übergeordneten Komponente an eine untergeordnete Komponente zu übergeben. Props sind unveränderlich und werden in Funktionskomponenten als Parameter und in Klassenkomponenten über this.props zugänglich gemacht.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Property Binding Beispiel]
     class ElternKomponente extends React.Component {
       render() {
         return <KindKomponent name="Max" />;
@@ -90,8 +90,8 @@ In diesem Beispiel wird der Wert \textbf{Max} als Prop namens \textbf{name} von 
 
 \subsubsection{Event Binding}
 Event Binding ermöglicht es, Ereignisbehandlungsfunktionen an bestimmte Benutzerinteraktionen wie Klicks, Änderungen, Tastendrücke usw. zu binden. In React werden Ereignisse ähnlich wie in reinem JavaScript behandelt, jedoch mit einigen Unterschieden.
-
-\begin{lstlisting}
+\newpage
+\begin{lstlisting}[caption=Event Binding Beispiel]
     class MeinKomponent extends React.Component {
       handleClick() {
         console.log('Button wurde geklickt!');
