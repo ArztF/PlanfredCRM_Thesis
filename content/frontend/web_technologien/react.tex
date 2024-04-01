@@ -71,7 +71,7 @@ Eine Klassenkomponente ist eine JavaScript-Klasse, die von \textbf{React.Compone
 \subsubsection{Property Binding}
 Props (Eigenschaften) sind ein Mechanismus in React, um Daten von einer übergeordneten Komponente an eine untergeordnete Komponente zu übergeben. Props sind unveränderlich und werden in Funktionskomponenten als Parameter und in Klassenkomponenten über this.props zugänglich gemacht.
 
-\begin{lstlisting}[caption=Property Binding Beispiel]
+\begin{lstlisting}[caption=React Property Binding Beispiel]
     class ElternKomponente extends React.Component {
       render() {
         return <KindKomponent name="Max" />;
@@ -91,7 +91,7 @@ In diesem Beispiel wird der Wert \textbf{Max} als Prop namens \textbf{name} von 
 \subsubsection{Event Binding}
 Event Binding ermöglicht es, Ereignisbehandlungsfunktionen an bestimmte Benutzerinteraktionen wie Klicks, Änderungen, Tastendrücke usw. zu binden. In React werden Ereignisse ähnlich wie in reinem JavaScript behandelt, jedoch mit einigen Unterschieden.
 \newpage
-\begin{lstlisting}[caption=Event Binding Beispiel]
+\begin{lstlisting}[caption=React Event Binding Beispiel]
     class MeinKomponent extends React.Component {
       handleClick() {
         console.log('Button wurde geklickt!');

@@ -101,7 +101,7 @@ Erstellt wird eine Angular Komponente mit folgendem Befehl:
 
 In diesem Beispiel wird eine Komponente für eine Infobox erstellt, dafür werden vier neue Files generiert und die Komponente automatisch im Projekt definiert.
 
-\begin{lstlisting}[caption=Komponente Erstellung Konsolenausgabe]
+\begin{lstlisting}[caption=Komponentenerstellung Konsolenausgabe]
     CREATE src/app/info-box/info-box.component.scss (0 bytes)
     CREATE src/app/info-box/info-box.component.html (23 bytes)
     CREATE src/app/info-box/info-box.component.spec.ts (636 bytes)
@@ -114,7 +114,7 @@ Das ist der Konsolen Output, der beim Erstellen einer Komponente ausgegeben wird
 Für die Programmierer:innen sind jedoch eigentlich nur zwei Dateien relevant.
 Die erste ist \textbf{info-box.component.ts}, diese sieht wie folgt aus:
 
-\begin{lstlisting}[caption=Typescript Komponente Grundaufbau]
+\begin{lstlisting}[caption=Angular Typescript Komponente Grundaufbau]
     @Component({
       selector: "app-info-box",
       templateUrl: "./info-box.component.html",
@@ -170,7 +170,7 @@ Wenn sich der Wert dieser Variable nun verändert, wird diese gleichzeitig auch 
 \subsubsection{Property Binding}
 Damit verbindet Angular TypeScript Properties direkt mit der Logik von HTML. Hier ein Beispiel:
 
-\begin{lstlisting}[caption=Property Binding Angular Variablen]
+\begin{lstlisting}[caption=Angular Variablen Initalisierung]
     class TestComponent implements OnInit {
       text = "HTL Leonding Diplomarbeit";
       hidden = true;
