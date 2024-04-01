@@ -9,7 +9,7 @@ Jedoch war der Werdegang von HTML ziemlich turbulent. Problem war die Einigung a
 Bei einem HTML-Dokument handelt es sich eigentlich lediglich um eine Textdatei mit der Dateiendung .html.
 Hierbei hat jedes Dokument folgendes Grundgerüst:
 
-\begin{lstlisting}[language=html]
+\begin{lstlisting}[language=html, caption=Grundgerüst HTML]
     <!DOCTYPE html>
     <html>
       <head>
@@ -35,6 +35,7 @@ Hierbei kann man zum Beispiel folgend einen Titel definieren, welcher dann in de
 \end{lstlisting}
 
 Ebenfalls sind oft sogenannte Meta-Tags zu finden, welche sowohl für diverse SEO Vorteile genutzt werden können oder auch wie im folgenden Beispiel für die Angabe der Zeichencodierung, welche hierbei UTF-8 (Unicode) enspricht.
+SEO ist eine Methode, welche die Auffindbarkeit im Internet beeinflusst.
 
 \begin{lstlisting}[language=html]
     <meta charset="UTF-8"/>
@@ -45,7 +46,7 @@ Das \textbf{body} Element beinhaltet jedoch den Inhalt, der tatsächlich auf der
 \cite{frontend_web_html}
 
 \subsubsection{Links}
-Ein Link wird in HTML als Hyperlink definiert und leitet den Benutzer auf ein anderes Dokument weiter.
+Ein Link wird in HTML als Hyperlink definiert und leitet den Benutzer:in auf ein anderes Dokument weiter.
 
 \begin{lstlisting}[language=html]
     <a href="url">link text</a>
@@ -56,7 +57,7 @@ Ein Link wird in HTML als Hyperlink definiert und leitet den Benutzer auf ein an
 \subsubsection{Überschriften}
 Man unterscheidet verschiedene Arten von Überschriften, welche anhand der Wichtigkeit anders dargestellt und definiert werden. Hierbei gibt \textbf{<h1>} die wichtigste Überschrift an. Die kleinste Überschrift ist mit \textbf{<h6>} definiert.
 
-\begin{lstlisting}[language=html]
+\begin{lstlisting}[language=html, caption=HTML Headings]
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <h3>Heading 3</h3>
@@ -67,6 +68,7 @@ Man unterscheidet verschiedene Arten von Überschriften, welche anhand der Wicht
 
 \cite{frontend_web_html_überschriften}
 
+\newpage
 \subsubsection{Bilder}
 Bilder können mit dem \textbf{<img>} Element eingebunden werden, wobei der Pfad zur Bilddatei definiert werden muss. Ebenfalls gibt es das sogenannte \textbf{alt} Attribut, welches angezeigt wird, falls das Bild nicht angezeigt werden kann, wenn zum Beispiel der Pfad nicht mehr stimmt.
 

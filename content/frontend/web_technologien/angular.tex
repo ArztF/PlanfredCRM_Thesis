@@ -1,4 +1,4 @@
-Bei Angular handelt es sich um eines der beliebtesten JavaScript-Web-Frameworks am Markt. Angular gibt es bereits seit 2009, seitdem treibt das Entwicklerteam das Ziel an ein Framework zu erschaffen, welches sowohl die Endbenutzer, als auch die Entwickler gerne verwenden. Durch diese Grundsätze entstand im Laufe der Zeit eine riesige Community. Ein großer Meilenstein ist das Jahr 2016, in dem das Web-Framework komplett in Typescript umgeschrieben wurde.
+Bei Angular handelt es sich um eines der beliebtesten JavaScript-Web-Frameworks am Markt. Angular gibt es bereits seit 2009, seitdem treibt das Entwicklerteam das Ziel an ein Framework zu erschaffen, welches sowohl die Endbenutzer:innen, als auch die Entwickler:innen gerne verwenden. Durch diese Grundsätze entstand im Laufe der Zeit eine riesige Community. Ein großer Meilenstein ist das Jahr 2016, in dem das Web-Framework komplett in Typescript umgeschrieben wurde.
 
 \begin{figure}[h!]
     \centering
@@ -10,7 +10,6 @@ Bei Angular handelt es sich um eines der beliebtesten JavaScript-Web-Frameworks 
 
 Früher sorgte diese Veränderung für viel Aufregen, heute ist dies jedoch anders, da die Verwendung von Typescript immer mehr zum Standard geworden ist.
 
-\newpage
 \subsubsection{Aufbau}
 Angular hat ein sehr großes System, welches folgendermassen aufgebaut ist:
 
@@ -32,7 +31,7 @@ Grundlegend gibt es das sogenannte Core-Framework, wo die allgemeinen Konzepte f
     \item PWA  (Offline Funktionalität)
     \item HTTP (HTTP, Rest und GraphQL Kommunikation)
 \end{itemize}
-\newpage
+
 \subsubsection{Installation}
 Für die Installation von Angular wird \textbf{npm} benötigt.
 
@@ -73,7 +72,7 @@ In diesem Beispiel sieht man wie eine sinnvolle Aufteilung einer Benutzeroberfl�
 
 Die Einbindung solcher Komponenten in HTML könnte in Angular folgendermassen aussehen:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Angular Komponenten Einbindung]
     <todo-title>ToDo App</todo-title>
     <todo-list>
       <todo-item state="checked">Prepare Workshop</todo-item>
@@ -81,7 +80,9 @@ Die Einbindung solcher Komponenten in HTML könnte in Angular folgendermassen au
     </todo-list>
 \end{lstlisting}
 
-Die Logik von Komponenten ist mit Typescript realisiert, dass ermöglicht im Vergleich zu standardmäßigen JavaScript einige Vorteile. Der größte Unterschied ist die Typisiert, welche in JavaScript nicht wirklich vorhanden ist. Damit ist eine Anwendung weniger fehleranfällig und der Code ist sauberer und klarer strukturiert. Zusätzlich bietet Typescript jedoch auch noch die Verwendung von \textbf{Decorators}. Darunter versteht man strukturierte Metadaten, welche einer Klasse zugewiesen werden. 
+Die Logik von Komponenten ist mit Typescript realisiert, dass ermöglicht im Vergleich zu standardmäßigen JavaScript einige Vorteile. Der größte Unterschied ist die Typisierung, welche in JavaScript nicht wirklich vorhanden ist. Damit ist eine Anwendung weniger fehleranfällig und der Code ist sauberer und klarer strukturiert. Zusätzlich bietet Typescript jedoch auch noch die Verwendung von \textbf{Decorators}. Darunter versteht man strukturierte Metadaten, welche einer Klasse zugewiesen werden.
+
+\newpage
 
 Es gibt vier Bestandteile, welche eine Angular Komponente ausweist:
 
@@ -92,15 +93,15 @@ Es gibt vier Bestandteile, welche eine Angular Komponente ausweist:
     \item Klasse (beinhaltet Interface und Logik)
 \end{itemize}
 
-Erstellt wird eine Angular Komponente mit folgenden Befehl:
+Erstellt wird eine Angular Komponente mit folgendem Befehl:
 
 \begin{lstlisting}
     ng generate component info-box
 \end{lstlisting}
 
-In diesem Beispiel wird eine Komponente für eine Infobox erstellt, dafür werden vier neue Files erstellt und die Komponente automatisch im Projekt definiert.
+In diesem Beispiel wird eine Komponente für eine Infobox erstellt, dafür werden vier neue Files generiert und die Komponente automatisch im Projekt definiert.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Komponentenerstellung Konsolenausgabe]
     CREATE src/app/info-box/info-box.component.scss (0 bytes)
     CREATE src/app/info-box/info-box.component.html (23 bytes)
     CREATE src/app/info-box/info-box.component.spec.ts (636 bytes)
@@ -108,12 +109,12 @@ In diesem Beispiel wird eine Komponente für eine Infobox erstellt, dafür werde
     UPDATE src/app/app.module.ts (0 bytes)
 \end{lstlisting}
 
-Das ist der Konsolen Output, der beim Erstellen einer Komponente ausgegeben wird. Es ist erkennbar, dass ein Ordner erstellt wird mit 4 Dateien. Ebenfalls wird das Komponente in \textbf{app.module.ts} registriert. Das ist wichtig damit dieses im ganzen Projekt erkannt und eingebunden werden kann.
-\newpage
-Für die Programmierer:innen sind jedoch eigentlich nur 2 Dateien relevant.
+Das ist der Konsolen Output, der beim Erstellen einer Komponente ausgegeben wird. Es ist erkennbar, dass ein Ordner erstellt wird mit vier Dateien. Ebenfalls wird die Komponente in \textbf{app.module.ts} registriert. Das ist wichtig damit dieses im ganzen Projekt erkannt und eingebunden werden kann.
+
+Für die Programmierer:innen sind jedoch eigentlich nur zwei Dateien relevant.
 Die erste ist \textbf{info-box.component.ts}, diese sieht wie folgt aus:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Angular Typescript Komponente Grundaufbau]
     @Component({
       selector: "app-info-box",
       templateUrl: "./info-box.component.html",
@@ -148,7 +149,7 @@ Expression Syntax:
 
 Hier ist ein Beispiel für die Verwendung einer Expression in einer Komponente:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Expression Verwendung]
     class TestComponent implements OnInit {
       text = "HTL Leonding Diplomarbeit";
     
@@ -169,7 +170,7 @@ Wenn sich der Wert dieser Variable nun verändert, wird diese gleichzeitig auch 
 \subsubsection{Property Binding}
 Damit verbindet Angular TypeScript Properties direkt mit der Logik von HTML. Hier ein Beispiel:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Angular Variablen Initalisierung]
     class TestComponent implements OnInit {
       text = "HTL Leonding Diplomarbeit";
       hidden = true;
@@ -202,7 +203,7 @@ In diesem Beispiel wird die hidden Variable beim Klicken eines Buttons geändert
 Ebenfalls kann man in HTML Schleifen definieren. Dafür wird, wie in folgenden Beispiel, ngFor verwendet.
 Zuerst braucht man dafür eine Variable, welche ein Array ist.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Typescript Array]
     tasks = [
       {
         title: "Diplomarbeit schreiben",
@@ -215,10 +216,10 @@ Zuerst braucht man dafür eine Variable, welche ein Array ist.
       },
     ];
 \end{lstlisting}
-\newpage
+
 Diese Variable kann im HTML-Code durchiteriert werden:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Angular Schleife]
     <ul>
       <li *ngFor="let task of tasks">
         <span>{{task.title}}</span>

@@ -2,7 +2,7 @@ CSS steht für Cascading Style Sheets und macht nur in Verbindung mit HTML Sinn.
 
 Hier ist ein Beispiel für eine CSS Regel:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Beispiel CSS Regel]
     p {
       color: red;
     }
@@ -13,7 +13,7 @@ Hierbei ist \textbf{p} der Selektor und gibt an das alle HTML Paragraphen, also 
 \subsubsection{ID-Selektoren:}
 Man kann ebenfalls HTML Elemente, die eine id haben selektieren. Dies geht mit dem Prefix \textbf{\#}.
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Beispiel ID-Selektor]
     <p id="spezial">
       Lorem ipsum...
     </p>
@@ -30,8 +30,7 @@ In diesem Beispiel werden nicht alle <p> Tags Rot eingefärbt sondern nur der mi
 \subsubsection{Klassen-Selektoren}
 Ebenfalls kann man ganze Klassen selektieren. Der Unterschied zu der id liegt darin, dass man dadurch mehrere Elemente gleichzeitig selektieren kann und nicht immer nur eines.
 
-\newpage
-\begin{lstlisting}
+\begin{lstlisting}[caption=Beispiel Klassen-Selektor]
     <p class="wichtig">
       Lorem ipsum...
     </p>
@@ -52,7 +51,7 @@ Hier werden bei allen HTML Elemente, die die Klasse “wichtig” besitzen, der 
 \subsubsection{Universalselektor}
 Ebenfalls ist es möglich alle Elemente eines HTML Dokumentes auszuwählen. Dies passiert folgender Weise:
 
-\begin{lstlisting}
+\begin{lstlisting}[caption=Universalselektor]
     * {
       color: blue;
     }
@@ -70,12 +69,12 @@ Hierbei werden die Deklarationen direkt in einer \textbf{style} Eigenschaft defi
 \begin{lstlisting}[language=html]
     <h1 style="font-size:50px; color:red">Supertitel</h1>
 \end{lstlisting}
-
+\newpage
 2. Im Kopf (head)
 \newline
 Hierbei werden alle CSS Regeln direkt im `<head>` Tag des HTML Dokumentes definiert. Dadurch werden die CSS Regeln auch nur in dem einen Dokument verwendet.
 
-\begin{lstlisting}[language=html]
+\begin{lstlisting}[language=html, caption=CSS Head Einbindung]
     <head>
     <meta charset="utf-8">
     <title>Eine Webseite</title>
@@ -99,7 +98,7 @@ Hierbei werden alle CSS Regeln direkt im `<head>` Tag des HTML Dokumentes defini
 \newline
 Speziell bei größeren Projekten ist die übersichtlichste Methode eine eigene CSS Datei mit der Dateiendung .css zu benutzen, dies bietet mehr Freiheiten und eine strukturiertere Entwicklung. Dafür muss die CSS Datei im \textbf{<head>} verlinkt werden.
 
-\begin{lstlisting}[language=html]
+\begin{lstlisting}[language=html, caption=CSS Datei Einbindung]
     <head>
       <meta charset="utf-8">
       <title>Eine Webseite</title>
