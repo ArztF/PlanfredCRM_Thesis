@@ -3,6 +3,7 @@
     \includegraphics[width=0.3\linewidth]{pics/cypress-logo.png}
     \caption{Cypress}
     \label{fig:enter-label}
+    \cite{cypress_grafik}
 \end{figure}
 
 
@@ -18,7 +19,11 @@ Cypress unterstützt drei verschiedene Arten von Tests:
 In dieser Diplomarbeit wurde Cypress benutzt um Frontend aber sowohl auch API-Tests zu schreiben.
 In Cypress gibt es folgende verschiedene Commands:
 
-\begin{center}
+
+
+\begin{table}[h]
+\caption{Cypress Commands}
+\label{demo-table}
     \begin{tabular}{ | m{2cm} | m{13cm} | } 
         \hline
         Name & Beschreibung \\ [0.5ex] 
@@ -54,7 +59,7 @@ In Cypress gibt es folgende verschiedene Commands:
         .window() & Gibt das Window Objekt der aktuellen Seite zurück  \\
         \hline
     \end{tabular}
-\end{center}
+\end{table}
 
 Es besteht aber weiters auch die Möglichkeite Custom Commands selber zu schreiben.
 Dies erfolgt in einem "commands.js" File.
@@ -79,7 +84,8 @@ Des weiteren wurden Commands geschrieben um die Fixtures zu laden.
     \label{fig:enter-label}
 \end{figure}
 
-\cite{Cypress_test}
+\cite{Cypress}
+\cite{Testautomatisierung_mit_Cypress}
 \subsection{API Test}
 Mit einem API (Application Programming Interface) Test kann festgestellt werden, ob die Anforderungen in Sachen Funktionalität, Leistung, Zuverlässigkeit und Sicherheit erfüllen. Das Ziel eines solchen Tests ist es, Fehler oder unerwartete Verhaltensweisen zu finden. So stellt man sicher, dass der Endbenutzer kein fehlerhaftes oder unsicheres Produkt zur Verfügung gestellt bekommt. 
 
@@ -92,6 +98,7 @@ Dennoch gestalten sich API-Tests oft komplexer als gedacht. APIs bedienen sich i
     \includegraphics[width=0.8\linewidth]{pics/api-tests.png}
     \caption{API Tests}
     \label{fig:enter-label}
+    \cite{api_testing_grafik}
 \end{figure}
 
 
@@ -216,7 +223,7 @@ describe('Project template spec', () => {
 
 Der Test beginnt mit einem "describe()" in diesem Block befindet sich eine kurze Zusammenfassung und der "beforeEach()" Block. Dieser wird vor jedem Test neu ausgeführt und lädt in diesem Fall die Testdaten aus den Fixtures.
 
-Der eigentliche Test beginnt dann beim "it()" Block. Als erstes authentifizieren sich die User:innen, diese Authentifizierung wurde ebenfalls durch einen Custom Command vereinfacht. Als nächstes wird auf die "projects" Page verwiesen. Danach sucht der Testrunner nach der data-testid "email-search" wählt diese aus und schreibt in diese den Projekt Titel nach welchem gesucht werden soll. In weiterer Folge wird danach der Submit Button gedrückt und wieder mit einer data-testid nach den Eigenschaften des gefundenen Projekts geschaut.
+Der eigentliche Test beginnt dann beim "it()" Block. Als erstes authentifizieren sich die User:innen, diese Authentifizierung wurde ebenfalls durch einen Custom Command vereinfacht. Als nächstes wird auf die "projects" Page verwiesen. Danach sucht der Testrunner nach der data-testid "email-search" wählt diese aus und schreibt in diese den Projekt Titel nach welchem gesucht werden soll. In weiterer Folge wird danach der Submit Button gedrückt und wieder mit einer data-testid nach den Eigenschaften des gefundenen Projekts geschaut.\newpage
 
 \subsubsection{Ausführung des Testfalls}
 

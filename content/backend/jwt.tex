@@ -1,9 +1,10 @@
-JWT steht für "JSON Web Token" und repräsentiert einen offenen Standard (RFC 7519). Er ist zur Authentifizierung und Autorisierung gedacht, dieser Token kann sowohl vom Server als auch vom Client ausgelesen werden. Er kann verwendet werden, um Daten sicher zwischen verschiedenen Anwendungen zu übermitteln. Durch die Signatur des JWT kann immer sichergestellt werden, dass nichts vom Inhalt manipuliert wurde.
+JWT steht für "JSON Web Token" und repräsentiert einen offenen Standard (RFC 7519). Er ist zur Authentifizierung und Autorisierung gedacht, dieser Token kann sowohl vom Server als auch vom Client ausgelesen werden. Er kann verwendet werden, um Daten sicher zwischen verschiedenen Anwendungen zu übermitteln. Durch die Signatur des JWT kann immer sichergestellt werden, dass nichts vom Inhalt manipuliert wurde. \cite{JWT_1}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.8\textwidth]{pics/jwt-logo.png}
     \caption{JWT Logo}
+    \cite{jwt_grafik}
 \end{figure}
 
 
@@ -28,6 +29,7 @@ Header.Payload.Signatur
     \includegraphics[width=0.6\textwidth]{pics/jwt.png}
     \caption{JSON Web Token}
     \label{fig:enter-label}
+    \cite{decoded_grafik}
 \end{figure}
 
 \subsubsection{Wie wird ein JSON Web Token implementiert?}
@@ -69,7 +71,7 @@ In der Funktion "verifyToken" können JSON Web Tokens validiert werden. Mit
     payload = jwt.verify(token, 'secretkeyappearshere')
 \end{lstlisting}
 
-wird der Token validiert und überprüft ob dieser noch gültig ist. Wird hier ein Fehler ausgelöst, wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich, wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.
+wird der Token validiert und überprüft ob dieser noch gültig ist. Wird hier ein Fehler ausgelöst, wird einfach in die nächste API Middleware weitergegangen. Ist dieser Vorgang erfolgreich, wird die Payload, also in diesem Fall die E-Mail Adresse zurückgeschickt.\cite{JWT_2}
 
 
 \subsubsection{Header}
@@ -107,7 +109,7 @@ Das zweite Verfahren wurde bereits erläutert. Dabei wird ein Algorithmus wie HS
 
 
 
-Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem private Key verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein.
+Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Verschlüsselung (JWE) setzt. Hier wird die Payload erneut mit einem private Key verschlüsselt und muss entsprechend entschlüsselt werden, um wieder im Klartext lesbar zu sein. \cite{JWT_3}
 
 
 \begin{figure}[h!]
@@ -115,6 +117,7 @@ Das dritte Verfahren geht einen zusätzlichen Schritt weiter, indem es auf Versc
     \includegraphics[width=0.7\linewidth]{pics/jwt-funktion.png}
     \caption{Funktionsweise eines JWT}
     \label{fig:enter-label}
+    \cite{jwt_funktion_grafik}
 \end{figure}
 
 \subsection{Was ist ein Session Cookie?}
@@ -146,6 +149,7 @@ app.use(cookieSession({
     \includegraphics[width=0.7\linewidth]{pics/session-cookie-funktion.png}
     \caption{Funktionsweise eines Session Cookie}
     \label{fig:enter-label}
+    \cite{session_cookie_grafik}
 \end{figure}
 
 \subsubsection{Session Cookie vs JSON Web Token}

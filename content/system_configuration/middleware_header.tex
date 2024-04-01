@@ -17,10 +17,10 @@ Grundsätzlich werden die Middleware-Headers als Sicherheitsmaßnahmen verwendet
     \includegraphics[width=0.5\textwidth]{pics/cors.png}
     \caption{Cors}
     \label{fig:mesh1}
+    \cite{cors_grafik}
 \end{figure}
 
         \cite{Cors}
-        \newpage
     \item \textbf{Compression Header}
         \newline
         Wenn eine API eine Response mit einer sehr großen Datenmenge von sich gibt, kann hier der Compression Header verwendet werden, um die Antworten vom Server zu schmälern. Wenn eine HTTP-Anfrage mit dem Header "Accept-Encoding" gesendet wird, ermöglicht dies dem Server, die Antwort im unterstützten Format komprimiert zu senden.
@@ -58,7 +58,7 @@ Grundsätzlich werden die Middleware-Headers als Sicherheitsmaßnahmen verwendet
             \item X-Powered-By
             \item X-XSS-Protection
         \end{itemize}
-
+        \newpage
         Die Einbindung von Helmet erfolgte folgendermaßen:
 
             \begin{lstlisting}[caption=Verwendung von Helmet]

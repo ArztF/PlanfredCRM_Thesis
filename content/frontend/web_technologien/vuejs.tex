@@ -15,15 +15,13 @@ VueJS verwendet das MVVM-Prinzip, welches es gibt um zwischen der grundlegenden 
 \cite{frontend_web_mvvm}
 
 \subsubsection{Komponenten}
-Ein sehr fundamentaler Punkt des Frameworks sind die Komponenten. In VueJS werden verschiedene Abschnitte in einzelne Komponenten ausgelagert. Dies sorgt für eine einheitliche Struktur und bietet den Programmierern eine bessere Übersicht, da jede Datei eindeutig erkennbar ist und durch die Abtrennung in der Regel nicht zu groß ist. 
+Ein sehr fundamentaler Punkt des Frameworks sind die Komponenten. In VueJS werden verschiedene Abschnitte in einzelne Komponenten ausgelagert. Dies sorgt für eine einheitliche Struktur und bietet den Programmierern eine bessere Übersicht, da jede Datei eindeutig erkennbar ist und durch die Abtrennung in der Regel nicht zu groß ist. Jede Komponente endet dabei mit \textbf{.vue} und hat den selben Grundaufbau:
 
-\cite{frontend_web_vuejs_components}
 \newpage
-Jede Komponente endet dabei mit \textbf{.vue} und hat den selben Grundaufbau:
-
+\cite{frontend_web_vuejs_components}
 \newline
 
-\begin{lstlisting}[language=html, caption=VueJS Componente Grundgerüst]
+\begin{lstlisting}[language=html]
     <template>
     <!-- HTML Code -->
     </template>
@@ -37,17 +35,17 @@ Jede Komponente endet dabei mit \textbf{.vue} und hat den selben Grundaufbau:
     </style>
 \end{lstlisting}
 
-Wie in dem Code-Beispiel zu sehen ist, werden in jeder Komponente HTML, Javascript und CSS klar abgetrennt. Bei dem \textbf{style} Tag gibt es hierbei noch die optionale Option \textbf{scoped}, die dafür sorgt, das die CSS-Regeln nur in dieser Komponente angewendet werden. Wenn dies nicht so ist, wird dies im ganzen Projekt global verwendet, das kann jedoch zu Komplikationen führen, da im Nachhinein nicht mehr nachvollziehbar ist, wo welche CSS-Regeln definiert wurde.
+Wie in dem Code-Beispiel zu sehen ist, werden in jeder Komponente HTML, Javascript und CSS klar abgetrennt. Bei dem \textbf{style} Tag gibt es hierbei noch die optionale Option \textbf{scoped}, die dafür sorgt, das die CSS-Regeln nur in dieser Komponente angewendet werden. Wenn dies nicht so ist, wird dies im ganzen Projekt global verwendet, dass kann jedoch zu Komplikationen führen, da im Nachhinein nicht mehr nachvollziehbar ist, wo welche CSS-Regeln definiert wurde.
 
 \cite{frontend_web_vuejs_components2}
 
 \subsubsection{Options-API vs Compositon-API}
 In VueJS gibt es zwei verschiedene Arten zu programmieren. Dabei gibt es die Options-API und die Composition API, welche sich hauptsächlich in der Syntax unterscheiden. Die Composition-API ist eine neue Funktion, die es seit VueJS 3 gibt und gibt dem Programmierer:in eine neue Möglichkeit Logik in Komponenten zu definieren. Dadurch ist es möglich einen funktionalen Programmierstyle zu verwenden und Logik über mehrere Komponenten zu verwenden. Die Options-API hingegen ist der traditionelle Weg um die Logik von Komponenten zu definieren. Hierbei ist der Programmierstyle sehr objektorientiert. Grundlegend bietet die Composition-API viel mehr Freiheiten, da nicht mehr festgelegt wird, wo welche Logik genau implementiert werden muss.
 \newpage
-\begin{lstlisting}[caption=Composition-API Beispiel]
+\begin{lstlisting}
     import { ref, computed } from 'vue'
-
     export default {
+    
       setup() {
         const count = ref(0)
     
@@ -67,8 +65,7 @@ In VueJS gibt es zwei verschiedene Arten zu programmieren. Dabei gibt es die Opt
       }
     }
 \end{lstlisting}
-\newline
-\begin{lstlisting}[caption=Options-API Beispiel]
+\begin{lstlisting}
     export default {
       data() {
         return {
@@ -94,7 +91,7 @@ Beim ersten Code-Beispiel handelt es sich um die Compositon-API und im zweiten u
 \subsubsection{Reactivity System}
 VueJS verwendet ein sogenanntes Reactivity-System, welches zu einem der wichtigsten Feature des Frameworkes zählt. Dieses System sorgt dafür, dass sich JavaScript Variablen wenn sie geändert werden live in der Benutzeroberfläche updaten und das ohne Page-Reload. Die Basis bieten hierbei JavaScript Proxys, wobei ein Handler mit Getter- und Settermethoden verwendet wird. 
 \newpage
-\begin{lstlisting}[language=html, caption=VueJS Reactivity Beispiel]
+\begin{lstlisting}[language=html]
     <script>
     export default {
       data() {
@@ -140,7 +137,7 @@ In dieser Grafik ist ein sogenannter Instance-Lifecycle zu sehen, worin alle Lif
 Hierbei handelt es sich um die erste Hook, die eine Komponente ausführt. Damit können Aktionen bestimmt werden, welche dann ausgeführt werden bevor die Komponente im DOM eingebaut wird. Dadurch hat man in dieser Hook dementsprechend auch keinen Zugriff auf das DOM.
 Dies kann in VueJS mit \textbf{beforeCreate} abgefangen werden.
 
-\begin{lstlisting}[caption=beforeCreate Hook]
+\begin{lstlisting}
     <script>
     export default {
     	beforeCreate() {
@@ -153,7 +150,7 @@ Dies kann in VueJS mit \textbf{beforeCreate} abgefangen werden.
 Diese Funktion wird nun während der Initialisierung einer Komponente ausgeführt. Daten sind zu diesem Zeitpunkt noch nicht reaktiv und Ereignisse sind noch nicht initialisiert.
 Zusätzlich gibt es die \textbf{created} Methode:
 
-\begin{lstlisting}[caption=created Hook]
+\begin{lstlisting}
     <script>
     export default {
       data() {
@@ -177,7 +174,7 @@ Die Mounting Hooks werden am meisten verwendet und ermöglichen den Zugriff auf 
 
 In VueJS gibt es hierbei zuerst die \textbf{beforeMount} Hook, welche aufgerufen wird bevor das erste Rendern stattgefunden hat.
 
-\begin{lstlisting}[language=html, caption=beforeMount Hook]
+\begin{lstlisting}[language=html]
     <script>
     export default {
       beforeMount() {
@@ -191,7 +188,7 @@ In diesem Beispiel wird in der Konsole ausgegeben, dass \textbf{vm.el} noch nich
 
 Zusätzlich gibt es die \textbf{mounted} Hook, welche nach dem ersten Rendern aufgerufen wird. Dadurch hat man das erste Mal die Möglichkeit auf die vollständige reaktive Komponente oder auch das DOM zuzugreifen.
 
-\begin{lstlisting}[caption=mounted Hook]
+\begin{lstlisting}
     <template>
       <div ref="example-element">Example component.</div>
     </template>
@@ -213,7 +210,7 @@ Diese Hooks werden aufgerufen wenn sich eine reaktive Eigenschaft ändert und da
 
 In VueJS gibt es die \textbf{beforeUpdate} Methode, welche nach der Änderung einer solchen reaktiven Eigenschaft ausgeführt wird. Zu diesem Zeitpunkt wurde das DOM noch nicht neu gerendert. Dadurch wird diese Hook verwendet, um geänderte reaktive Daten zu sehen bevor diese in das DOM geladen werden.
 
-\begin{lstlisting}[caption=beforeUpdate Hook]
+\begin{lstlisting}
     <template>
       <div ref="example-element">{{counter}}</div>
     </template>
@@ -238,10 +235,10 @@ In VueJS gibt es die \textbf{beforeUpdate} Methode, welche nach der Änderung ei
 \end{lstlisting}
 
 In diesem Beispiel wird die Variable \textbf{counter} 1000ms nach Erstellung der Komponente erhöht. Dadurch wird \textbf{beforeUpdate} aufgerufen, in welcher die neue Variable in der Konsole ausgegeben wird. Wenn diese Ausgabe geschieht hat die Variable zwar einen neuen Wert, wurde jedoch im HTML noch nicht aktualisiert.
-
+\newpage
 Um nun auch den Zeitpunkt nach dem Rendern des neuen DOM abzufangen gibt es die \textbf{updated} Hook.
 
-\begin{lstlisting}[caption=updated Hook]
+\begin{lstlisting}
     <template>
       <div ref="example-element">{{counter}}</div>
     </template>
@@ -272,7 +269,7 @@ Dieses Beispiel ist von der Funktionalität gleich wie das Vorige. Der einzige U
 Die sogenannten Destruction Hooks ermöglichen die Ausführung von Aktionen, wenn eine Komponente zerstört wird. Diese können wichtig sein um beispielsweise noch Daten am Ende zu speichern oder auch um bestimmte Daten zu bereinigen.
 In VueJS gibt es hierfür zwei Hooks. Die erste ist die \textbf{beforeDestroy} Methode.
 
-\begin{lstlisting}[caption=beforeDestroy Hook]
+\begin{lstlisting}
     <script>
     export default {
       data() {
@@ -290,10 +287,10 @@ In VueJS gibt es hierfür zwei Hooks. Die erste ist die \textbf{beforeDestroy} M
 \end{lstlisting}
 
 Zu diesem Zeitpunkt ist die Komponente noch normal funktionell und es sind alle Daten noch vorhanden. In diesem Beispiel wird eine Variable manuell gelöscht, bevor die Komponente zerstört wird.
-
+\newpage
 Des weiteren gibt es noch die \textbf{destroyed} Hook.
 
-\begin{lstlisting}[caption=destroyed Hook]
+\begin{lstlisting}
     <script>
     import ExampleAnalyticsService from './example-analytics-service'
     
@@ -305,6 +302,6 @@ Des weiteren gibt es noch die \textbf{destroyed} Hook.
     </script>
 \end{lstlisting}
 
-Zu diesem Zeitpunkt wurde die Komponente schon vollständig abgebaut,  die Methode kann zum Beispiel verwendet werden um einen externen Services zu informieren, dass die Komponente zerstört wurde.\cite{frontend_web_vuejs_lifecycle}
+Zu diesem Zeitpunkt wurde die Komponente schon vollständig abgebaut,  die Methode kann zum Beispiel verwendet werden um einen externen Services zu informieren, dass die Komponente zerstört wurde.
 
-\newpage
+\cite{frontend_web_vuejs_lifecycle}
