@@ -235,7 +235,7 @@ In VueJS gibt es die \textbf{beforeUpdate} Methode, welche nach der Änderung ei
 \end{lstlisting}
 
 In diesem Beispiel wird die Variable \textbf{counter} 1000ms nach Erstellung der Komponente erhöht. Dadurch wird \textbf{beforeUpdate} aufgerufen, in welcher die neue Variable in der Konsole ausgegeben wird. Wenn diese Ausgabe geschieht hat die Variable zwar einen neuen Wert, wurde jedoch im HTML noch nicht aktualisiert.
-\newpage
+
 Um nun auch den Zeitpunkt nach dem Rendern des neuen DOM abzufangen gibt es die \textbf{updated} Hook.
 
 \begin{lstlisting}
@@ -264,6 +264,7 @@ Um nun auch den Zeitpunkt nach dem Rendern des neuen DOM abzufangen gibt es die 
 
 Dieses Beispiel ist von der Funktionalität gleich wie das Vorige. Der einzige Unterschied besteht darin, dass hierbei die \textbf{updated} Methode aufgerufen wird. In dieser wird der Wert von \textbf{counter} direkt aus dem DOM genommen und mit dem Wert der tatsächlichen Variable verglichen. Das Ergebnis wird in der Konsole ausgegeben und ergibt \textbf{true}. Grund dafür ist, dass in dieser Hook, das DOM bereits neu gerendert wurde und somit schon den neuen Wert angenommen hat.
 \cite{frontend_web_vuejs_lifecycle}
+\newpage
 
 \subsubsection{Destruction Hooks}
 Die sogenannten Destruction Hooks ermöglichen die Ausführung von Aktionen, wenn eine Komponente zerstört wird. Diese können wichtig sein um beispielsweise noch Daten am Ende zu speichern oder auch um bestimmte Daten zu bereinigen.
@@ -287,7 +288,7 @@ In VueJS gibt es hierfür zwei Hooks. Die erste ist die \textbf{beforeDestroy} M
 \end{lstlisting}
 
 Zu diesem Zeitpunkt ist die Komponente noch normal funktionell und es sind alle Daten noch vorhanden. In diesem Beispiel wird eine Variable manuell gelöscht, bevor die Komponente zerstört wird.
-\newpage
+
 Des weiteren gibt es noch die \textbf{destroyed} Hook.
 
 \begin{lstlisting}
@@ -305,3 +306,5 @@ Des weiteren gibt es noch die \textbf{destroyed} Hook.
 Zu diesem Zeitpunkt wurde die Komponente schon vollständig abgebaut,  die Methode kann zum Beispiel verwendet werden um einen externen Services zu informieren, dass die Komponente zerstört wurde.
 
 \cite{frontend_web_vuejs_lifecycle}
+
+\newpage
